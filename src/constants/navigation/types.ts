@@ -1,11 +1,11 @@
-
 export type GridColumns = 1 | 2 | 3;
 
 export interface SubMenuItem {
   name: string;
-  desc?: string;
+  desc: string;
   href: string;
   iconName: keyof typeof import("lucide-react");
+  group?: string;
 }
 
 export interface MenuItem {
@@ -14,4 +14,5 @@ export interface MenuItem {
   subMenuHeading?: string[];
   subMenu?: SubMenuItem[];
   gridCols?: GridColumns;
+  layout?: "grouped" | "default";
 } 

@@ -20,7 +20,7 @@ const Navbar = ({ className }: NavbarProps): JSX.Element => {
             aria-label="Home"
           >
             <span className="sr-only">Home</span>
-            Logo
+            KNK Soft Infotech
           </Link>
 
           <nav 
