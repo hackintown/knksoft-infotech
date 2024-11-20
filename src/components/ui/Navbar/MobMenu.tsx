@@ -1,9 +1,10 @@
-'use client'
+"use client";
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown } from "lucide-react";
 import * as LucideIcons from "lucide-react";
+import SubMenuFooter from "./SubMenuFooter";
 
 interface SubMenuItem {
   name: string;
@@ -18,6 +19,8 @@ interface MenuItem {
   subMenuHeading?: string[];
   subMenu?: SubMenuItem[];
   gridCols?: 1 | 2 | 3;
+  footerText?: string;
+  footerLink?: string;
 }
 
 interface MobMenuProps {
@@ -37,18 +40,18 @@ export default function MobMenu({ Menus }: MobMenuProps) {
     enter: {
       height: "auto",
       opacity: 1,
-      transition: { duration: 0.3 }
+      transition: { duration: 0.3 },
     },
     exit: {
       height: 0,
       opacity: 0,
-      transition: { duration: 0.2 }
-    }
+      transition: { duration: 0.2 },
+    },
   };
 
   return (
     <div className="relative">
-      <button 
+      <button
         className="lg:hidden z-[999] relative p-2 hover:bg-white/5 rounded-md transition-colors"
         onClick={toggleDrawer}
         aria-label={isOpen ? "Close menu" : "Open menu"}
@@ -70,7 +73,7 @@ export default function MobMenu({ Menus }: MobMenuProps) {
                 {Menus.map(({ name, subMenu }, i) => {
                   const isClicked = clicked === i;
                   const hasSubMenu = subMenu && subMenu.length > 0;
-                  
+
                   return (
                     <li key={name} className="rounded-md overflow-hidden">
                       <button
@@ -87,7 +90,7 @@ export default function MobMenu({ Menus }: MobMenuProps) {
                           />
                         )}
                       </button>
-                      
+
                       <AnimatePresence>
                         {hasSubMenu && (
                           <motion.ul
@@ -98,7 +101,11 @@ export default function MobMenu({ Menus }: MobMenuProps) {
                             className="ml-5 space-y-1"
                           >
                             {subMenu?.map(({ name, iconName }) => {
-                              const Icon = iconName ? (LucideIcons[iconName] as LucideIcons.LucideIcon) : null;
+                              const Icon = iconName
+                                ? (LucideIcons[
+                                    iconName
+                                  ] as LucideIcons.LucideIcon)
+                                : null;
                               return (
                                 <li key={name}>
                                   <button className="w-full p-3 flex items-center hover:bg-white/5 rounded-md gap-x-2 transition-colors">
@@ -108,6 +115,16 @@ export default function MobMenu({ Menus }: MobMenuProps) {
                                 </li>
                               );
                             })}
+
+                            {Menus[i].footerText && Menus[i].footerLink && (
+                              <li>
+                                <SubMenuFooter
+                                  text={Menus[i].footerText}
+                                  href={Menus[i].footerLink}
+                                  className="mx-2"
+                                />
+                              </li>
+                            )}
                           </motion.ul>
                         )}
                       </AnimatePresence>
