@@ -1,38 +1,49 @@
-import Link from 'next/link';
-import DesktopMenu from './DesktopMenu';
-import MobMenu from './MobMenu';
-import { NAVIGATION_MENUS, type NavigationMenu,  } from '@/constants/navigation/menu-items';
+"use client";
 
-interface NavbarProps {
-  className?: string;
-}
+import { motion } from "framer-motion";
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import DesktopMenu from "./DesktopMenu";
+import MobMenu from "./MobMenu";
+import { NAVIGATION_MENUS } from "@/constants/navigation/menu-items";
 
-const Navbar = ({ className }: NavbarProps): JSX.Element => {
+export default function Navbar() {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <header 
-      className={`sticky top-0 z-50 w-full border-b border-foreground/10 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 ${className ?? ''}`}
+    <motion.header
+      className={`nav-container z-50 ${
+        scrolled ? "shadow-lg shadow-foreground/5" : ""
+      }`}
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.3 }}
     >
       <div className="container mx-auto px-4">
         <div className="flex h-16 items-center justify-between">
-          <Link
-            href="/"
-            className="text-foreground font-bold text-xl hover:opacity-80 transition-opacity"
-            aria-label="Home"
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
           >
-            <span className="sr-only">Home</span>
-            KNK Soft Infotech
-          </Link>
+            <Link href="/" className="text-2xl font-bold text-gradient">
+              KNK Soft
+            </Link>
+          </motion.div>
 
-          <nav 
-            className="hidden lg:block" 
-            aria-label="Main navigation"
-          >
+          <nav className="hidden lg:block">
             <ul className="flex items-center gap-8">
-              {NAVIGATION_MENUS.map((menu: NavigationMenu) => (
-                <DesktopMenu 
-                  key={menu.name} 
-                  menu={menu} 
-                />
+              {NAVIGATION_MENUS.map((menu) => (
+                <DesktopMenu key={menu.name} menu={menu} />
               ))}
             </ul>
           </nav>
@@ -40,8 +51,6 @@ const Navbar = ({ className }: NavbarProps): JSX.Element => {
           <MobMenu Menus={NAVIGATION_MENUS} />
         </div>
       </div>
-    </header>
+    </motion.header>
   );
-};
-
-export default Navbar;
+}
