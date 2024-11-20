@@ -109,8 +109,8 @@ body {
 
 .sub-menu {
   @apply absolute top-[4.2rem] p-[15px] rounded-xl origin-[50%_-170px] z-50
-    border border-white/[0.05]
-    bg-gradient-to-b from-white/[0.07] to-white/[0.03]
+    border border-white/[0.01]
+    bg-background
     backdrop-blur-xl
     shadow-[0_10px_40px_-15px_rgba(0,0,0,0.3)]
     dark:shadow-[0_10px_40px_-15px_rgba(0,0,0,0.7)];

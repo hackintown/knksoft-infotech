@@ -15,4 +15,4 @@ export interface MenuItem {
   subMenu?: SubMenuItem[];
   gridCols?: GridColumns;
   layout?: "grouped" | "default";
-} 
+}

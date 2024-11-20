@@ -115,7 +115,7 @@ export default function DesktopMenu({ menu }: DesktopMenuProps) {
               <div className="grid grid-cols-2 gap-8">
                 {menu.subMenuHeading.map((heading, idx) => (
                   <div key={idx} className="space-y-4">
-                    <h3 className="relative text-sm font-medium tracking-wide uppercase before:absolute before:left-0 before:-bottom-2 before:w-8 before:h-[2px] before:bg-primary/60 after:absolute after:left-0 after:-bottom-2 after:w-16 after:h-[0.5px] after:bg-primary/30 text-foreground/70">
+                    <h3 className="relative text-sm font-medium tracking-wide uppercase before:absolute before:left-0 before:-bottom-2 before:w-8 before:h-[2px] before:bg-primary/60 after:absolute after:left-0 after:-bottom-2 after:w-16 after:h-[0.5px] after:bg-primary/30 text-foreground/80">
                       {heading}
                     </h3>
                     <div className="space-y-4 pt-2">
@@ -123,16 +123,16 @@ export default function DesktopMenu({ menu }: DesktopMenuProps) {
                         <Link
                           href={submenu.href || "#"}
                           key={submenu.name}
-                          className="flex items-center gap-4 p-3 rounded-lg hover:bg-white/5 transition-colors"
+                          className="flex items-center gap-4 p-3 transition-colors"
                         >
                           {submenu.iconName && (
-                            <div className="p-2 rounded-md bg-white/20">
+                            <div className="p-2 rounded-md bg-indigo-200">
                               {getIcon(submenu.iconName)}
                             </div>
                           )}
                           <div>
                             <h4 className="font-medium">{submenu.name}</h4>
-                            <p className="text-sm text-foreground/50">
+                            <p className="text-sm text-foreground/80">
                               {submenu.desc}
                             </p>
                           </div>
@@ -175,13 +175,13 @@ export default function DesktopMenu({ menu }: DesktopMenuProps) {
                       )}
                     <div className="flex items-center gap-4 p-3 rounded-lg hover:bg-white/5 transition-colors">
                       {submenu.iconName && (
-                        <div className="p-2 rounded-md bg-white/20">
+                        <div className="p-2 rounded-md bg-indigo-200">
                           {getIcon(submenu.iconName)}
                         </div>
                       )}
                       <div>
                         <h6 className="font-semibold">{submenu.name}</h6>
-                        <p className="text-sm text-foreground/50">
+                        <p className="text-sm text-foreground/80">
                           {submenu.desc}
                         </p>
                       </div>

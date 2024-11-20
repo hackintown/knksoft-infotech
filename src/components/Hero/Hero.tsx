@@ -5,6 +5,7 @@ import { FiDatabase, FiCloud, FiShield, FiAward } from "react-icons/fi";
 import { SiTypescript, SiReact, SiAmazon, SiDocker } from "react-icons/si";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { Button } from "../ui/Button/Button";
 
 export default function Hero() {
   const containerVariants = {
@@ -74,10 +75,13 @@ export default function Hero() {
                 className="flex flex-wrap gap-4"
                 variants={itemVariants}
               >
-                <button className="px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors flex items-center gap-2">
+                <Button
+                  size="lg"
+                  variant="primary"
+                  rightIcon={<span className="animate-pulse">→</span>}
+                >
                   Schedule Consultation
-                  <span className="animate-pulse">→</span>
-                </button>
+                </Button>
                 <button className="px-6 py-3 border border-primary/20 rounded-lg hover:bg-primary/5 transition-colors">
                   View Case Studies
                 </button>
