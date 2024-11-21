@@ -109,8 +109,8 @@ export default function DesktopMenu({ menu }: DesktopMenuProps) {
           aria-label={`${menu.name} submenu`}
         >
           {menu.layout === "grouped" &&
-          groupedSubMenus &&
-          menu.subMenuHeading ? (
+            groupedSubMenus &&
+            menu.subMenuHeading ? (
             <>
               <div className="grid grid-cols-2 gap-8">
                 {menu.subMenuHeading.map((heading, idx) => (
@@ -169,7 +169,7 @@ export default function DesktopMenu({ menu }: DesktopMenuProps) {
                     {menu.gridCols &&
                       menu.gridCols > 1 &&
                       menu?.subMenuHeading?.[i] && (
-                        <p className="text-sm mb-4 text-gray-500">
+                        <p className="relative text-sm mb-3 font-medium tracking-wide uppercase before:absolute before:left-0 before:-bottom-2 before:w-8 before:h-[2px] before:bg-primary/60 after:absolute after:left-0 after:-bottom-2 after:w-16 after:h-[0.5px] after:bg-primary/30 text-foreground/80">
                           {menu.subMenuHeading[i]}
                         </p>
                       )}
@@ -180,7 +180,7 @@ export default function DesktopMenu({ menu }: DesktopMenuProps) {
                         </div>
                       )}
                       <div>
-                        <h6 className="font-semibold">{submenu.name}</h6>
+                        <h6 className="font-medium">{submenu.name}</h6>
                         <p className="text-sm text-foreground/80">
                           {submenu.desc}
                         </p>

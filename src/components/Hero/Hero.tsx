@@ -1,169 +1,190 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FiDatabase, FiCloud, FiShield, FiAward } from "react-icons/fi";
-import { SiTypescript, SiReact, SiAmazon, SiDocker } from "react-icons/si";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import { Button } from "../ui/Button/Button";
+import { FlipWords } from "../ui/flip-words";
+import { AnimatedTooltip } from "../ui/animated-tooltip";
+import {
+  Cloud,
+
+
+  Code2,
+
+  Smartphone,
+  Network,
+} from "lucide-react";
 
 export default function Hero() {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3,
-      },
+  const teamMembers = [
+    {
+      id: 1,
+      name: "John Smith",
+      designation: "CEO",
+      image: "/team/ceo.jpg",
     },
-  };
-
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: { duration: 0.5 },
+    {
+      id: 2,
+      name: "Sarah Johnson",
+      designation: "CTO",
+      image: "/team/cto.jpg",
     },
-  };
-
-  const stats = [
-    { label: "Projects Delivered", value: "200+" },
-    { label: "Client Satisfaction", value: "98%" },
-    { label: "Team Experts", value: "50+" },
-    { label: "Years Experience", value: "10+" },
+    {
+      id: 3,
+      name: "Mike Brown",
+      designation: "Lead Architect",
+      image: "/team/architect.jpg",
+    },
   ];
 
-  const technologies = [
-    { icon: SiTypescript, name: "TypeScript" },
-    { icon: SiReact, name: "React" },
-    { icon: SiAmazon, name: "AWS" },
-    { icon: SiDocker, name: "Docker" },
+  const solutions = [
+    {
+      icon: Code2,
+      title: "Custom Development",
+      description: "Tailored software solutions",
+      gradient: "from-blue-500 to-cyan-500",
+    },
+    {
+      icon: Cloud,
+      title: "Cloud Solutions",
+      description: "AWS & Azure expertise",
+      gradient: "from-purple-500 to-pink-500",
+    },
+    {
+      icon: Smartphone,
+      title: "Mobile Development",
+      description: "iOS & Android apps",
+      gradient: "from-green-500 to-emerald-500",
+    },
+    {
+      icon: Network,
+      title: "DevOps Services",
+      description: "CI/CD & automation",
+      gradient: "from-orange-500 to-red-500",
+    },
+  ];
+
+  const flipWords = [
+    "Enterprise Solutions",
+    "Digital Innovation",
+    "Cloud Architecture",
+    "Custom Development",
   ];
 
   return (
-    <section className="hero-gradient min-h-screen pt-24 pb-12 px-4 w-full relative overflow-hidden">
-      <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+    <section className="relative min-h-screen overflow-hidden bg-gradient-to-b from-background to-background/95">
+      {/* Background Elements */}
+      <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:50px]" />
+      <div className="absolute h-full w-full bg-gradient-to-br from-primary/5 via-transparent to-secondary/5" />
 
-      <motion.div
-        className="container mx-auto relative z-10"
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-      >
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <motion.div variants={itemVariants} className="space-y-8">
-            <motion.div className="space-y-6">
-              <motion.h1
-                className="text-4xl md:text-6xl font-bold leading-tight"
-                variants={itemVariants}
-              >
-                Enterprise Solutions for
-                <span className="text-gradient block">Digital Innovation</span>
-              </motion.h1>
-
-              <motion.p
-                className="text-lg text-foreground/80 max-w-xl"
-                variants={itemVariants}
-              >
-                Leveraging cutting-edge technology to deliver scalable, secure,
-                and innovative solutions for enterprise digital transformation.
-              </motion.p>
-
-              <motion.div
-                className="flex flex-wrap gap-4"
-                variants={itemVariants}
-              >
-                <Button
-                  size="lg"
-                  variant="primary"
-                  rightIcon={<span className="animate-pulse">→</span>}
-                >
-                  Schedule Consultation
-                </Button>
-                <button className="px-6 py-3 border border-primary/20 rounded-lg hover:bg-primary/5 transition-colors">
-                  View Case Studies
-                </button>
-              </motion.div>
-            </motion.div>
-
-            <motion.div
-              variants={itemVariants}
-              className="grid grid-cols-2 gap-4"
-            >
-              {[
-                {
-                  icon: FiCloud,
-                  title: "Cloud Solutions",
-                  desc: "Scalable infrastructure",
-                },
-                {
-                  icon: FiShield,
-                  title: "Cyber Security",
-                  desc: "Enterprise protection",
-                },
-                {
-                  icon: FiDatabase,
-                  title: "Data Analytics",
-                  desc: "Intelligent insights",
-                },
-                {
-                  icon: FiAward,
-                  title: "AI Integration",
-                  desc: "Smart automation",
-                },
-              ].map((feature, index) => (
-                <div
-                  key={index}
-                  className="p-4 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-primary/30 transition-all"
-                >
-                  <feature.icon className="w-6 h-6 mb-2 text-primary" />
-                  <h3 className="font-semibold">{feature.title}</h3>
-                  <p className="text-sm text-foreground/70">{feature.desc}</p>
-                </div>
-              ))}
-            </motion.div>
-          </motion.div>
-
+      <div className="container relative mx-auto px-4 py-20 sm:py-32">
+        <div className="grid gap-8 lg:grid-cols-2 lg:gap-16">
+          {/* Left Column */}
           <motion.div
-            variants={itemVariants}
-            className="space-y-8 hidden lg:block"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="flex flex-col justify-center space-y-8"
           >
-            <div className="grid grid-cols-2 gap-4">
-              {stats.map((stat, index) => (
-                <div
-                  key={index}
-                  className="text-center p-4 rounded-xl bg-white/5 backdrop-blur-sm"
-                >
-                  <div className="text-3xl font-bold text-primary">
-                    {stat.value}
-                  </div>
-                  <div className="text-sm text-foreground/70">{stat.label}</div>
-                </div>
-              ))}
+            <div className="space-y-4">
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.2 }}
+                className="inline-flex items-center rounded-full border border-primary/10 bg-primary/5 px-4 py-1.5"
+              >
+                <span className="text-sm font-medium text-primary">
+                  Trusted by Fortune 500 Companies
+                </span>
+              </motion.div>
+
+              <h1 className="text-4xl font-bold tracking-tight sm:text-6xl">
+                Transforming Business Through{" "}
+                <span className="inline-block">
+                  <FlipWords words={flipWords} className="text-primary" />
+                </span>
+              </h1>
+
+              <p className="max-w-2xl text-lg text-muted-foreground">
+                Leverage our decade of expertise in delivering cutting-edge
+                enterprise solutions, cloud architecture, and digital transformation
+                services.
+              </p>
             </div>
 
-            <motion.div
-              variants={itemVariants}
-              className="p-6 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10"
-            >
-              <h3 className="text-lg font-semibold mb-4">Tech Stack</h3>
-              <div className="flex flex-wrap gap-4">
-                {technologies.map((tech, index) => (
-                  <div
-                    key={index}
-                    className="flex items-center gap-2 px-3 py-2 rounded-lg bg-white/5"
-                  >
-                    <tech.icon className="w-5 h-5" />
-                    <span className="text-sm">{tech.name}</span>
-                  </div>
-                ))}
+            <div className="flex flex-col gap-4 sm:flex-row">
+              <Button size="lg" variant="primary">
+                Schedule Consultation
+              </Button>
+              <Button size="lg" variant="outline">
+                View Case Studies
+              </Button>
+            </div>
+
+            <div className="flex flex-col gap-4">
+              <div className="flex items-center gap-4">
+                <AnimatedTooltip items={teamMembers} />
+                <div className="text-sm text-muted-foreground">
+                  Meet our leadership team with{" "}
+                  <span className="font-semibold text-foreground">
+                    20+ years
+                  </span>{" "}
+                  of combined experience
+                </div>
               </div>
-            </motion.div>
+            </div>
+          </motion.div>
+
+          {/* Right Column */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:mt-0"
+          >
+            {solutions.map((solution, index) => (
+              <motion.div
+                key={solution.title}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 + 0.5 }}
+                className="group relative overflow-hidden rounded-2xl border border-primary/10 bg-background/50 p-6 backdrop-blur-sm"
+              >
+                <div className="absolute inset-0 bg-gradient-to-br opacity-0 transition-opacity duration-500 group-hover:opacity-10" />
+                <solution.icon className={`h-10 w-10 bg-gradient-to-br ${solution.gradient} rounded-xl p-2 text-white`} />
+                <h3 className="mt-4 font-semibold">{solution.title}</h3>
+                <p className="mt-1 text-sm text-muted-foreground">
+                  {solution.description}
+                </p>
+              </motion.div>
+            ))}
           </motion.div>
         </div>
-      </motion.div>
+
+        {/* Stats Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.8 }}
+          className="mt-16 grid grid-cols-2 gap-4 sm:grid-cols-4"
+        >
+          {[
+            { value: "200+", label: "Enterprise Clients" },
+            { value: "50+", label: "Tech Experts" },
+            { value: "98%", label: "Client Satisfaction" },
+            { value: "24/7", label: "Support Available" },
+          ].map((stat) => (
+            <div
+              key={stat.label}
+              className="rounded-2xl border border-primary/10 bg-background/50 p-6 backdrop-blur-sm"
+            >
+              <div className="text-3xl font-bold text-primary">{stat.value}</div>
+              <div className="mt-1 text-sm text-muted-foreground">
+                {stat.label}
+              </div>
+            </div>
+          ))}
+        </motion.div>
+      </div>
     </section>
   );
 }

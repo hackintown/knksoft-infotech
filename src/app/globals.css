@@ -4,7 +4,7 @@
 
 @layer components {
   .nav-container {
-    @apply fixed w-full top-0 z-50 backdrop-blur-md bg-background/80 border-b border-border/40;
+    @apply fixed w-full top-0 z-50 ;
   }
 
   .nav-link {
@@ -174,21 +174,31 @@ body {
 }
 
 .slick-dots {
-  bottom: 2rem;
+  bottom: 2rem !important;
 }
 
 .slick-dots li button:before {
-  color: white;
+  font-size: 12px !important;
+  color: var(--primary) !important;
   opacity: 0.5;
-  font-size: 8px;
 }
 
 .slick-dots li.slick-active button:before {
-  color: var(--primary);
   opacity: 1;
 }
 
 /* Optional: Custom fade animation */
 .slick-fade {
   transition: opacity 500ms ease-in-out;
+}
+
+/* Hero background patterns */
+.hero-pattern {
+  background-image: radial-gradient(
+    circle at 1px 1px,
+    var(--primary) 1px,
+    transparent 0
+  );
+  background-size: 40px 40px;
+  opacity: 0.1;
 }

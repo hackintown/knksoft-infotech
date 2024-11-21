@@ -74,84 +74,90 @@ export const NAVIGATION_MENUS = [
   },
   {
     name: "Solutions",
+    subMenuHeading: ["Business Solutions", "Learning Solutions"],
     subMenu: [
       {
         name: "CRM",
-        desc: "Browse templates",
+        desc: "Customer Relationship Management",
         href: "/resources/marketplace",
         iconName: "Users2",
+        group: "Business Solutions"
       },
       {
         name: "Assets & Vendor Management",
-        desc: "Upcoming events",
+        desc: "Track assets and manage vendors efficiently",
         href: "/resources/meetups",
         iconName: "Building2",
+        group: "Business Solutions"
       },
       {
         name: "Expense Management",
-        desc: "Changelog",
+        desc: "Track and manage business expenses",
         href: "/resources/updates",
         iconName: "Wallet",
+        group: "Business Solutions"
       },
       {
         name: "LMS",
-        desc: "Watch lessons",
+        desc: "Learning Management System",
         href: "/resources/academy",
         iconName: "GraduationCap",
-      },
+        group: "Learning Solutions"
+      }
     ],
-    gridCols: 1,
+    gridCols: 2,
+    layout: "grouped"
   },
 
   {
     name: "Marketplace Solutions",
-    subMenuHeading: ["", ""],
+    subMenuHeading: ["Beauty & Saloon", "Home Services", "Handyman App", "Car Washing", "Taxi App", "Food Delivery", "Grocery Delivery", "On Demand"],
     subMenu: [
       {
         name: "Beauty & Saloon",
-        desc: "Overview",
+        desc: "Beauty services at your doorstep",
         href: "/enterprise",
         iconName: "Scissors",
       },
       {
         name: "Home Services",
-        desc: "Design together",
+        desc: "Professional home maintenance services daily",
         href: "/enterprise/collaboration",
         iconName: "Home",
       },
       {
         name: "Handyman App",
-        desc: "Stories",
+        desc: "Expert repairs and installations nearby",
         href: "/enterprise/customers",
         iconName: "Wrench",
       },
       {
         name: "Car Washing",
-        desc: "Your site secured",
+        desc: "Professional car cleaning services here",
         href: "/enterprise/security",
         iconName: "Car",
       },
       {
         name: "Taxi App",
-        desc: "Your site secured",
+        desc: "Book rides anytime and anywhere",
         href: "/enterprise/security",
         iconName: "Bus",
       },
       {
         name: "Food Delivery",
-        desc: "Your site secured",
+        desc: "Order food from local restaurants",
         href: "/enterprise/security",
         iconName: "UtensilsCrossed",
       },
       {
         name: "Grocery Delivery",
-        desc: "Your site secured",
+        desc: "Fresh groceries delivered to home",
         href: "/enterprise/security",
         iconName: "ShoppingBasket",
       },
       {
         name: "On Demand",
-        desc: "Your site secured",
+        desc: "Services available at your convenience",
         href: "/enterprise/security",
         iconName: "Zap",
       },

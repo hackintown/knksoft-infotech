@@ -21,8 +21,8 @@ export default function Navbar() {
 
   return (
     <motion.header
-      className={`nav-container z-50 ${
-        scrolled ? "shadow-lg shadow-foreground/5" : ""
+      className={`fixed w-full top-0 z-50 shadow-sm ${
+        scrolled ? "shadow-lg shadow-foreground/5 bg-background" : ""
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
