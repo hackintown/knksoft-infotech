@@ -4,70 +4,104 @@ import { motion } from "framer-motion";
 import { Button } from "../ui/Button/Button";
 import { FlipWords } from "../ui/flip-words";
 import { AnimatedTooltip } from "../ui/animated-tooltip";
+import { Cloud, Code2, Smartphone, Network } from "lucide-react";
 import {
-  Cloud,
-
-
-  Code2,
-
-  Smartphone,
-  Network,
-} from "lucide-react";
+  SiReact,
+  SiAew,
+  SiDocker,
+  SiKubernetes,
+  SiPython,
+  SiFlutter,
+  SiKotlin,
+  SiSwift,
+  SiMongodb,
+  SiPostgresql,
+  SiMicrosoftazure,
+  SiNodedotjs,
+  SiSpring,
+  SiDotnet,
+  SiAndroid,
+} from "react-icons/si";
 
 export default function Hero() {
   const teamMembers = [
     {
       id: 1,
-      name: "John Smith",
+      name: "Brijesh Joshi",
       designation: "CEO",
-      image: "/team/ceo.jpg",
+      image: "https://api.uifaces.co/our-content/donated/xZ4wg2Xj.jpg",
     },
     {
       id: 2,
-      name: "Sarah Johnson",
-      designation: "CTO",
-      image: "/team/cto.jpg",
+      name: "Manoj Kumar",
+      designation: "Full Stack Developer",
+      image: "https://api.uifaces.co/our-content/donated/FJkauyEa.jpg",
     },
     {
       id: 3,
       name: "Mike Brown",
       designation: "Lead Architect",
-      image: "/team/architect.jpg",
+      image: "https://api.uifaces.co/our-content/donated/1H_7AxP0.jpg",
     },
   ];
 
   const solutions = [
     {
       icon: Code2,
-      title: "Custom Development",
-      description: "Tailored software solutions",
+      title: "Software Development",
+      description: "Custom & MVF Development",
       gradient: "from-blue-500 to-cyan-500",
+      techStack: [
+        { Icon: SiReact, name: "React" },
+        { Icon: SiPython, name: "Python" },
+        { Icon: SiNodedotjs, name: "Node.js" },
+        { Icon: SiSpring, name: "Spring" },
+      ],
     },
     {
       icon: Cloud,
-      title: "Cloud Solutions",
-      description: "AWS & Azure expertise",
+      title: "Cloud & DevOps",
+      description: "AWS, Azure & CI/CD",
       gradient: "from-purple-500 to-pink-500",
+      techStack: [
+        { Icon: SiAew, name: "AWS" },
+        { Icon: SiMicrosoftazure, name: "Azure" },
+        { Icon: SiDocker, name: "Docker" },
+        { Icon: SiKubernetes, name: "Kubernetes" },
+      ],
     },
     {
       icon: Smartphone,
-      title: "Mobile Development",
-      description: "iOS & Android apps",
+      title: "Mobile Solutions",
+      description: "Native & Cross-platform",
       gradient: "from-green-500 to-emerald-500",
+      techStack: [
+        { Icon: SiFlutter, name: "Flutter" },
+        { Icon: SiKotlin, name: "Kotlin" },
+        { Icon: SiSwift, name: "Swift" },
+        { Icon: SiAndroid, name: "Android" },
+      ],
     },
     {
       icon: Network,
-      title: "DevOps Services",
-      description: "CI/CD & automation",
+      title: "Enterprise Solutions",
+      description: "CRM, LMS & Asset Management",
       gradient: "from-orange-500 to-red-500",
+      techStack: [
+        { Icon: SiDotnet, name: ".NET" },
+        { Icon: SiMongodb, name: "MongoDB" },
+        { Icon: SiPostgresql, name: "PostgreSQL" },
+        { Icon: SiSpring, name: "Spring" },
+      ],
     },
   ];
 
   const flipWords = [
     "Enterprise Solutions",
-    "Digital Innovation",
     "Cloud Architecture",
     "Custom Development",
+    "Digital Transformation",
+    "DevOps Excellence",
   ];
 
   return (
@@ -93,21 +127,22 @@ export default function Hero() {
                 className="inline-flex items-center rounded-full border border-primary/10 bg-primary/5 px-4 py-1.5"
               >
                 <span className="text-sm font-medium text-primary">
-                  Trusted by Fortune 500 Companies
+                  Trusted by Global Enterprise Leaders
                 </span>
               </motion.div>
 
-              <h1 className="text-4xl font-bold tracking-tight sm:text-6xl">
-                Transforming Business Through{" "}
+              <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
+                Professional IT Solutions for
                 <span className="inline-block">
                   <FlipWords words={flipWords} className="text-primary" />
                 </span>
               </h1>
 
-              <p className="max-w-2xl text-lg text-muted-foreground">
-                Leverage our decade of expertise in delivering cutting-edge
-                enterprise solutions, cloud architecture, and digital transformation
-                services.
+              <p className="max-w-2xl text-base lg:text-lg text-muted-foreground">
+                Comprehensive IT services including custom software development,
+                cloud solutions, enterprise systems, and digital transformation.
+                From MVF development to full-scale enterprise solutions, we
+                deliver excellence.
               </p>
             </div>
 
@@ -116,7 +151,7 @@ export default function Hero() {
                 Schedule Consultation
               </Button>
               <Button size="lg" variant="outline">
-                View Case Studies
+                View Projects
               </Button>
             </div>
 
@@ -124,10 +159,10 @@ export default function Hero() {
               <div className="flex items-center gap-4">
                 <AnimatedTooltip items={teamMembers} />
                 <div className="text-sm text-muted-foreground">
-                  Meet our leadership team with{" "}
+                  Meet our leadership team with
                   <span className="font-semibold text-foreground">
                     20+ years
-                  </span>{" "}
+                  </span>
                   of combined experience
                 </div>
               </div>
@@ -146,44 +181,56 @@ export default function Hero() {
                 key={solution.title}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 + 0.5 }}
+                transition={{
+                  delay: index * 0.1 + 0.5,
+                  type: "spring",
+                  stiffness: 100,
+                }}
+                whileHover={{
+                  scale: 1.02,
+                  transition: { duration: 0.2 },
+                }}
                 className="group relative overflow-hidden rounded-2xl border border-primary/10 bg-background/50 p-6 backdrop-blur-sm"
               >
-                <div className="absolute inset-0 bg-gradient-to-br opacity-0 transition-opacity duration-500 group-hover:opacity-10" />
-                <solution.icon className={`h-10 w-10 bg-gradient-to-br ${solution.gradient} rounded-xl p-2 text-white`} />
-                <h3 className="mt-4 font-semibold">{solution.title}</h3>
-                <p className="mt-1 text-sm text-muted-foreground">
-                  {solution.description}
-                </p>
+                <div
+                  className={`absolute inset-0 bg-gradient-to-br ${solution.gradient} opacity-0 transition-opacity duration-500 group-hover:opacity-10`}
+                />
+
+                <div className="flex items-start justify-between">
+                  <div>
+                    <solution.icon
+                      className={`h-10 w-10 bg-gradient-to-br ${solution.gradient} rounded-xl p-2 text-white`}
+                    />
+                    <h3 className="mt-4 font-semibold">{solution.title}</h3>
+                    <p className="mt-1 text-sm text-muted-foreground">
+                      {solution.description}
+                    </p>
+                  </div>
+
+                  <motion.div
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.1 + 0.8 }}
+                    className="flex flex-col gap-2"
+                  >
+                    {solution.techStack?.map((tech, idx) => (
+                      <motion.div
+                        key={idx}
+                        whileHover={{ scale: 1.1 }}
+                        className="group relative"
+                      >
+                        <tech.Icon className="h-6 w-6 text-muted-foreground transition-colors group-hover:text-primary" />
+                        <div className="absolute -right-2 top-0 hidden translate-x-full rounded-md bg-background/90 px-2 py-1 text-xs group-hover:block">
+                          {tech.name}
+                        </div>
+                      </motion.div>
+                    ))}
+                  </motion.div>
+                </div>
               </motion.div>
             ))}
           </motion.div>
         </div>
-
-        {/* Stats Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8 }}
-          className="mt-16 grid grid-cols-2 gap-4 sm:grid-cols-4"
-        >
-          {[
-            { value: "200+", label: "Enterprise Clients" },
-            { value: "50+", label: "Tech Experts" },
-            { value: "98%", label: "Client Satisfaction" },
-            { value: "24/7", label: "Support Available" },
-          ].map((stat) => (
-            <div
-              key={stat.label}
-              className="rounded-2xl border border-primary/10 bg-background/50 p-6 backdrop-blur-sm"
-            >
-              <div className="text-3xl font-bold text-primary">{stat.value}</div>
-              <div className="mt-1 text-sm text-muted-foreground">
-                {stat.label}
-              </div>
-            </div>
-          ))}
-        </motion.div>
       </div>
     </section>
   );

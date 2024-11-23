@@ -92,7 +92,7 @@ export default function DesktopMenu({ menu }: DesktopMenuProps) {
           {menu.name}
           {hasSubMenu && (
             <ChevronDown
-              className="mt-[0.6px] group-hover/link:rotate-180 duration-200"
+              className="mt-[0.6px] group-hover/link:rotate-180 duration-200 size-5"
               aria-hidden="true"
             />
           )}
@@ -109,8 +109,8 @@ export default function DesktopMenu({ menu }: DesktopMenuProps) {
           aria-label={`${menu.name} submenu`}
         >
           {menu.layout === "grouped" &&
-            groupedSubMenus &&
-            menu.subMenuHeading ? (
+          groupedSubMenus &&
+          menu.subMenuHeading ? (
             <>
               <div className="grid grid-cols-2 gap-8">
                 {menu.subMenuHeading.map((heading, idx) => (

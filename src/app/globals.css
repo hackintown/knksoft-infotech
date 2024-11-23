@@ -4,7 +4,7 @@
 
 @layer components {
   .nav-container {
-    @apply fixed w-full top-0 z-50 ;
+    @apply fixed w-full top-0 z-50;
   }
 
   .nav-link {

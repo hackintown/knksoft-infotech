@@ -81,37 +81,46 @@ export const NAVIGATION_MENUS = [
         desc: "Customer Relationship Management",
         href: "/resources/marketplace",
         iconName: "Users2",
-        group: "Business Solutions"
+        group: "Business Solutions",
       },
       {
         name: "Assets & Vendor Management",
         desc: "Track assets and manage vendors efficiently",
         href: "/resources/meetups",
         iconName: "Building2",
-        group: "Business Solutions"
+        group: "Business Solutions",
       },
       {
         name: "Expense Management",
         desc: "Track and manage business expenses",
         href: "/resources/updates",
         iconName: "Wallet",
-        group: "Business Solutions"
+        group: "Business Solutions",
       },
       {
         name: "LMS",
         desc: "Learning Management System",
         href: "/resources/academy",
         iconName: "GraduationCap",
-        group: "Learning Solutions"
-      }
+        group: "Learning Solutions",
+      },
     ],
     gridCols: 2,
-    layout: "grouped"
+    layout: "grouped",
   },
 
   {
     name: "Marketplace Solutions",
-    subMenuHeading: ["Beauty & Saloon", "Home Services", "Handyman App", "Car Washing", "Taxi App", "Food Delivery", "Grocery Delivery", "On Demand"],
+    subMenuHeading: [
+      "Beauty & Saloon",
+      "Home Services",
+      "Handyman App",
+      "Car Washing",
+      "Taxi App",
+      "Food Delivery",
+      "Grocery Delivery",
+      "On Demand",
+    ],
     subMenu: [
       {
         name: "Beauty & Saloon",
