@@ -80,7 +80,7 @@ export const ServiceFeatures = memo(function ServiceFeatures({
         rightIcon={
           <Icons.ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
         }
-        className="transition-all duration-300 ease-out text-primary-foreground border-primary-foreground"
+        className="transition-all duration-300 ease-out"
       >
         Learn More
       </Button>

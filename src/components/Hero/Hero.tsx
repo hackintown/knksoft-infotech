@@ -22,6 +22,8 @@ import {
   SiDotnet,
   SiAndroid,
 } from "react-icons/si";
+import { InfiniteMovingCards } from "../ui/infinite-moving-cards";
+import * as Icons from "lucide-react";
 
 export default function Hero() {
   const teamMembers = [
@@ -104,6 +106,33 @@ export default function Hero() {
     "DevOps Excellence",
   ];
 
+  const clients = [
+    {
+      name: "Microsoft",
+      image: "https://placehold.co/150x50/001449/FFFFFF/png?text=Microsoft",
+    },
+    {
+      name: "Google",
+      image: "https://placehold.co/150x50/001449/FFFFFF/png?text=Google",
+    },
+    {
+      name: "Amazon",
+      image: "https://placehold.co/150x50/001449/FFFFFF/png?text=Amazon",
+    },
+    {
+      name: "Meta",
+      image: "https://placehold.co/150x50/001449/FFFFFF/png?text=Meta",
+    },
+    {
+      name: "Apple",
+      image: "https://placehold.co/150x50/001449/FFFFFF/png?text=Apple",
+    },
+    {
+      name: "IBM",
+      image: "https://placehold.co/150x50/001449/FFFFFF/png?text=IBM",
+    },
+  ];
+
   return (
     <section className="relative min-h-screen overflow-hidden bg-gradient-to-b from-background to-background/95">
       {/* Background Elements */}
@@ -147,7 +176,9 @@ export default function Hero() {
             </div>
 
             <div className="flex flex-col gap-4 sm:flex-row">
-              <Button size="lg" variant="primary">
+              <Button size="lg" variant="primary" rightIcon={
+                <Icons.ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              }>
                 Schedule Consultation
               </Button>
               <Button size="lg" variant="outline">
@@ -230,6 +261,33 @@ export default function Hero() {
               </motion.div>
             ))}
           </motion.div>
+        </div>
+      </div>
+
+      <div className="relative mt-10">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="text-center mb-8"
+        >
+          <h2 className="text-2xl font-semibold mb-2">Trusted by Industry Leaders</h2>
+          <p className="text-muted-foreground">
+            Partnering with global enterprises to deliver excellence
+          </p>
+        </motion.div>
+
+        <div className="relative flex flex-col items-center justify-center gap-4">
+          <InfiniteMovingCards
+            items={clients}
+            direction="right"
+            speed="slow"
+          />
+          {/* <InfiniteMovingCards
+            items={[...clients].reverse()}
+            direction="right"
+            speed="slow"
+          /> */}
         </div>
       </div>
     </section>
