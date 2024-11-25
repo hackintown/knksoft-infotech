@@ -1,10 +1,11 @@
 "use client";
 
 import { memo } from "react";
-import { motion } from "framer-motion";
 import * as Icons from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { Service } from "@/types/Services";
+import { cn } from "@/lib/utils";
+import { Button } from "../ui/Button/Button";
 
 interface ServiceFeaturesProps {
   service: Service;
@@ -13,96 +14,77 @@ interface ServiceFeaturesProps {
 export const ServiceFeatures = memo(function ServiceFeatures({
   service,
 }: ServiceFeaturesProps) {
-  // Enhanced animation variants
-  const container = {
-    hidden: { opacity: 0, scale: 0.95 },
-    show: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        staggerChildren: 0.15,
-        duration: 0.5,
-        ease: "easeOut",
-      },
-    },
-  };
-
-  const item = {
-    hidden: { opacity: 0, y: 30 },
-    show: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.4,
-        ease: "easeOut",
-      },
-    },
-  };
-
   return (
-    <motion.div
-      initial="hidden"
-      animate="show"
-      variants={container}
-      className="space-y-8 p-6 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg shadow-lg"
-    >
-      <motion.div variants={item} className="space-y-4">
-        <h2 className="text-4xl font-extrabold text-white">{service.title}</h2>
-        <p className="text-lg text-white/90 leading-relaxed">
+    <div className="space-y-8">
+      {/* Header Section */}
+      <div className="space-y-4">
+        <span className="inline-block px-4 py-1.5 bg-[#001449]/10 rounded-full text-sm font-medium text-white">
+          {service.number}
+        </span>
+        <h2 className="text-4xl font-bold text-white">{service.title}</h2>
+        <p className="text-lg text-white/80 leading-relaxed">
           {service.description}
         </p>
-      </motion.div>
+      </div>
 
+      {/* Features Grid */}
       {service.features && (
-        <>
-          <motion.div variants={item}>
-            <button
-              type="submit"
-              className="flex gap-2 items-center shadow-xl text-lg bg-gray-50 backdrop-blur-md lg:font-semibold isolation-auto border-gray-50 before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-left-full before:hover:left-0 before:rounded-full before:bg-red-500 hover:text-gray-50 before:-z-10 before:aspect-square before:hover:scale-150 before:hover:duration-700 relative z-10 px-4 py-2 overflow-hidden border-2 rounded-full group"
-            >
-              Explore
-              <svg
-                className="w-8 h-8 justify-end group-hover:rotate-90 group-hover:bg-gray-50 text-gray-50 ease-linear duration-300 rounded-full border border-gray-700 group-hover:border-none p-2 rotate-45"
-                viewBox="0 0 16 19"
-                xmlns="http://www.w3.org/2000/svg"
+        <div className="grid grid-cols-2 gap-4">
+          {service.features.map((feature, index) => {
+            const Icon: LucideIcon =
+              (Icons[feature.icon as keyof typeof Icons] as LucideIcon) ||
+              Icons.HelpCircle;
+
+            return (
+              <div
+                key={index}
+                className={cn(
+                  "group relative overflow-hidden rounded-2xl bg-[#001449]/[0.08] p-6",
+                  "from-[#001449]/[0.08] to-[#111111]/[0.02]",
+                  "hover:from-[#001449]/[0.12] hover:to-[#111111]/[0.04]",
+                  "transition-all duration-300 ease-out"
+                )}
               >
-                <path
-                  d="M7 18C7 18.5523 7.44772 19 8 19C8.55228 19 9 18.5523 9 18H7ZM8.70711 0.292893C8.31658 -0.0976311 7.68342 -0.0976311 7.29289 0.292893L0.928932 6.65685C0.538408 7.04738 0.538408 7.68054 0.928932 8.07107C1.31946 8.46159 1.95262 8.46159 2.34315 8.07107L8 2.41421L13.6569 8.07107C14.0474 8.46159 14.6805 8.46159 15.0711 8.07107C15.4616 7.68054 15.4616 7.04738 15.0711 6.65685L8.70711 0.292893ZM9 18L9 1H7L7 18H9Z"
-                  className="fill-indigo-800 group-hover:fill-indigo-800"
-                ></path>
-              </svg>
-            </button>
-          </motion.div>
+                {/* Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-br from-[#001449]/10 to-[#af0000]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-          <motion.div
-            variants={item}
-            className="grid grid-cols-2 gap-8 md:grid-cols-4"
-          >
-            {service.features.map((feature) => {
-              const Icon: LucideIcon =
-                (Icons[feature.icon as keyof typeof Icons] as LucideIcon) ||
-                Icons.HelpCircle;
-
-              return (
-                <div
-                  key={feature.title}
-                  className="flex flex-col items-center gap-3 text-center"
-                >
-                  <div className="rounded-full bg-white/20 p-4">
-                    <Icon className="h-8 w-8 text-white" />
+                <div className="relative space-y-4">
+                  {/* Icon */}
+                  <div className="inline-flex p-3 rounded-xl bg-white/10 text-white">
+                    <Icon className="h-6 w-6" />
                   </div>
-                  <p className="text-base font-semibold text-white">
-                    {feature.title}
-                  </p>
-                  <p className="text-sm text-white/80 leading-relaxed">
-                    {feature.description}
-                  </p>
+
+                  {/* Content */}
+                  <div className="space-y-2">
+                    <h3 className="text-sm sm:text-base lg:text-lg font-semibold text-white">
+                      {feature.title}
+                    </h3>
+                    <p className="text-sm text-white/70 leading-relaxed">
+                      {feature.description}
+                    </p>
+                  </div>
                 </div>
-              );
-            })}
-          </motion.div>
-        </>
+
+                {/* Decorative Elements */}
+                <div className="absolute -right-4 -bottom-4 w-24 h-24 bg-gradient-to-br from-[#001449]/20 to-[#af0000]/20 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </div>
+            );
+          })}
+        </div>
       )}
-    </motion.div>
+
+      {/* Call to Action */}
+      <Button 
+        variant="outline" 
+        size="md" 
+        rightIcon={
+          <Icons.ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+        }
+        className="transition-all duration-300 ease-out text-primary-foreground border-primary-foreground"
+      >
+        Learn More
+      </Button>
+
+    </div>
   );
 });

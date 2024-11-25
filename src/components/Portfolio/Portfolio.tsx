@@ -12,7 +12,6 @@ import {
 } from "swiper/modules";
 import Image from "next/image";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-import { HiOutlineBriefcase } from "react-icons/hi";
 
 // Import Swiper styles
 import "swiper/css";
@@ -113,18 +112,6 @@ export default function Portfolio() {
           transition={{ duration: 0.5 }}
           className="text-center mb-4 lg:mb-6"
         >
-          {/* Badge */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.2 }}
-            className="inline-flex items-center gap-2 rounded-full border border-primary/10 bg-primary/5 px-4 py-1.5 mb-6"
-          >
-            <HiOutlineBriefcase className="w-4 h-4 text-primary" />
-            <span className="text-sm font-semibold tracking-wide text-primary">
-              Featured Projects
-            </span>
-          </motion.div>
 
           {/* Main Heading */}
           <motion.div
@@ -153,7 +140,7 @@ export default function Portfolio() {
         </motion.div>
 
         <div className="mt-10">
-          <div className="relative w-full max-w-5xl mx-auto py-10 px-10 sm:px-12 lg:px-24">
+          <div className="relative w-full max-w-7xl mx-auto py-10 px-10 sm:px-12 lg:px-24">
             <Swiper
               onSwiper={setSwiperInstance}
               effect={"coverflow"}

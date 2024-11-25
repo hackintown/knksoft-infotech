@@ -2,217 +2,162 @@ import { Service } from "@/types/Services";
 
 export const servicesData: Service[] = [
   {
-    id: "custom-development",
+    id: "technology-innovation",
     number: "01",
     icon: "Code2",
-    title: "Custom Software Development",
-    description:
-      "End-to-end custom software development services tailored to your business needs, from MVF to enterprise-grade solutions.",
+    title: "Technology and Innovation",
+    description: "Cutting-edge technological solutions and innovative implementations to drive digital excellence.",
     features: [
-      {
-        icon: "Code2",
-        title: "MVF Development",
-        description: "Rapid development of scalable minimum viable features",
-      },
-      {
-        icon: "Globe",
-        title: "Web Development",
-        description: "Modern web applications & solutions",
-      },
-      {
-        icon: "Smartphone",
-        title: "Mobile App Development",
-        description: "Native & cross-platform mobile apps",
-      },
-      {
-        icon: "Barcode",
-        title: "Bar Code Solutions",
-        description: "Inventory & tracking systems",
-      },
-      {
-        icon: "ShoppingCart",
-        title: "E-Commerce Solutions",
-        description: "Custom online store platforms",
-      },
-    ],
-  },
-  {
-    id: "cloud-services",
-    number: "02",
-    icon: "Cloud",
-    title: "Cloud & Infrastructure",
-    description:
-      "Comprehensive cloud solutions and infrastructure management services powered by leading cloud platforms.",
-    features: [
-      {
-        icon: "Cloud",
-        title: "AWS Development",
-        description: "Custom AWS cloud solutions",
-      },
-      {
-        icon: "Network",
-        title: "Cloud Architecture",
-        description: "Scalable infrastructure design",
-      },
-      {
-        icon: "Settings",
-        title: "DevOps Services",
-        description: "CI/CD & automation solutions",
-      },
-      {
-        icon: "Shield",
-        title: "Cloud Security",
-        description: "Advanced security solutions",
-      },
-    ],
-  },
-  {
-    id: "business-solutions",
-    number: "03",
-    icon: "Building2",
-    title: "Business Solutions",
-    description:
-      "Enterprise-grade business management solutions to streamline operations and boost efficiency.",
-    features: [
-      {
-        icon: "Users2",
-        title: "CRM Systems",
-        description: "Customer Relationship Management",
-      },
-      {
-        icon: "Building2",
-        title: "Asset Management",
-        description: "Track assets and manage vendors",
-      },
-      {
-        icon: "Wallet",
-        title: "Expense Management",
-        description: "Business expense tracking",
-      },
-      {
-        icon: "GraduationCap",
-        title: "Learning Management",
-        description: "Educational platforms & LMS",
-      },
-    ],
-  },
-  {
-    id: "marketplace",
-    number: "04",
-    icon: "Store",
-    title: "Marketplace Solutions",
-    description:
-      "Custom marketplace and on-demand service platforms for various industries.",
-    features: [
-      {
-        icon: "Scissors",
-        title: "Beauty & Salon",
-        description: "Beauty service booking platforms",
-      },
-      {
-        icon: "Home",
-        title: "Home Services",
-        description: "Home maintenance platforms",
-      },
-      {
-        icon: "Car",
-        title: "Transportation",
-        description: "Taxi & car service solutions",
-      },
-      {
-        icon: "UtensilsCrossed",
-        title: "Food & Grocery",
-        description: "Delivery management systems",
-      },
-    ],
-  },
-  {
-    id: "on-demand",
-    number: "05",
-    icon: "Zap",
-    title: "On-Demand Solutions",
-    description:
-      "Specialized on-demand service platforms and applications for modern business needs.",
-    features: [
-      {
-        icon: "Wrench",
-        title: "Handyman Services",
-        description: "Service provider platforms",
-      },
-      {
-        icon: "ShoppingBasket",
-        title: "Delivery Solutions",
-        description: "Last-mile delivery systems",
-      },
-      {
-        icon: "Calendar",
-        title: "Booking Systems",
-        description: "Appointment scheduling",
-      },
       {
         icon: "MapPin",
         title: "Location Services",
-        description: "GPS tracking & mapping",
+        description: "Advanced geospatial integration via Google Maps platform",
+      },
+      {
+        icon: "Target",
+        title: "AdTech Integration",
+        description: "Comprehensive integration with Google Ads and Meta advertising platforms",
+      },
+      {
+        icon: "Bell",
+        title: "Push Notification Systems",
+        description: "Enterprise-grade Firebase Notifications implementation",
+      },
+      {
+        icon: "Video",
+        title: "Video Communications",
+        description: "Scalable streaming solutions via Agora and Zoom platforms",
+      },
+     
+    ],
+  },
+  {
+    id: "payment-integrations",
+    number: "02",
+    icon: "CreditCard",
+    title: "Payment Integrations",
+    description: "Comprehensive payment solutions and financial technology integrations.",
+    features: [
+      {
+        icon: "Wallet",
+        title: "Payment Gateway Solutions",
+        description: "Integration with Stripe, Razorpay, and Authorize.net",
+      },
+      {
+        icon: "Calculator",
+        title: "Accounting Systems",
+        description: "Seamless integration with Tally, Quickbooks, and Zoho",
+      },
+      {
+        icon: "RefreshCw",
+        title: "Settlement Automation",
+        description: "Automated reconciliation with banking systems",
+      },
+      {
+        icon: "CreditCard",
+        title: "Digital Payments",
+        description: "Native support for wallets, credit ledgers, and BNPL platforms",
       },
     ],
   },
   {
-    id: "enterprise",
-    number: "06",
-    icon: "Building",
-    title: "Enterprise Solutions",
-    description:
-      "Large-scale enterprise solutions for complex business operations and digital transformation.",
+    id: "communication-marketing",
+    number: "03",
+    icon: "MessageSquare",
+    title: "Communication and Marketing",
+    description: "Strategic communication solutions and advanced marketing automation tools.",
     features: [
       {
-        icon: "Database",
-        title: "Data Management",
-        description: "Enterprise data solutions",
+        icon: "Zap",
+        title: "Marketing Automation",
+        description: "Integration with WebEngage, MoEngage, and OneSignal",
       },
       {
-        icon: "GitBranch",
-        title: "System Integration",
-        description: "Legacy system modernization",
+        icon: "MessageCircle",
+        title: "Communication APIs",
+        description: "Enterprise solutions with Twilio, Sendgrid, and WhatsApp Business",
+      },
+      {
+        icon: "Share2",
+        title: "Social Media Integration",
+        description: "Comprehensive social platform connectivity",
+      },
+      {
+        icon: "MessageBot",
+        title: "Conversational AI",
+        description: "Intelligent chatbot implementation and integration",
+      },
+    ],
+  },
+  {
+    id: "data-analytics",
+    number: "04",
+    icon: "BarChart2",
+    title: "Data and Analytics",
+    description: "Sophisticated data analysis and business intelligence solutions.",
+    features: [
+      {
+        icon: "Users",
+        title: "CRM Integration",
+        description: "Enterprise solutions with HubSpot and Zoho",
+      },
+      {
+        icon: "Activity",
+        title: "Analytics Implementation",
+        description: "Advanced SDK integration for user behavior tracking",
       },
       {
         icon: "Shield",
-        title: "Security Solutions",
-        description: "Enterprise-grade security",
-      },
-      {
-        icon: "BarChart2",
-        title: "Analytics",
-        description: "Business intelligence",
+        title: "Security Compliance",
+        description: "OWASP Top 10, ISO 27001, PCI DSS, and HIPAA standards",
       },
     ],
   },
   {
-    id: "digital-transformation",
-    number: "07",
-    icon: "Refresh",
-    title: "Digital Transformation",
-    description:
-      "Complete digital transformation services to modernize your business operations.",
+    id: "ecommerce-logistics",
+    number: "05",
+    icon: "ShoppingCart",
+    title: "E-Commerce and Logistics",
+    description: "Comprehensive e-commerce and supply chain management solutions.",
     features: [
       {
-        icon: "Laptop",
-        title: "Process Automation",
-        description: "Workflow optimization",
+        icon: "Store",
+        title: "Platform Integration",
+        description: "Seamless integration with Shopify, WooCommerce, and Odoo",
       },
       {
-        icon: "Bot",
-        title: "AI Integration",
-        description: "Intelligent automation",
+        icon: "Truck",
+        title: "Logistics Management",
+        description: "End-to-end shipping and delivery solutions",
       },
       {
-        icon: "FileText",
-        title: "Documentation",
-        description: "Digital process mapping",
+        icon: "Scan",
+        title: "Inventory Systems",
+        description: "Advanced Barcode/QR scanning and POS integration",
       },
       {
-        icon: "Users",
-        title: "Team Training",
-        description: "Digital adoption support",
+        icon: "ShoppingBag",
+        title: "Product Optimization",
+        description: "Google Merchandise integration and management",
+      },
+    ],
+  },
+  {
+    id: "identity-verification",
+    number: "06",
+    icon: "Shield",
+    title: "Identity and Verification",
+    description: "Advanced security and authentication solutions for enterprise applications.",
+    features: [
+      {
+        icon: "UserCheck",
+        title: "Digital Onboarding",
+        description: "Accelerated KYC verification and customer onboarding",
+      },
+      {
+        icon: "Globe",
+        title: "Global Support",
+        description: "Comprehensive multilingual and multi-currency capabilities",
       },
     ],
   },

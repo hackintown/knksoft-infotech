@@ -2,7 +2,6 @@
 
 import { useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Settings } from "lucide-react";
 import { servicesData } from "./ServicesData";
 import { ServiceCard } from "./ServicesCard";
 import { ServiceFeatures } from "./ServicesFeatures";
@@ -30,18 +29,16 @@ export default function Services() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="mb-12"
+        className="mb-12 text-center"
       >
-        <div className="flex items-center gap-2 text-primary">
-          <Settings className="h-6 w-6" />
-          <h2 className="text-lg font-semibold">SERVICES</h2>
-        </div>
-        <h1 className="mt-4 text-4xl font-bold">
-          What&apos;s Brewing In The Code Brew Labs?
-        </h1>
+        <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl mb-4">
+          Pre-Integration With Industry-Leading
+          <span className="text-primary block mt-2">
+            Platforms to Save Your Time
+          </span>
+        </h2>
         <p className="mt-2 text-lg text-muted-foreground">
-          Discover the digital possibilities for your brand with our
-          comprehensive suite of services.
+          Our custom on demand software development services focuses on saving time and providing the most value to the clients.
         </p>
       </motion.div>
 
@@ -50,7 +47,7 @@ export default function Services() {
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="space-y-4"
+          className="space-y-6"
         >
           {servicesData.map((service) => (
             <ServiceCard

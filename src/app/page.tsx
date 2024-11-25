@@ -9,9 +9,9 @@ export default function Home() {
   return (
     <main>
       <Hero />
-      <Services />
-      <Portfolio />
       <MarketplaceSection />
+      <Portfolio />
+      <Services />
       <Testimonials />
       <WhyChooseUs />
       <ClientsPartner />
