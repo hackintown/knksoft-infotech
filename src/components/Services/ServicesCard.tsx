@@ -8,9 +8,10 @@ interface ServiceCardProps {
   service: Service;
   isActive: boolean;
   onClick: () => void;
+  onHover: () => void;
 }
 
-export function ServiceCard({ service, isActive, onClick }: ServiceCardProps) {
+export function ServiceCard({ service, isActive, onClick, onHover }: ServiceCardProps) {
   const Icon = Icons[service.icon as keyof typeof Icons] as React.ElementType;
 
   if (!Icon) {
@@ -22,6 +23,7 @@ export function ServiceCard({ service, isActive, onClick }: ServiceCardProps) {
     <motion.div
       layout
       onClick={onClick}
+      onMouseEnter={onHover}
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
       className={`cursor-pointer rounded-xl p-6 transition-all duration-300 shadow-md ${

@@ -6,16 +6,23 @@ import { Settings } from "lucide-react";
 import { servicesData } from "./ServicesData";
 import { ServiceCard } from "./ServicesCard";
 import { ServiceFeatures } from "./ServicesFeatures";
+import { useMediaQuery } from "@/hooks/use-media-query";
 
 export default function Services() {
   const [activeService, setActiveService] = useState(servicesData[0]);
-  // Memoize the click handler
-  const handleServiceClick = useCallback(
-    (service: (typeof servicesData)[0]) => {
+  const isDesktop = useMediaQuery("(min-width: 1024px)");
+
+  const handleServiceClick = useCallback((service: typeof servicesData[0]) => {
+    if (!isDesktop) {
       setActiveService(service);
-    },
-    []
-  );
+    }
+  }, [isDesktop]);
+
+  const handleServiceHover = useCallback((service: typeof servicesData[0]) => {
+    if (isDesktop) {
+      setActiveService(service);
+    }
+  }, [isDesktop]);
 
   return (
     <section className="container mx-auto px-4 py-16">
@@ -51,6 +58,7 @@ export default function Services() {
               service={service}
               isActive={activeService.id === service.id}
               onClick={() => handleServiceClick(service)}
+              onHover={() => handleServiceHover(service)}
             />
           ))}
         </motion.div>
