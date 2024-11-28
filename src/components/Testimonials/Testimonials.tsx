@@ -63,7 +63,7 @@ export default function Testimonials() {
           <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
             Hear What Our Clients Say
           </h2>
-          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="max-w-2xl mx-auto text-base font-light lg:text-lg text-muted-foreground">
             Explore the transformative experiences of our valued customers and how our services have positively impacted their business.
           </p>
         </div>
@@ -97,13 +97,13 @@ export default function Testimonials() {
                 <div className="flex-1">
                   <blockquote className="text-lg md:text-xl text-gray-700 mb-6 relative">
                     <span className="absolute -left-4 -top-4 text-6xl text-rose-200">&ldquo;</span>
-                    <p className="relative z-10">{testimonial.quote}</p>
+                    <p className="relative z-10 text-base lg:text-lg font-normal">{testimonial.quote}</p>
                   </blockquote>
                   <div>
                     <p className="font-semibold text-xl text-gray-900 mb-1">
                       {testimonial.name}
                     </p>
-                    <p className="text-gray-600">
+                    <p className="text-muted-foreground font-light">
                       {testimonial.position} - {testimonial.company}
                     </p>
                   </div>

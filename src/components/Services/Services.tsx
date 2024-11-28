@@ -37,7 +37,7 @@ export default function Services() {
             Platforms to Save Your Time
           </span>
         </h2>
-        <p className="mt-2 text-lg text-muted-foreground">
+        <p className="mt-2 max-w-2xl mx-auto text-base font-light lg:text-lg text-muted-foreground">
           Our custom on demand software development services focuses on saving time and providing the most value to the clients.
         </p>
       </motion.div>

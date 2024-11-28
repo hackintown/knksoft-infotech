@@ -48,7 +48,7 @@ export default function WhyChooseUs() {
           className="text-center max-w-3xl mx-auto mb-16"
         >
           <h2 className="text-3xl font-bold mb-4">Why Choose Us?</h2>
-          <p className="text-lg text-muted-foreground">
+          <p className="max-w-2xl mx-auto text-base font-light lg:text-lg text-muted-foreground">
             We are a company with a DNA of entrepreneurship, and hence, we value the time and money invested by our clients.
           </p>
         </motion.div>
@@ -71,7 +71,7 @@ export default function WhyChooseUs() {
                 className="mb-4"
               />
               <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>
-              <p className="text-muted-foreground">{feature.description}</p>
+              <p className="text-muted-foreground font-light">{feature.description}</p>
             </motion.div>
           ))}
         </div>

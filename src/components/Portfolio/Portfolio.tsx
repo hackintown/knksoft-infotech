@@ -132,7 +132,7 @@ export default function Portfolio() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="max-w-2xl text-base lg:text-lg text-muted-foreground mx-auto"
+            className="max-w-2xl text-base font-light lg:text-lg text-muted-foreground mx-auto"
           >
             Explore our portfolio of successful projects across web development,
             mobile applications, cloud solutions, and enterprise software.

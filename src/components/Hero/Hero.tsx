@@ -109,27 +109,27 @@ export default function Hero() {
   const clients = [
     {
       name: "Microsoft",
-      image: "https://placehold.co/150x50/001449/FFFFFF/png?text=Microsoft",
+      image: "https://cdn-gnpmp.nitrocdn.com/zXfatNvCxdJLOJQwdBcjdAFpyWHclmaD/assets/images/optimized/rev-6b6d411/www.code-brew.com/wp-content/uploads/2023/01/layer-503@2x.webp",
     },
     {
       name: "Google",
-      image: "https://placehold.co/150x50/001449/FFFFFF/png?text=Google",
+      image: "https://cdn-gnpmp.nitrocdn.com/zXfatNvCxdJLOJQwdBcjdAFpyWHclmaD/assets/images/optimized/rev-6b6d411/www.code-brew.com/wp-content/uploads/2023/01/vodafone@3x.webp",
     },
     {
       name: "Amazon",
-      image: "https://placehold.co/150x50/001449/FFFFFF/png?text=Amazon",
+      image: "https://cdn-gnpmp.nitrocdn.com/zXfatNvCxdJLOJQwdBcjdAFpyWHclmaD/assets/images/optimized/rev-6b6d411/www.code-brew.com/wp-content/uploads/2023/01/layer-510@2x.webp",
     },
     {
       name: "Meta",
-      image: "https://placehold.co/150x50/001449/FFFFFF/png?text=Meta",
+      image: "https://cdn-gnpmp.nitrocdn.com/zXfatNvCxdJLOJQwdBcjdAFpyWHclmaD/assets/images/optimized/rev-6b6d411/www.code-brew.com/wp-content/uploads/2023/01/zipeats.webp",
     },
     {
       name: "Apple",
-      image: "https://placehold.co/150x50/001449/FFFFFF/png?text=Apple",
+      image: "https://cdn-gnpmp.nitrocdn.com/zXfatNvCxdJLOJQwdBcjdAFpyWHclmaD/assets/images/optimized/rev-6b6d411/www.code-brew.com/wp-content/uploads/2023/01/dai.webp",
     },
     {
       name: "IBM",
-      image: "https://placehold.co/150x50/001449/FFFFFF/png?text=IBM",
+      image: "https://cdn-gnpmp.nitrocdn.com/zXfatNvCxdJLOJQwdBcjdAFpyWHclmaD/assets/images/optimized/rev-6b6d411/www.code-brew.com/wp-content/uploads/2023/01/layer-32@2x.webp",
     },
   ];
 
@@ -160,14 +160,14 @@ export default function Hero() {
                 </span>
               </motion.div>
 
-              <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
+              <h1 className="text-3xl sm:text-4xl font-bold tracking-tight sm:text-5xl">
                 Professional IT Solutions for
                 <span className="inline-block">
                   <FlipWords words={flipWords} className="text-primary" />
                 </span>
               </h1>
 
-              <p className="max-w-2xl text-base lg:text-lg text-muted-foreground">
+              <p className="max-w-2xl text-base font-light lg:text-lg text-muted-foreground">
                 Comprehensive IT services including custom software development,
                 cloud solutions, enterprise systems, and digital transformation.
                 From MVF development to full-scale enterprise solutions, we
@@ -189,7 +189,7 @@ export default function Hero() {
             <div className="flex flex-col gap-4">
               <div className="flex items-center gap-4">
                 <AnimatedTooltip items={teamMembers} />
-                <div className="text-sm text-muted-foreground">
+                <div className="text-xs sm:text-sm text-muted-foreground">
                   Meet our leadership team with
                   <span className="font-semibold text-foreground">
                     20+ years
@@ -264,7 +264,7 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="relative mt-10">
+      <div className="relative mt-6 sm:mt-8 md:mt-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

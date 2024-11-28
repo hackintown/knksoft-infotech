@@ -67,7 +67,7 @@ export const MarketplaceSection = () => {
                         Marketplace Vision
                     </span>
                 </h2>
-                <p className="mt-2 text-lg text-muted-foreground text-center mb-8">
+                <p className="mt-2 max-w-3xl mx-auto text-base font-light lg:text-lg text-muted-foreground text-center mb-8">
                     We specialize in transforming innovative marketplace concepts into successful realities.
                     Our team of experts has a wealth of experience and expertise to craft a tailored marketplace
                     solution that aligns perfectly with your vision.

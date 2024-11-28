@@ -16,7 +16,7 @@ export default function WhoWeAre() {
     ];
 
     return (
-        <section className="py-24 bg-background">
+        <section className="py-10 sm:py-12 md:py-14 bg-background">
             <div className="container mx-auto px-4">
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
                     {/* Left Content */}
@@ -37,11 +37,11 @@ export default function WhoWeAre() {
                             </span>
                         </h2>
 
-                        <p className="text-lg text-muted-foreground">
+                        <p className="max-w-2xl text-base font-light lg:text-lg text-muted-foreground">
                             Our specialties in web-mobile apps and AI development services make ideas turn to reality, managed to half startup business open into quality software at the platform industry. We are a company with a DNA of entrepreneurship, and hence, we value the time and money invested by our clients.
                         </p>
 
-                        <p className="text-lg text-muted-foreground">
+                        <p className="max-w-2xl text-base font-light lg:text-lg text-muted-foreground">
                             Want to know more about us? Get in touch with the industry expert.
                         </p>
 
