@@ -81,6 +81,8 @@ export const InfiniteMovingCards = ({
               <Image
                 src={item.image}
                 alt={item.name}
+                width={100}
+                height={100}
                 className="h-12 w-auto object-contain"
               />
             </div>
