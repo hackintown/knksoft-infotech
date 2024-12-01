@@ -76,55 +76,6 @@ export default function Hero() {
       image: "https://api.uifaces.co/our-content/donated/1H_7AxP0.jpg",
     },
   ];
-  //   {
-  //     icon: Code2,
-  //     title: "Software Development",
-  //     description: "Custom & MVF Development",
-  //     gradient: "from-blue-500 to-cyan-500",
-  //     techStack: [
-  //       { Icon: SiReact, name: "React" },
-  //       { Icon: SiPython, name: "Python" },
-  //       { Icon: SiNodedotjs, name: "Node.js" },
-  //       { Icon: SiSpring, name: "Spring" },
-  //     ],
-  //   },
-  //   {
-  //     icon: Cloud,
-  //     title: "Cloud & DevOps",
-  //     description: "AWS, Azure & CI/CD",
-  //     gradient: "from-purple-500 to-pink-500",
-  //     techStack: [
-  //       { Icon: SiAew, name: "AWS" },
-  //       { Icon: SiMicrosoftazure, name: "Azure" },
-  //       { Icon: SiDocker, name: "Docker" },
-  //       { Icon: SiKubernetes, name: "Kubernetes" },
-  //     ],
-  //   },
-  //   {
-  //     icon: Smartphone,
-  //     title: "Mobile Solutions",
-  //     description: "Native & Cross-platform",
-  //     gradient: "from-green-500 to-emerald-500",
-  //     techStack: [
-  //       { Icon: SiFlutter, name: "Flutter" },
-  //       { Icon: SiKotlin, name: "Kotlin" },
-  //       { Icon: SiSwift, name: "Swift" },
-  //       { Icon: SiAndroid, name: "Android" },
-  //     ],
-  //   },
-  //   {
-  //     icon: Network,
-  //     title: "Enterprise Solutions",
-  //     description: "CRM, LMS & Asset Management",
-  //     gradient: "from-orange-500 to-red-500",
-  //     techStack: [
-  //       { Icon: SiDotnet, name: ".NET" },
-  //       { Icon: SiMongodb, name: "MongoDB" },
-  //       { Icon: SiPostgresql, name: "PostgreSQL" },
-  //       { Icon: SiSpring, name: "Spring" },
-  //     ],
-  //   },
-  // ];
 
   const flipWords = [
     "Enterprise Solutions",
@@ -210,8 +161,10 @@ export default function Hero() {
               </div>
             </div>
           </motion.div>
+
+          {/* Right Column */}
           <motion.div
-            className="w-full relative flex justify-center items-center mt-8 lg:mt-0"
+            className="w-full relative flex justify-center items-center mt-8 lg:mt-0 max-w-[315px] sm:max-w-[500px] lg:max-w-[600px] xl:max-w-2xl"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}

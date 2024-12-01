@@ -212,7 +212,7 @@ export default function Hero() {
             </div>
           </motion.div>
           <motion.div
-            className="w-full relative flex justify-center items-center mt-8 lg:mt-0"
+            className="w-full relative flex justify-center items-center mt-8 lg:mt-0 max-w-[315px] sm:max-w-[500px] lg:max-w-[600px] xl:max-w-2xl"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
