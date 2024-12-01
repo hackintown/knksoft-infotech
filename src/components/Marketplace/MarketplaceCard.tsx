@@ -1,6 +1,6 @@
-import { motion, Variants } from 'framer-motion';
-import { Icon } from '@/components/ui/Icon';
-import type { MarketplaceItem } from '@/constants/marketplace';
+import { motion, Variants } from "framer-motion";
+import { Icon } from "@/components/ui/Icon";
+import type { MarketplaceItem } from "@/constants/marketplace";
 
 interface MarketplaceCardProps {
   item: MarketplaceItem;
@@ -8,7 +8,11 @@ interface MarketplaceCardProps {
   custom: number;
 }
 
-export const MarketplaceCard = ({ item, variants, custom }: MarketplaceCardProps) => {
+export const MarketplaceCard = ({
+  item,
+  variants,
+  custom,
+}: MarketplaceCardProps) => {
   return (
     <motion.div
       variants={variants}
@@ -20,10 +24,14 @@ export const MarketplaceCard = ({ item, variants, custom }: MarketplaceCardProps
           <Icon name={item.iconName} className="w-6 h-6 text-primary" />
         </div>
         <div>
-          <h3 className="text-base xl:text-xl font-semibold text-gray-900 mb-2">{item.name}</h3>
-          <p className="text-gray-600 text-sm sm:text-base leading-relaxed font-light">{item.desc}</p>
+          <h3 className="text-base xl:text-xl font-semibold text-gray-900 mb-2">
+            {item.name}
+          </h3>
+          <p className="text-gray-600 text-sm sm:text-base leading-relaxed font-thin">
+            {item.desc}
+          </p>
         </div>
       </div>
     </motion.div>
   );
-};  
+};

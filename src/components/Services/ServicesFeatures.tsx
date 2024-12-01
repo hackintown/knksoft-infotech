@@ -18,7 +18,7 @@ export const ServiceFeatures = memo(function ServiceFeatures({
     <div className="space-y-8">
       {/* Header Section */}
       <div className="space-y-4">
-        <span className="inline-block px-4 py-1.5 bg-[#001449]/10 rounded-full text-sm font-medium text-white">
+        <span className="inline-block px-4 py-1.5 bg-white rounded-full text-sm font-medium text-foreground">
           {service.number}
         </span>
         <h2 className="text-4xl font-bold text-white">{service.title}</h2>
@@ -29,7 +29,7 @@ export const ServiceFeatures = memo(function ServiceFeatures({
 
       {/* Features Grid */}
       {service.features && (
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {service.features.map((feature, index) => {
             const Icon: LucideIcon =
               (Icons[feature.icon as keyof typeof Icons] as LucideIcon) ||
@@ -39,15 +39,12 @@ export const ServiceFeatures = memo(function ServiceFeatures({
               <div
                 key={index}
                 className={cn(
-                  "group relative overflow-hidden rounded-2xl bg-[#001449]/[0.08] p-6",
+                  "group relative overflow-hidden rounded-2xl bg-[#001449]/[0.8] p-6",
                   "from-[#001449]/[0.08] to-[#111111]/[0.02]",
                   "hover:from-[#001449]/[0.12] hover:to-[#111111]/[0.04]",
                   "transition-all duration-300 ease-out"
                 )}
               >
-                {/* Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-br from-[#001449]/10 to-[#af0000]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
                 <div className="relative space-y-4">
                   {/* Icon */}
                   <div className="inline-flex p-3 rounded-xl bg-white/10 text-white">
@@ -74,9 +71,9 @@ export const ServiceFeatures = memo(function ServiceFeatures({
       )}
 
       {/* Call to Action */}
-      <Button 
-        variant="outline" 
-        size="md" 
+      <Button
+        variant="outline"
+        size="md"
         rightIcon={
           <Icons.ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
         }
@@ -84,7 +81,6 @@ export const ServiceFeatures = memo(function ServiceFeatures({
       >
         Learn More
       </Button>
-
     </div>
   );
 });

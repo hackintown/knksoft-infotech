@@ -12,7 +12,8 @@ const buttonVariants = cva(
           "bg-primary font-normal text-white hover:bg-primary/90 focus:ring-primary/50",
         secondary:
           "bg-secondary font-normal text-white hover:bg-secondary/90 focus:ring-secondary/50",
-        outline: "border-2 border-primary text-primary bg-primary-foreground hover:bg-primary-foreground/90",
+        outline:
+          "border-2 border-primary text-primary bg-primary-foreground hover:bg-primary-foreground/90",
         ghost: "text-primary hover:bg-primary/10",
         danger: "bg-red-600 text-white hover:bg-red-700 focus:ring-red-500/50",
       },

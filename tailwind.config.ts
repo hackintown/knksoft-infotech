@@ -69,14 +69,19 @@ export default {
       },
     },
     animation: {
-      scroll:
-        "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
+      "scroll-left":
+        "scroll-left var(--animation-duration, 40s) linear infinite",
+      "scroll-right":
+        "scroll-right var(--animation-duration, 40s) linear infinite",
     },
     keyframes: {
-      scroll: {
-        to: {
-          transform: "translate(calc(-50% - 0.5rem))",
-        },
+      "scroll-left": {
+        "0%": { transform: "translateX(0)" },
+        "100%": { transform: "translateX(calc(-50% - 1.5rem))" },
+      },
+      "scroll-right": {
+        "0%": { transform: "translateX(calc(-50% - 1.5rem))" },
+        "100%": { transform: "translateX(0)" },
       },
     },
   },

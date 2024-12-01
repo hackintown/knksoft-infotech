@@ -1,236 +1,200 @@
 "use client";
 
-import React, { useCallback, useState } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Swiper as SwiperType } from "swiper/types";
-import { motion } from "framer-motion";
-import {
-  EffectCoverflow,
-  Navigation,
-  Autoplay,
-  Pagination,
-} from "swiper/modules";
 import Image from "next/image";
-import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import { ArrowLeft, ArrowRight } from "lucide-react";
+import { slides } from "./data";
+import { Button } from "../ui/Button/Button";
+import * as Icons from "lucide-react";
+const NextArrow = ({ onClick }: { onClick?: () => void }) => (
+  <button
+    onClick={onClick}
+    className="absolute right-4 lg:right-2 top-1/2 z-10 -translate-y-1/2 transform rounded-full bg-white p-2 shadow-lg transition-all hover:bg-gray-100 md:right-8"
+  >
+    <ArrowRight className="h-6 w-6" />
+  </button>
+);
 
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/effect-coverflow";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-
-const slides = [
-  {
-    imageUrl:
-      "https://img.freepik.com/free-vector/business-website-page-design-template-with-three-launching-rockets-features_1284-54889.jpg?t=st=1732370104~exp=1732373704~hmac=d41a1e2a912590ad04df0dc046c3a989e57b4fa83d82b38f88fc2ba064ee1c79&w=740",
-    alt: "Project 1",
-    blurDataURL: "data:image/jpeg;base64,/9j...",
-  },
-  {
-    imageUrl:
-      "https://img.freepik.com/premium-photo/poster-man-sitting-front-laptop-with-man-it_1191871-27524.jpg?w=740",
-    alt: "Project 2",
-    blurDataURL: "data:image/jpeg;base64,/9j...",
-  },
-  {
-    imageUrl:
-      "https://img.freepik.com/premium-vector/mock-up-web-apps-presentation_774564-145.jpg?w=740",
-    alt: "Project 4",
-    blurDataURL: "data:image/jpeg;base64,/9j...",
-  },
-  {
-    imageUrl:
-      "https://img.freepik.com/premium-vector/mock-up-web-apps-presentation_774564-145.jpg?w=740",
-    alt: "Project 5",
-    blurDataURL: "data:image/jpeg;base64,/9j...",
-  },
-  {
-    imageUrl:
-      "https://img.freepik.com/premium-vector/mock-up-web-apps-presentation_774564-145.jpg?w=740",
-    alt: "Project 3",
-    blurDataURL: "data:image/jpeg;base64,/9j...",
-  },
-  {
-    imageUrl:
-      "https://img.freepik.com/premium-vector/mock-up-web-apps-presentation_774564-145.jpg?w=740",
-    alt: "Project 6",
-    blurDataURL: "data:image/jpeg;base64,/9j...",
-  },
-  {
-    imageUrl:
-      "https://img.freepik.com/premium-vector/mock-up-web-apps-presentation_774564-145.jpg?w=740",
-    alt: "Project 7",
-    blurDataURL: "data:image/jpeg;base64,/9j...",
-  },
-  {
-    imageUrl:
-      "https://img.freepik.com/premium-vector/mock-up-web-apps-presentation_774564-145.jpg?w=740",
-    alt: "Project 8",
-    blurDataURL: "data:image/jpeg;base64,/9j...",
-  },
-  {
-    imageUrl:
-      "https://img.freepik.com/premium-vector/mock-up-web-apps-presentation_774564-145.jpg?w=740",
-    alt: "Project 9",
-    blurDataURL: "data:image/jpeg;base64,/9j...",
-  },
-];
+const PrevArrow = ({ onClick }: { onClick?: () => void }) => (
+  <button
+    onClick={onClick}
+    className="absolute left-4 lg:left-2 top-1/2 z-10 -translate-y-1/2 transform rounded-full bg-white p-2 shadow-lg transition-all hover:bg-gray-100 md:left-8"
+  >
+    <ArrowLeft className="h-6 w-6" />
+  </button>
+);
 
 export default function Portfolio() {
-  const [swiperInstance, setSwiperInstance] = useState<SwiperType | null>(null);
-  const [isBeginning, setIsBeginning] = useState(true);
-  const [isEnd, setIsEnd] = useState(false);
-
-  const handlePrev = useCallback(() => {
-    if (swiperInstance) {
-      swiperInstance.slidePrev();
-    }
-  }, [swiperInstance]);
-
-  const handleNext = useCallback(() => {
-    if (swiperInstance) {
-      swiperInstance.slideNext();
-    }
-  }, [swiperInstance]);
-
-  const handleSlideChange = useCallback(() => {
-    if (swiperInstance) {
-      setIsBeginning(swiperInstance.isBeginning);
-      setIsEnd(swiperInstance.isEnd);
-    }
-  }, [swiperInstance]);
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    fade: true,
+  };
 
   return (
     <div className="relative overflow-hidden">
-      <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:50px]" />
-      <div className="absolute h-full w-full bg-gradient-to-br from-primary/5 via-transparent to-secondary/5" />
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        className="max-w-7xl mx-auto mb-2 md:mb-8 lg:mb-12"
+      >
+        <h2 className="text-3xl font-bold text-center tracking-tight sm:text-4xl lg:text-5xl mb-4">
+          Featured&nbsp;
+          <span className="text-primary mt-2">Projects</span>
+        </h2>
+        <p className="mt-2 max-w-3xl mx-auto text-base font-thin lg:text-lg text-foreground text-center mb-8">
+          Using the latest technology and industry expertise, we built top-end
+          Android and iOS-based applications that add value to the business and
+          user experience.
+        </p>
+      </motion.div>
+      <Slider {...settings}>
+        {slides.map((slide, index) => (
+          <div key={index} className="relative">
+            <div className="grid min-h-screen grid-cols-1 md:grid-cols-2">
+              <motion.div
+                initial={{ opacity: 0, x: -50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5 }}
+                className="flex flex-col justify-center px-8 py-12 text-white md:px-16"
+                style={{ backgroundColor: slide.leftBgColor }}
+              >
+                <span className="mb-4 text-sm font-medium uppercase tracking-wider text-gray-300">
+                  {slide.category}
+                </span>
 
-      <div className="container pt-12 relative">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-4 lg:mb-6"
-        >
+                <h2 className="mb-6 text-4xl font-bold leading-tight md:text-5xl lg:text-6xl">
+                  {slide.title}
+                </h2>
+                <p className="mb-8 text-lg text-gray-300 font-thin">
+                  {slide.description}
+                </p>
 
-          {/* Main Heading */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-          >
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl mb-4">
-              Transforming Ideas Into
-              <span className="text-primary block mt-2">
-                Digital Excellence
-              </span>
-            </h2>
-          </motion.div>
-
-          {/* Description */}
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="max-w-2xl text-base font-light lg:text-lg text-muted-foreground mx-auto"
-          >
-            Explore our portfolio of successful projects across web development,
-            mobile applications, cloud solutions, and enterprise software.
-          </motion.p>
-        </motion.div>
-
-        <div className="mt-10">
-          <div className="relative w-full max-w-7xl mx-auto py-10 px-10 sm:px-12 lg:px-24">
-            <Swiper
-              onSwiper={setSwiperInstance}
-              effect={"coverflow"}
-              grabCursor={true}
-              centeredSlides={true}
-              slidesPerView={2.5}
-              spaceBetween={0}
-              coverflowEffect={{
-                rotate: 50,
-                stretch: 0,
-                depth: 250,
-                modifier: 1,
-                slideShadows: false,
-              }}
-              autoplay={{
-                delay: 2000,
-                disableOnInteraction: false,
-              }}
-              loop={true}
-              navigation={{
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev",
-              }}
-              pagination={{
-                el: ".swiper-pagination",
-                clickable: true,
-              }}
-              modules={[EffectCoverflow, Navigation, Autoplay, Pagination]}
-              className="swiper-container"
-              onSlideChange={handleSlideChange}
-              breakpoints={{
-                320: {
-                  slidesPerView: 1.5,
-                },
-                500: {
-                  slidesPerView: 2,
-                },
-                768: {
-                  slidesPerView: 2,
-                },
-                1024: {
-                  slidesPerView: 2.5,
-                },
-              }}
-            >
-              {slides.map((slide, index) => (
-                <SwiperSlide key={index} className="swiper-slide">
-                  <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] rounded-2xl overflow-hidden shadow-xl">
-                    <Image
-                      src={slide.imageUrl}
-                      alt={slide.alt}
-                      fill
-                      priority={index < 2}
-                      sizes="(max-width: 640px) 90vw, (max-width: 768px) 45vw, (max-width: 1024px) 30vw, 25vw"
-                      className="object-cover transition-transform duration-300 hover:scale-105"
-                      quality={75}
-                      placeholder="blur"
-                      blurDataURL={slide.blurDataURL}
-                    />
+                {slide.stats && (
+                  <div className="mb-8 grid grid-cols-[25%_70%] gap-4">
+                    {slide.stats.downloads && (
+                      <div>
+                        <h3 className="mb-1 text-sm  font-thin uppercase">
+                          Downloads
+                        </h3>
+                        <p className="text-xl font-bold">
+                          {slide.stats.downloads}
+                        </p>
+                      </div>
+                    )}
+                    {slide.stats.country && (
+                      <div>
+                        <h3 className="mb-1 text-sm  font-thin uppercase">
+                          Country
+                        </h3>
+                        <p className="text-xl font-bold">
+                          {slide.stats.country}
+                        </p>
+                      </div>
+                    )}
+                    {slide.stats.platforms && (
+                      <div>
+                        <h3 className="mb-1 text-sm  font-thin uppercase">
+                          Platforms
+                        </h3>
+                        <p className="text-xl font-bold">
+                          {slide.stats.platforms}
+                        </p>
+                      </div>
+                    )}
+                    {slide.stats.technology && (
+                      <div>
+                        <h3 className="mb-1 text-sm font-thin uppercase">
+                          Technology
+                        </h3>
+                        <p className="text-xl font-bold">
+                          {slide.stats.technology}
+                        </p>
+                      </div>
+                    )}
                   </div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
-            <button
-              onClick={handlePrev}
-              className={`absolute top-1/2 left-0 transform -translate-y-1/2 z-10 p-2 sm:p-3 rounded-full bg-indigo-500 backdrop-blur-sm transition-all duration-300 ${
-                isBeginning
-                  ? "opacity-50 cursor-not-allowed"
-                  : "hover:opacity-80 hover:bg-indigo-600"
-              }`}
-              aria-label="Previous slide"
-              disabled={isBeginning}
-            >
-              <IoIosArrowBack className="w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10 text-white" />
-            </button>
-            <button
-              onClick={handleNext}
-              className={`absolute top-1/2 right-0 transform -translate-y-1/2 z-10 p-2 sm:p-3 rounded-full bg-indigo-500 backdrop-blur-sm transition-all duration-300 ${
-                isEnd
-                  ? "opacity-50 cursor-not-allowed"
-                  : "hover:opacity-80 hover:bg-indigo-600"
-              }`}
-              aria-label="Next slide"
-              disabled={isEnd}
-            >
-              <IoIosArrowForward className="w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10 text-white" />
-            </button>
+                )}
+
+                {slide.appStoreLink && (
+                  <div className="flex items-center gap-4">
+                    {slide.playStoreLink && (
+                      <Link
+                        href={slide.playStoreLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="transition-transform hover:scale-105"
+                      >
+                        <Image
+                          src="https://cdn-hjokj.nitrocdn.com/xKvPrJeRKcMfBVHKpjbxbYMvqmxtHXge/assets/images/optimized/rev-b1d9f1c/d3l9a8mvoa6cl8.cloudfront.net/wp-content/uploads/2022/12/06145530/Google_Play_Store_badge_EN.png"
+                          alt="Get it on Google Play"
+                          width={80}
+                          height={48}
+                          className="h-12 w-auto"
+                        />
+                      </Link>
+                    )}
+                    <Link
+                      href={slide.appStoreLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="transition-transform hover:scale-105"
+                    >
+                      <Image
+                        src="https://cdn-hjokj.nitrocdn.com/xKvPrJeRKcMfBVHKpjbxbYMvqmxtHXge/assets/images/optimized/rev-b1d9f1c/d3l9a8mvoa6cl8.cloudfront.net/wp-content/uploads/2022/12/06145523/Download_on_the_App_Store_Badge.png"
+                        alt="Download on App Store"
+                        width={80}
+                        height={48}
+                        className="h-12 w-auto"
+                      />
+                    </Link>
+                  </div>
+                )}
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="rounded-full mt-8 hover:scale-105 transition-transform duration-200 max-w-[250px] border-white"
+                  rightIcon={
+                    <Icons.ArrowRight className="w-8 h-8 p-2 group-hover:translate-x-1 transition-transform bg-primary text-white rounded-full" />
+                  }
+                >
+                  View Case Study
+                </Button>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5 }}
+                className="relative flex items-center justify-center p-8 md:p-16"
+                style={{ backgroundColor: slide.rightBgColor }}
+              >
+                <div className="relative h-[600px] w-full overflow-hidden md:h-[80vh]">
+                  <Image
+                    src={slide.image}
+                    alt={`${slide.title} Screenshot`}
+                    fill
+                    className="object-contain"
+                    loading="lazy"
+                    quality={90}
+                  />
+                </div>
+              </motion.div>
+            </div>
           </div>
-        </div>
-      </div>
+        ))}
+      </Slider>
     </div>
   );
 }

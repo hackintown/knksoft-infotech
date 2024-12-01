@@ -142,7 +142,7 @@ export default function Hero() {
   ];
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-primary/5">
+    <section className="relative min-h-screen overflow-hidden bg-[#014f99]/80">
       {/* Background Elements */}
       <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:50px]" />
       <div className="absolute h-full w-full bg-gradient-to-br from-primary/5 via-transparent to-secondary/5" />
@@ -163,19 +163,19 @@ export default function Hero() {
                 transition={{ delay: 0.2 }}
                 className="inline-flex items-center rounded-full border border-primary/10 bg-primary/5 px-4 py-1.5"
               >
-                <span className="text-sm font-medium text-primary">
+                <span className="text-sm font-medium text-red-500">
                   Trusted by Global Enterprise Leaders
                 </span>
               </motion.div>
 
-              <h1 className="text-3xl sm:text-4xl font-bold tracking-tight lg:text-5xl">
+              <h1 className="text-3xl sm:text-4xl font-bold text-white tracking-tight lg:text-5xl">
                 Professional IT Solutions for
-                <span className="inline-block">
+                <span className="inline-block !text-red-500">
                   <FlipWords words={flipWords} className="text-primary" />
                 </span>
               </h1>
 
-              <p className="max-w-2xl text-base font-thin lg:text-lg text-foreground">
+              <p className="max-w-2xl text-base font-thin lg:text-lg text-white">
                 Comprehensive IT services including custom software development,
                 cloud solutions, enterprise systems, and digital transformation.
                 From MVF development to full-scale enterprise solutions, we
@@ -187,6 +187,7 @@ export default function Hero() {
               <Button
                 size="lg"
                 variant="primary"
+                className="bg-red-500"
                 rightIcon={
                   <Icons.ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 }
@@ -201,11 +202,9 @@ export default function Hero() {
             <div className="flex flex-col gap-4">
               <div className="flex items-center gap-4">
                 <AnimatedTooltip items={teamMembers} />
-                <div className="text-xs sm:text-sm text-foreground">
+                <div className="text-xs sm:text-sm text-white ml-2">
                   Meet our leadership team with
-                  <span className="font-semibold text-foreground">
-                    20+ years
-                  </span>
+                  <span className="font-semibold text-white">20+ years</span>
                   of combined experience
                 </div>
               </div>
@@ -243,8 +242,8 @@ export default function Hero() {
                     className={cn(
                       "w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-full transition-all duration-300",
                       currentSlide === index
-                        ? "bg-primary w-4 sm:w-6"
-                        : "bg-primary/20"
+                        ? "bg-white w-4 sm:w-6"
+                        : "bg-red-500"
                     )}
                     onClick={() => goToSlide(index)}
                     aria-label={`Go to slide ${index + 1}`}

@@ -11,7 +11,12 @@ interface ServiceCardProps {
   onHover: () => void;
 }
 
-export function ServiceCard({ service, isActive, onClick, onHover }: ServiceCardProps) {
+export function ServiceCard({
+  service,
+  isActive,
+  onClick,
+  onHover,
+}: ServiceCardProps) {
   const Icon = Icons[service.icon as keyof typeof Icons] as React.ElementType;
 
   if (!Icon) {
@@ -47,7 +52,7 @@ export function ServiceCard({ service, isActive, onClick, onHover }: ServiceCard
             <h3 className="font-semibold">{service.title}</h3>
             <p
               className={`text-sm ${
-                isActive ? "text-white/70" : "text-muted-foreground"
+                isActive ? "text-white/70" : "text-foreground"
               }`}
             >
               {service.description}

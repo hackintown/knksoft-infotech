@@ -6,7 +6,7 @@ import React, { useEffect, useState } from "react";
 
 export const InfiniteMovingCards = ({
   items,
-//   direction = "left",
+  direction = "left",
   speed = "fast",
   pauseOnHover = true,
   className,
@@ -42,14 +42,15 @@ export const InfiniteMovingCards = ({
   };
 
   const getSpeed = () => {
-    if (containerRef.current) {
-      if (speed === "fast") {
-        containerRef.current.style.setProperty("--animation-duration", "20s");
-      } else if (speed === "normal") {
-        containerRef.current.style.setProperty("--animation-duration", "40s");
-      } else {
-        containerRef.current.style.setProperty("--animation-duration", "80s");
-      }
+    switch (speed) {
+      case "fast":
+        return "20s";
+      case "normal":
+        return "40s";
+      case "slow":
+        return "80s";
+      default:
+        return "40s";
     }
   };
 
@@ -64,26 +65,30 @@ export const InfiniteMovingCards = ({
       <ul
         ref={scrollerRef}
         className={cn(
-          "flex min-w-full shrink-0 gap-4 py-4",
-          start && "animate-scroll",
+          "flex min-w-full shrink-0 gap-6 py-4",
+          start && direction === "right"
+            ? "animate-scroll-right"
+            : "animate-scroll-left",
           pauseOnHover && "hover:[animation-play-state:paused]"
         )}
-        style={{
-          "--animation-duration": getSpeed(),
-        } as React.CSSProperties}
+        style={{ "--animation-duration": getSpeed() } as React.CSSProperties}
       >
         {items.map((item, idx) => (
           <li
-            className="relative w-[150px] max-w-full flex-shrink-0 px-4"
+            className="relative w-[180px] max-w-full flex-shrink-0"
             key={item.name + idx}
           >
-            <div className="rounded-lg bg-background/50 p-4 border border-primary/10">
+            <div
+              className="rounded-xl bg-white p-6 border border-white/10 backdrop-blur-sm 
+                          transition-all duration-300 hover:scale-105 hover:border-white/30 
+                          shadow-[0_8px_16px_rgb(0_0_0/0.1)]"
+            >
               <Image
                 src={item.image}
                 alt={item.name}
-                width={100}
-                height={100}
-                className="h-12 w-auto object-contain"
+                width={120}
+                height={120}
+                className="h-14 w-auto object-contain filter brightness-95"
               />
             </div>
           </li>
@@ -91,4 +96,4 @@ export const InfiniteMovingCards = ({
       </ul>
     </div>
   );
-}; 
+};

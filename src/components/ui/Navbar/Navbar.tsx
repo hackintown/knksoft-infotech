@@ -26,7 +26,7 @@ export default function Navbar() {
   }, []);
 
   const headerClasses = cn(
-    "fixed w-full top-0 z-50 shadow-sm",
+    "fixed w-full top-0 z-50 shadow-sm bg-white",
     isScrolled && "shadow-lg shadow-foreground/5 bg-background"
   );
 

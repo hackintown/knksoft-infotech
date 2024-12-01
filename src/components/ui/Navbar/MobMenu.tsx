@@ -58,30 +58,32 @@ export default function MobMenu({ Menus }: MobMenuProps) {
     enter: {
       height: "auto",
       opacity: 1,
-      transition: { 
+      transition: {
         height: { duration: 0.3 },
-        opacity: { duration: 0.2 }
-      }
+        opacity: { duration: 0.2 },
+      },
     },
     exit: {
       height: 0,
       opacity: 0,
       transition: {
         height: { duration: 0.2 },
-        opacity: { duration: 0.1 }
-      }
-    }
+        opacity: { duration: 0.1 },
+      },
+    },
   };
 
-  const filteredMenus = Menus.map(menu => ({
+  const filteredMenus = Menus.map((menu) => ({
     ...menu,
-    subMenu: menu.subMenu?.filter(item =>
-      item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      item.desc?.toLowerCase().includes(searchQuery.toLowerCase())
-    )
-  })).filter(menu => 
-    menu.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    (menu.subMenu && menu.subMenu.length > 0)
+    subMenu: menu.subMenu?.filter(
+      (item) =>
+        item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        item.desc?.toLowerCase().includes(searchQuery.toLowerCase())
+    ),
+  })).filter(
+    (menu) =>
+      menu.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      (menu.subMenu && menu.subMenu.length > 0)
   );
 
   return (
@@ -104,7 +106,7 @@ export default function MobMenu({ Menus }: MobMenuProps) {
               {/* Search Bar */}
               <div className="p-4 border-b border-border/10">
                 <div className="relative">
-                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-foreground" />
                   <input
                     type="text"
                     placeholder="Search menu..."
@@ -123,7 +125,7 @@ export default function MobMenu({ Menus }: MobMenuProps) {
                     const hasSubMenu = menu.subMenu && menu.subMenu.length > 0;
 
                     return (
-                      <li 
+                      <li
                         key={menu.name}
                         className={cn(
                           "rounded-lg overflow-hidden border border-transparent",
@@ -177,9 +179,11 @@ export default function MobMenu({ Menus }: MobMenuProps) {
                                       </div>
                                     )}
                                     <div>
-                                      <h4 className="font-medium">{item.name}</h4>
+                                      <h4 className="font-medium">
+                                        {item.name}
+                                      </h4>
                                       {item.desc && (
-                                        <p className="text-sm text-muted-foreground mt-0.5">
+                                        <p className="text-sm text-foreground mt-0.5">
                                           {item.desc}
                                         </p>
                                       )}
