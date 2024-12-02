@@ -90,11 +90,11 @@ export default function Services() {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="mt-16 mx-4 lg:mx-auto max-w-7xl"
+        className="mt-16 container"
       >
         <div className="relative rounded-2xl overflow-hidden">
           <div
-            className="relative px-6 py-6 lg:py-12"
+            className="relative px-6 py-6 lg:py-12 lg:px-12"
             style={{
               backgroundImage: 'url("/images/cta-bg.webp")',
               backgroundSize: "cover",

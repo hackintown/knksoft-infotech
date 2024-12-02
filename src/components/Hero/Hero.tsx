@@ -142,7 +142,7 @@ export default function Hero() {
   ];
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-primary/5">
+    <section className="relative overflow-hidden bg-primary/5">
       {/* Background Elements */}
       <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:50px]" />
       <div className="absolute h-full w-full bg-gradient-to-br from-primary/5 via-transparent to-secondary/5" />
@@ -212,7 +212,7 @@ export default function Hero() {
             </div>
           </motion.div>
           <motion.div
-            className="w-full relative flex justify-center items-center mt-8 lg:mt-0 max-w-[315px] sm:max-w-[500px] lg:max-w-[600px] xl:max-w-2xl"
+            className="w-full relative flex justify-center items-center mt-8 lg:mt-0 max-w-[320px] sm:max-w-[500px] lg:max-w-[600px] xl:max-w-2xl"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
