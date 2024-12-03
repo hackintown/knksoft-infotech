@@ -101,50 +101,50 @@ export default function WhyChooseUs() {
                 backgroundPosition: "center",
               }}
             >
-              <div className="relative px-6 py-6 lg:py-12">
-                <div className="max-w-2xl relative z-10 flex flex-col items-center sm:items-start">
-                  <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-                    <span className="text-primary">
-                      Innovate with Our Scalable
-                    </span>
-                    <br />
-                    Software Solutions
-                  </h3>
-                  <p className="text-base md:text-lg text-gray-700 mb-8">
-                    Let our team provide you with a no-cost, no-commitment
-                    <br />
-                    technical proposal for your next enterprise custom project.
-                  </p>
-                  <Button
-                    variant="outline"
-                    size="lg"
-                    className="rounded-full text-sm sm:text-base"
-                    rightIcon={
-                      <Icons.ArrowRight className="w-8 h-8 p-2 group-hover:translate-x-1 transition-transform bg-primary text-white rounded-full" />
-                    }
-                  >
-                    Our Engagement Model
-                  </Button>
-                </div>
 
-                <div className="hidden lg:block absolute top-0 lg:top-5 right-0 h-full">
-                  <Image
-                    src="/images/cta-arrow.svg"
-                    alt="CTA Arrow"
-                    width={120}
-                    height={80}
-                    className="absolute left-0 top-24 z-10"
-                  />
-
-                  <Image
-                    src="https://cdn-hjokj.nitrocdn.com/xKvPrJeRKcMfBVHKpjbxbYMvqmxtHXge/assets/images/optimized/rev-b1d9f1c/d3l9a8mvoa6cl8.cloudfront.net/wp-content/uploads/2022/12/06150657/home_cta4.png"
-                    alt="Professional consultant"
-                    width={500}
-                    height={500}
-                    className="object-contain h-full"
-                  />
-                </div>
+              <div className="max-w-2xl relative z-10 flex flex-col items-center sm:items-start">
+                <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+                  <span className="text-primary">
+                    Innovate with Our Scalable
+                  </span>
+                  <br />
+                  Software Solutions
+                </h3>
+                <p className="text-base md:text-lg text-gray-700 mb-8">
+                  Let our team provide you with a no-cost, no-commitment
+                  <br />
+                  technical proposal for your next enterprise custom project.
+                </p>
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="rounded-full text-sm sm:text-base"
+                  rightIcon={
+                    <Icons.ArrowRight className="w-8 h-8 p-2 group-hover:translate-x-1 transition-transform bg-primary text-white rounded-full" />
+                  }
+                >
+                  Our Engagement Model
+                </Button>
               </div>
+
+              <div className="hidden lg:block absolute top-0 lg:top-5 right-0 h-full">
+                <Image
+                  src="/images/cta-arrow.svg"
+                  alt="CTA Arrow"
+                  width={120}
+                  height={80}
+                  className="absolute left-0 top-24 z-10"
+                />
+
+                <Image
+                  src="https://cdn-hjokj.nitrocdn.com/xKvPrJeRKcMfBVHKpjbxbYMvqmxtHXge/assets/images/optimized/rev-b1d9f1c/d3l9a8mvoa6cl8.cloudfront.net/wp-content/uploads/2022/12/06150657/home_cta4.png"
+                  alt="Professional consultant"
+                  width={500}
+                  height={500}
+                  className="object-contain h-full"
+                />
+              </div>
+
             </div>
           </div>
         </motion.div>

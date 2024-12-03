@@ -8,7 +8,17 @@ import WhoWeAre from "@/components/WhoWeAre/WhoWeAre";
 import OurProcess from "@/components/ui/OurProcess/OurProcess";
 import { Partners } from "@/components/Partners/Partners";
 import FAQ from "@/components/ui/FAQ";
-export default function Home() {
+import { getBlogPosts } from "@/lib/blog/api";
+import { BlogPost } from "@/lib/blog/type";
+import Blog from "@/components/Blogs/Blog";
+
+export default async function Home() {
+  let blogPosts: BlogPost[] = [];
+  try {
+    blogPosts = await getBlogPosts();
+  } catch (error) {
+    console.error("Failed to fetch blog posts:", error);
+  }
   return (
     <main>
       <Hero />
@@ -19,6 +29,7 @@ export default function Home() {
       <WhyChooseUs />
       <Partners />
       <Testimonials />
+      <Blog initialBlogPosts={blogPosts} />
       <OurProcess />
       <FAQ />
     </main>
