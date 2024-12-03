@@ -6,10 +6,10 @@ import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { useDropzone } from "react-dropzone";
 import { Loader2, X, Upload, Tag, Pencil, Trash2 } from "lucide-react";
-import "react-quill/dist/quill.snow.css";
+import "react-quill-new/dist/quill.snow.css";
 import { BlogPost } from "@/lib/blog/type";
 
-const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
+const ReactQuill = dynamic(() => import("react-quill-new"), { ssr: false });
 
 interface CreateBlogPostProps {
   onPostCreated: (post: BlogPost) => void;

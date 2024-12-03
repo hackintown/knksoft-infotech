@@ -9,17 +9,21 @@ let db: Db;
 async function connectToDatabase() {
   if (!db) {
     await client.connect();
-    db = client.db("blogdb");
+    db = client.db("knksoftinfotech");
   }
 }
 
-export async function GET() {
+export async function GET(request: NextRequest) {
   try {
+    const { searchParams } = new URL(request.url);
+    const blogPostId = searchParams.get('blogPostId');
+    
     await connectToDatabase();
     const collection = db.collection("comments");
 
+    const query = blogPostId ? { blogPostId } : {};
     const comments = await collection
-      .find({})
+      .find(query)
       .sort({ createdAt: -1 })
       .toArray();
 
@@ -39,7 +43,7 @@ export async function POST(request: NextRequest) {
 
     if (!blogPostId || !author || !content) {
       return NextResponse.json(
-        { error: "Missing required fields" },
+        { error: "Blog post ID, author, and content are required" },
         { status: 400 }
       );
     }

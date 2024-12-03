@@ -9,7 +9,7 @@ let db: Db;
 async function connectToDatabase() {
   if (!db) {
     await client.connect();
-    db = client.db("blogdb");
+    db = client.db("knksoftinfotech");
   }
 }
 

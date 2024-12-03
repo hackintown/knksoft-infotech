@@ -33,7 +33,7 @@ export default function BlogPostCard({
       month: "long",
       day: "numeric",
     };
-    return new Date(dateString).toLocaleDateString(undefined, options);
+    return new Date(dateString).toLocaleDateString("en-US", options);
   };
 
   const estimateReadTime = (content?: string) => {

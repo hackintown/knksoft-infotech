@@ -12,3 +12,11 @@ export interface BlogPost {
     };
     readingTime?: string;
   }
+
+export interface Comment {
+  _id: string;
+  blogPostId: string;
+  author: string;
+  content: string;
+  createdAt: string;
+}
