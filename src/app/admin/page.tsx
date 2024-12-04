@@ -11,27 +11,23 @@ export default function AdminLogin() {
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (username === "iamprakashchy" && password === "Prakash@Manoj") {
-      try {
-        const response = await fetch("/api/auth/admin-login", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ username, password }),
-        });
+    try {
+      const response = await fetch("/api/auth/admin-login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ username, password }),
+      });
 
-        if (response.ok) {
-          router.push("/admin/dashboard");
-          router.refresh();
-        } else {
-          setError("Login failed");
-        }
-      } catch {
-        setError("An error occurred");
+      if (response.ok) {
+        router.push("/admin/dashboard");
+        router.refresh();
+      } else {
+        setError("Invalid username or password");
       }
-    } else {
-      setError("Invalid username or password");
+    } catch {
+      setError("An error occurred");
     }
   };
 
