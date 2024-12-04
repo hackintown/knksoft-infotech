@@ -73,6 +73,7 @@ export default {
         "scroll-left var(--animation-duration, 40s) linear infinite",
       "scroll-right":
         "scroll-right var(--animation-duration, 40s) linear infinite",
+      "bulbPulse": "bulbPulse 2s infinite",
     },
     keyframes: {
       "scroll-left": {
@@ -82,6 +83,10 @@ export default {
       "scroll-right": {
         "0%": { transform: "translateX(calc(-50% - 1.5rem))" },
         "100%": { transform: "translateX(0)" },
+      },
+      "bulbPulse": {
+        "0%, 100%": { transform: "scale(1)" },
+        "50%": { transform: "scale(1.1)" },
       },
     },
   },

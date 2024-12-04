@@ -6,9 +6,9 @@ export const NAVIGATION_MENUS = [
     subMenuHeading: ["Custom Software Development", "Cloud Services"],
     subMenu: [
       {
-        name: "MVF Development",
+        name: "MVP Development",
         desc: "Build scalable minimum viable features",
-        href: "/services/mvf-development",
+        href: "/mvp-development",
         iconName: "Code2",
         group: "Custom Software Development",
       },
