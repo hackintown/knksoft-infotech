@@ -58,14 +58,13 @@ export default function BlogPostCard({
 
   return (
     <motion.div
-      className={`bg-gradient-to-br from-gray-800 to-blue-900 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col h-full ${
-        featured ? "border-2 border-yellow-400" : ""
-      }`}
+      className={`rounded-lg overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 flex flex-col h-full ${featured ? "border-2 border-red-300" : ""
+        }`}
       whileHover={{ scale: 1.03 }}
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
     >
-      <div className="relative h-48 overflow-hidden">
+      <div className="relative h-48 lg:h-64 overflow-hidden">
         <Image
           src={post.image || "/placeholder.svg"}
           alt={post.title || "Blog post"}
@@ -89,31 +88,31 @@ export default function BlogPostCard({
       </div>
       <div className=" relative p-6 flex flex-col flex-grow">
         <Link href={`/blogs/${encodeURIComponent(slug)}`}>
-          <h3 className="text-2xl font-semibold text-blue-300 mb-4 line-clamp-2 hover:text-blue-400 transition-colors duration-200">
+          <h3 className="text-2xl font-semibold mb-4 line-clamp-2 hover:text-blue-400 transition-colors duration-200">
             {post.title || "Untitled Post"}
           </h3>
         </Link>
 
-        <div className="flex flex-wrap items-center text-sm text-gray-300 mb-4 gap-4">
+        <div className="flex flex-wrap items-center text-sm mb-4 gap-4">
           <div className="flex items-center">
-            <Calendar className="w-4 h-4 mr-2 text-blue-400" />
+            <Calendar className="w-4 h-4 mr-2 text-primary" />
             <span className="font-light">{formatDate(post.createdAt)}</span>
           </div>
           <div className="flex items-center">
-            <Clock className="w-4 h-4 mr-2 text-blue-400" />
+            <Clock className="w-4 h-4 mr-2 text-primary" />
             <span className="font-light">
               {estimateReadTime(post.content)} min read
             </span>
           </div>
         </div>
-        <div className="text-gray-300 mb-6 overflow-hidden line-clamp-3 text-sm flex-grow">
+        <div className="mb-6 overflow-hidden font-normal line-clamp-3 text-sm flex-grow">
           {truncate(post.content, 150)}
         </div>
         <div className="flex flex-wrap gap-2 mb-6">
           {post.tags?.slice(0, 3).map((tag) => (
             <span
               key={tag}
-              className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-800 text-blue-200"
+              className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10"
             >
               <Tag className="w-3 h-3 mr-1" />
               {tag}
@@ -121,9 +120,9 @@ export default function BlogPostCard({
           ))}
         </div>
         <Link href={`/blogs/${encodeURIComponent(slug)}`} className="mt-auto">
-          <span className="inline-block w-full text-center font-semibold py-3 px-6 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition-colors duration-300">
+          <Button variant="primary" size="lg" className="w-full rounded-full">
             Continue Reading
-          </span>
+          </Button>
         </Link>
         {featured && (
           <div className="absolute -top-2 left-2 bg-yellow-500 text-white text-xs px-2 py-1 rounded">

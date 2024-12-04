@@ -29,7 +29,7 @@ export default function PopularBlogPosts({ posts }: PopularBlogPostsProps) {
         transition={{ delay: 0.2, type: "spring", stiffness: 100 }}
         className="flex items-center justify-between mb-4 sm:mb-6"
       >
-        <h2 className="text-2xl sm:text-4xl font-bold text-blue-300">
+        <h2 className="text-2xl sm:text-4xl font-bold text-primary">
           Featured Insights
         </h2>
         <div className="h-1 flex-grow mx-4 bg-gradient-to-r from-blue-500 to-purple-500"></div>

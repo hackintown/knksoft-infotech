@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const OurProcess = () => {
   return (
-    <div className="py-12 lg:pb-20 xl:pb-24 bg-primary/5">
+    <div className="py-12 lg:pb-20 xl:pb-24">
       <div className="container px-4">
         <div className="flex flex-col justify-center items-center mb-10">
           <h2 className="text-3xl font-bold text-center tracking-tight sm:text-4xl lg:text-5xl mb-4">

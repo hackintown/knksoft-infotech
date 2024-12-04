@@ -10,7 +10,7 @@ import { Partners } from "@/components/Partners/Partners";
 import FAQ from "@/components/ui/FAQ";
 import { getBlogPosts } from "@/lib/blog/api";
 import { BlogPost } from "@/lib/blog/type";
-import Blog from "@/components/Blogs/Blog";
+import BlogSection from "@/components/Home/BlogSection";
 
 export default async function Home() {
   let blogPosts: BlogPost[] = [];
@@ -29,7 +29,7 @@ export default async function Home() {
       <WhyChooseUs />
       <Partners />
       <Testimonials />
-      <Blog initialBlogPosts={blogPosts} />
+      <BlogSection posts={blogPosts} />
       <OurProcess />
       <FAQ />
     </main>

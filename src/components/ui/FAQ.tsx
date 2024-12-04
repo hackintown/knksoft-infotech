@@ -172,7 +172,7 @@ export default function FAQ() {
   const secondHalf = useMemo(() => faqs.slice(Math.ceil(faqs.length / 2)), []);
 
   return (
-    <div className="bg-gradient-to-br from-purple-100 to-green-50 py-12 px-4 sm:px-6 lg:px-8 shadow-sm">
+    <div className="bg-primary/5 py-12 px-4 sm:px-6 lg:px-8 shadow-sm">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-3xl font-bold text-center tracking-tight sm:text-4xl lg:text-5xl mb-4 lg:mb-6">
           Frequently Asked&nbsp;
