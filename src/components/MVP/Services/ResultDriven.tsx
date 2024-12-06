@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 export default function ResultDriven() {
     return (
-        <section className="relative overflow-hidden py-8 sm:py-12 md:py-16 lg:py-20 bg-primary/5 lg:!pb-[15.5rem]">
+        <section className="relative overflow-hidden py-8 sm:py-12 md:py-16 lg:py-20 lg:!pb-[15.5rem]">
             <div className="container mx-auto px-4 sm:px-6">
                 <div className="grid gap-8 lg:grid-cols-2 lg:gap-12 items-center">
                     <motion.div
@@ -12,7 +12,7 @@ export default function ResultDriven() {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5 }}
-                        className="absolute left-0 -top-12 w-full lg:w-[45%] h-[400px] sm:h-[600px] lg:h-[810px] hidden lg:block"
+                        className="absolute left-0 -top-8 w-full lg:w-[45%] h-[400px] sm:h-[600px] lg:h-[810px] hidden lg:block"
                     >
                         <Image
                             src="https://cdn-hjokj.nitrocdn.com/xKvPrJeRKcMfBVHKpjbxbYMvqmxtHXge/assets/images/optimized/rev-47d43d1/d3l9a8mvoa6cl8.cloudfront.net/wp-content/uploads/2023/07/27094922/ab_mvp.png"

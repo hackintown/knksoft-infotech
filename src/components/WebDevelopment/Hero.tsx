@@ -77,12 +77,12 @@ export default function Hero() {
     },
   ];
 
+
   const flipWords = [
-    "Enterprise Solutions",
-    "Cloud Architecture",
-    "Custom Development",
-    "Digital Transformation",
-    "DevOps Excellence",
+    "Solutions",
+    "Services",
+    "Projects",
+    "Ideas",
   ];
   const imageSlide = [
     "https://www.valueappz.com/images/New-theme-assets/graphic-tabs-home1.png",
@@ -120,17 +120,14 @@ export default function Hero() {
               </motion.div>
 
               <h1 className="text-3xl sm:text-4xl font-bold tracking-tight lg:text-5xl">
-                Professional IT Solutions for
+                Your complete web development
                 <span className="inline-block">
                   <FlipWords words={flipWords} className="text-primary" />
                 </span>
               </h1>
 
               <p className="max-w-2xl text-base font-thin lg:text-lg text-foreground">
-                Comprehensive IT services including custom software development,
-                cloud solutions, enterprise systems, and digital transformation.
-                From MVF development to full-scale enterprise solutions, we
-                deliver excellence.
+                With a dedicated team of web development experts, who provide customized web application development services that cater to your specific needs. Hire web application developers today!
               </p>
             </div>
 
@@ -142,7 +139,7 @@ export default function Hero() {
                   <Icons.ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 }
               >
-                Schedule Consultation
+                Build a Custom Web App
               </Button>
               <Button size="lg" variant="outline">
                 View Projects

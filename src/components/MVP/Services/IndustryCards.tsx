@@ -12,7 +12,7 @@ const industries = [
   { title: "Logistics and Transportation", description: "Our MVP for logistics and transportation optimizes supply chain management, fleet operations, and inventory control, helping clients enhance efficiency and reduce operational costs.", icon: "🚛" },
 ];
 
-const IndustryCard = memo(({ industry, idx }: { industry: typeof industries[0]; idx: number } ) => (
+const IndustryCard = memo(({ industry, idx }: { industry: typeof industries[0]; idx: number }) => (
   <motion.div
     key={idx}
     className="bg-white shadow-lg p-6 rounded-lg hover:shadow-xl transition"
@@ -30,7 +30,7 @@ IndustryCard.displayName = 'IndustryCard';
 
 export default function IndustryCards() {
   return (
-    <section className="py-16 pb-[280px] bg-gray-50 relative">
+    <section className="py-16 pb-[280px] relative lg:-mt-40">
       <div className="container mx-auto px-5 lg:px-20">
         <motion.div
           initial="hidden"
@@ -48,10 +48,10 @@ export default function IndustryCards() {
         </motion.div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {industries.map((industry, idx) => (
-            <IndustryCard 
-              key={`${industry.title}-${idx}`} 
-              industry={industry} 
-              idx={idx} 
+            <IndustryCard
+              key={`${industry.title}-${idx}`}
+              industry={industry}
+              idx={idx}
             />
           ))}
         </div>

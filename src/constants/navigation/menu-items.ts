@@ -15,7 +15,7 @@ export const NAVIGATION_MENUS = [
       {
         name: "Custom Web Development",
         desc: "Modern web applications & solutions",
-        href: "/services/web-development",
+        href: "/custom-web-development",
         iconName: "Globe",
         group: "Custom Software Development",
       },

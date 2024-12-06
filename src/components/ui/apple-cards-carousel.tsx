@@ -16,14 +16,15 @@ import { useOutsideClick } from "@/hooks/use-outside-click";
 interface CarouselProps {
   items: JSX.Element[];
   initialScroll?: number;
+  ariaLabel?: string;
 }
 
-type Card = {
+export interface Card {
   src: string;
   title: string;
   category: string;
   content: React.ReactNode;
-};
+}
 
 export const CarouselContext = createContext<{
   onCardClose: (index: number) => void;
@@ -33,11 +34,20 @@ export const CarouselContext = createContext<{
   currentIndex: 0,
 });
 
-export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
+export const Carousel = ({
+  items,
+  initialScroll = 0,
+  ariaLabel = "Content carousel",
+}: CarouselProps) => {
   const carouselRef = React.useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = React.useState(false);
   const [canScrollRight, setCanScrollRight] = React.useState(true);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    setIsLoading(false);
+  }, []);
 
   useEffect(() => {
     if (carouselRef.current) {
@@ -87,64 +97,82 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
     <CarouselContext.Provider
       value={{ onCardClose: handleCardClose, currentIndex }}
     >
-      <div className="relative w-full">
-        <div
-          className="flex w-full overflow-x-scroll overscroll-x-auto py-10 md:py-20 scroll-smooth [scrollbar-width:none]"
-          ref={carouselRef}
-          onScroll={checkScrollability}
-        >
-          <div
-            className={cn(
-              "absolute right-0  z-[1000] h-auto  w-[5%] overflow-hidden bg-gradient-to-l"
-            )}
-          ></div>
-
-          <div
-            className={cn(
-              "flex flex-row justify-start gap-4 pl-4",
-              "max-w-7xl mx-auto" // remove max-w-4xl if you want the carousel to span the full width of its container
-            )}
-          >
-            {items.map((item, index) => (
-              <motion.div
-                initial={{
-                  opacity: 0,
-                  y: 20,
-                }}
-                animate={{
-                  opacity: 1,
-                  y: 0,
-                  transition: {
-                    duration: 0.5,
-                    delay: 0.2 * index,
-                    ease: "easeOut",
-                    once: true,
-                  },
-                }}
-                key={"card" + index}
-                className="last:pr-[5%] md:last:pr-[33%]  rounded-3xl"
-              >
-                {item}
-              </motion.div>
-            ))}
+      <div
+        className="relative w-full"
+        role="region"
+        aria-label={ariaLabel}
+      >
+        {isLoading ? (
+          <div className="container mx-auto px-4">
+            <div className="flex items-center justify-center py-20">
+              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary" />
+            </div>
           </div>
-        </div>
-        <div className="flex justify-end gap-2 mr-10">
-          <button
-            className="relative z-40 h-10 w-10 rounded-full bg-gray-100 flex items-center justify-center disabled:opacity-50"
-            onClick={scrollLeft}
-            disabled={!canScrollLeft}
-          >
-            <ArrowLeft className="h-6 w-6 text-gray-500" />
-          </button>
-          <button
-            className="relative z-40 h-10 w-10 rounded-full bg-gray-100 flex items-center justify-center disabled:opacity-50"
-            onClick={scrollRight}
-            disabled={!canScrollRight}
-          >
-            <ArrowRight className="h-6 w-6 text-gray-500" />
-          </button>
-        </div>
+        ) : (
+          <>
+            <div
+              className="flex w-full overflow-x-scroll overscroll-x-auto py-10 scroll-smooth [scrollbar-width:none]"
+              ref={carouselRef}
+              onScroll={checkScrollability}
+              role="list"
+            >
+              <div className="container mx-auto">
+                <div
+                  className={cn(
+                    "flex flex-row justify-start gap-4",
+                    "relative"
+                  )}
+                >
+                  {items.map((item, index) => (
+                    <motion.div
+                      initial={{
+                        opacity: 0,
+                        y: 20,
+                      }}
+                      animate={{
+                        opacity: 1,
+                        y: 0,
+                        transition: {
+                          duration: 0.5,
+                          delay: 0.2 * index,
+                          ease: "easeOut",
+                          once: true,
+                        },
+                      }}
+                      key={"card" + index}
+                      className={cn(
+                        "rounded-3xl",
+                        index === items.length - 1 ? "mr-[33vw]" : ""
+                      )}
+                    >
+                      {item}
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            </div>
+            <div className="container mx-auto px-4">
+              <div className="flex justify-end gap-2">
+                <button
+                  className="relative z-40 h-10 w-10 rounded-full bg-gray-100 flex items-center justify-center disabled:opacity-50"
+                  onClick={scrollLeft}
+                  disabled={!canScrollLeft}
+                  aria-label="Scroll left"
+                >
+                  <ArrowLeft className="h-6 w-6 text-gray-500" />
+                </button>
+                <button
+                  className="relative z-40 h-10 w-10 rounded-full bg-gray-100 flex items-center justify-center disabled:opacity-50"
+                  onClick={scrollRight}
+                  disabled={!canScrollRight}
+                  aria-label="Scroll right"
+                >
+                  <ArrowRight className="h-6 w-6 text-gray-500" />
+                </button>
+              </div>
+            </div>
+          </>
+        )}
       </div>
     </CarouselContext.Provider>
   );
