@@ -22,7 +22,7 @@ export const NAVIGATION_MENUS = [
       {
         name: "Custom Mobile App Development",
         desc: "Native & cross-platform mobile apps",
-        href: "/services/mobile-development",
+        href: "/mobile-app-development",
         iconName: "Smartphone",
         group: "Custom Software Development",
       },

@@ -81,11 +81,11 @@ const TechStackTabs = () => {
         className="max-w-7xl mx-auto mb-2 md:mb-8 lg:mb-12"
       >
         <h2 className="text-3xl font-bold text-center tracking-tight sm:text-4xl lg:text-5xl mb-4">
-          Featured&nbsp;
-          <span className="text-primary mt-2">Projects</span>
+          Tech Stack&nbsp;
+          <span className="text-primary mt-2">We Use</span>
         </h2>
         <p className="mt-2 max-w-3xl mx-auto text-base font-thin lg:text-lg text-foreground text-center mb-8">
-          Using the latest technology and industry expertise, we built top-end
+          We use the latest technology and industry expertise to build top-end
           Android and iOS-based applications that add value to the business and
           user experience.
         </p>

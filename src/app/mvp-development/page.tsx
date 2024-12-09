@@ -1,6 +1,6 @@
 import Hero from "@/components/MVP/Hero";
 import Services from "@/components/MVP/Services/Services";
-import TechStackTabs from "@/components/MVP/TechStackTabs";
+import TechStackTabs from "@/components/ui/TechStackTabs";
 import { Partners } from "@/components/Partners/Partners";
 import Testimonials from "@/components/Testimonials/Testimonials";
 import FAQ from "@/components/ui/FAQ";
