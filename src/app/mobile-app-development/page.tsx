@@ -13,14 +13,14 @@ export default function MobileAppDevelopment() {
         <div>
             <Hero />
             <Services />
+            <Process />
             <div className="bg-primary/5">
                 <DigitalFrontier />
             </div>
-            <Innovate />
-            <Process />
             <OurProject />
-            <Partners />
             <TechStackTabs />
+            <Innovate />
+            <Partners />
             <FAQ />
         </div>
     )

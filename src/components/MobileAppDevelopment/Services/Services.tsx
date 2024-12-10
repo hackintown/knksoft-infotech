@@ -29,7 +29,7 @@ const Services = memo(function Services({ className }: ServicesProps) {
 
   return (
     <section 
-      className={`w-full py-12 md:py-24 ${className || ''}`}
+      className={`w-full py-12 md:py-20 ${className || ''}`}
       aria-label="Our Services"
     >
       <motion.div
@@ -37,15 +37,15 @@ const Services = memo(function Services({ className }: ServicesProps) {
         className="mb-8 text-left container mx-auto px-4"
       >
         <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl mb-4">
-          Industries Our Web Applications
+          Industries Our Mobile App
           <span className="text-primary block mt-2">
-            Development Company Serve
+            Development Company Serves
           </span>
         </h2>
         <p className="mt-2 max-w-2xl text-base font-thin lg:text-lg text-foreground">
-          To transform digital innovation and enhance business operations, 
-          our web application development services are designed to elevate 
-          your online presence and deliver measurable results.
+          Transform your business with our innovative mobile app solutions. We deliver 
+          cutting-edge mobile applications that help businesses reach their target audience 
+          and achieve their digital transformation goals.
         </p>
       </motion.div>
       <Carousel 

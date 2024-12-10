@@ -33,7 +33,7 @@ export default function CompanyServe() {
   );
 
   return (
-    <section className="container mx-auto px-4 py-16 bg-white">
+    <section className="container mx-auto px-4 py-14 relative pb-56">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -89,7 +89,7 @@ export default function CompanyServe() {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="mt-16 container"
+        className="mt-16 container absolute -bottom-50"
       >
         <div className="relative rounded-2xl overflow-hidden">
           <div

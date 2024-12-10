@@ -48,7 +48,7 @@ export default function PartnerSection({ title, subtitle, reasons }: PartnerSect
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
-            className="relative h-[600px] rounded-2xl overflow-hidden"
+            className="relative h-[600px] lg:h-auto rounded-2xl overflow-hidden"
           >
             <Image
               src="https://cdn-hjokj.nitrocdn.com/xKvPrJeRKcMfBVHKpjbxbYMvqmxtHXge/assets/images/optimized/rev-47d43d1/d3l9a8mvoa6cl8.cloudfront.net/wp-content/uploads/2024/10/17101115/web_partner_img.png"

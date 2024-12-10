@@ -2,6 +2,8 @@
 
 import { useState } from 'react'
 import { ArrowRight, ChevronDown } from 'lucide-react'
+import { cn } from '@/lib/utils'
+import { Button } from '@/components/ui/Button/Button'
 
 const accordionItems = [
   {
@@ -34,39 +36,45 @@ export default function Page() {
   }
 
   return (
-    <main className="min-h-screen bg-black text-white">
+    <main className="min-h-screen bg-[#141414]">
       <section className="container mx-auto px-4 py-16 md:py-24">
-        <div className="max-w-4xl mx-auto text-center mb-16">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-white/80">
+        <div className="max-w-7xl mx-auto text-center mb-16">
+          <h1 className="text-4xl md:text-7xl lg:text-6xl font-bold mb-6 bg-clip-text text-white">
             Ready to Innovate?
           </h1>
-          <h2 className="text-2xl md:text-3xl lg:text-4xl mb-6">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl mb-6 text-white">
             Let Our Mobile Application Development Services Propel Your Ambition
           </h2>
-          <p className="text-lg text-gray-400 leading-relaxed">
+          <p className="text-lg text-white leading-relaxed">
             Our mobile app development experts dwell with a decade-long expertise in crafting solutions that
-            cater unmet market needs, empower brand's identity and inspire business growth and expansion
+            cater unmet market needs, empower brand&apos;s identity and inspire business growth and expansion
           </p>
         </div>
 
-        <div className="max-w-3xl mx-auto mb-16">
+        <div className="max-w-5xl mx-auto mb-16">
           <div className="space-y-4">
             {accordionItems.map((item) => (
               <div key={item.id} className="border border-gray-800 rounded-lg">
                 <button
                   onClick={() => toggleAccordion(item.id)}
-                  className="w-full px-4 py-4 flex items-center justify-between text-left focus:outline-none"
+                  className="w-full px-4 py-4 lg:py-6 flex items-center justify-between text-left focus:outline-none"
                 >
                   <div className="flex items-center gap-4">
-                    <span className="text-sm text-blue-500">{item.id}</span>
-                    <h3 className="text-xl md:text-2xl font-semibold group-hover:text-blue-500 transition-colors">
+                    <span className={cn("text-sm lg:text-base text-[#949494]", openItem === item.id && "text-white")}>{item.id}</span>
+                    <h3 className={cn(
+                      "text-xl md:text-2xl font-semibold group-hover:text-blue-500 transition-colors",
+                      openItem === item.id ? "text-white" : "text-[#949494]"
+                    )}>
                       {item.title}
                     </h3>
                   </div>
                   <ChevronDown
-                    className={`h-5 w-5 text-blue-500 transition-transform duration-200 ${
-                      openItem === item.id ? 'rotate-180' : ''
-                    }`}
+                    className={cn(
+                      "h-5 w-5 transition-transform duration-200",
+                      openItem === item.id
+                        ? "rotate-180 bg-blue-500 rounded-full p-4 text-white"
+                        : "text-blue-500"
+                    )}
                   />
                 </button>
                 {openItem === item.id && (
@@ -80,10 +88,9 @@ export default function Page() {
         </div>
 
         <div className="text-center">
-          <button className="group bg-transparent text-white border border-white hover:bg-white hover:text-black transition-all duration-300 text-lg px-8 py-4 rounded-md flex items-center justify-center mx-auto">
+          <Button variant={'outline'} size={'lg'} rightIcon={<ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />} className='border-white'>
             Explore Services
-            <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-          </button>
+          </Button>
         </div>
       </section>
     </main>
