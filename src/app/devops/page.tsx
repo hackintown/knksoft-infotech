@@ -1,3 +1,28 @@
+
+import { AutomationSection } from "@/components/Devops/Automation";
+import FAQ from "@/components/Devops/FAQ";
+import { FloatingStats } from "@/components/Devops/FloatingStats";
+import Hero from "@/components/Devops/Hero/Hero";
+import ProcessTimeline from "@/components/Devops/ProcessTimeline";
+import TechnologyStack from "@/components/Devops/TechnologyStack";
+import { CaseStudies } from "@/components/Devops/CaseStudies";
+import { Security } from "@/components/Devops/Security";
+import { Services } from "@/components/Devops/SecurityOverview";
+import CloudArchitecture from "@/components/Devops/CloudArchitecture";
 export default function DevOps() {
-  return <div>DevOps</div>;
+
+  return (
+    <div>
+      <Hero />
+      <Services />
+      <Security />
+      <FloatingStats />
+      <TechnologyStack />
+      <ProcessTimeline />
+      <CloudArchitecture />
+      <AutomationSection />
+      <CaseStudies />
+      <FAQ />
+    </div>
+  );
 }

@@ -36,7 +36,7 @@ export const NAVIGATION_MENUS = [
       {
         name: "E-Commerce",
         desc: "Custom online store solutions",
-        href: "/services/ecommerce",
+        href: "/e-commerce",
         iconName: "ShoppingCart",
         group: "Custom Software Development",
       },
