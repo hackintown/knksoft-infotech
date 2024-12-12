@@ -29,7 +29,7 @@ export const NAVIGATION_MENUS = [
       {
         name: "Bar Code Solutions",
         desc: "Inventory & tracking systems",
-        href: "/services/barcode-solutions",
+        href: "/barcode-solutions",
         iconName: "Barcode",
         group: "Custom Software Development",
       },
