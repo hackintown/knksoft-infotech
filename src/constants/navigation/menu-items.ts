@@ -79,7 +79,7 @@ export const NAVIGATION_MENUS = [
       {
         name: "CRM",
         desc: "Customer Relationship Management",
-        href: "/resources/marketplace",
+        href: "/crm",
         iconName: "Users2",
         group: "Business Solutions",
       },
