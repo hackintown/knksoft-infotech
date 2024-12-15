@@ -86,21 +86,21 @@ export const NAVIGATION_MENUS = [
       {
         name: "Assets & Vendor Management",
         desc: "Track assets and manage vendors efficiently",
-        href: "/resources/meetups",
+        href: "/assets-vendor-management",
         iconName: "Building2",
         group: "Business Solutions",
       },
       {
         name: "Expense Management",
         desc: "Track and manage business expenses",
-        href: "/resources/updates",
+        href: "/expense-management",
         iconName: "Wallet",
         group: "Business Solutions",
       },
       {
         name: "LMS",
         desc: "Learning Management System",
-        href: "/resources/academy",
+        href: "/lms",
         iconName: "GraduationCap",
         group: "Learning Solutions",
       },
@@ -125,7 +125,7 @@ export const NAVIGATION_MENUS = [
       {
         name: "Beauty & Saloon",
         desc: "Beauty services at your doorstep",
-        href: "/enterprise",
+        href: "/ondemand-beauty-app-development",
         iconName: "Scissors",
       },
       {
