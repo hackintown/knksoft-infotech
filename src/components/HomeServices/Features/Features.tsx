@@ -62,7 +62,7 @@ export const Features = () => {
   }, []);
 
   return (
-    <section className="py-16 px-4 md:px-6 lg:px-8 bg-white">
+    <section className="py-16 px-4 md:px-6 lg:px-8 bg-primary/5">
       <motion.div
         initial="hidden"
         whileInView="visible"

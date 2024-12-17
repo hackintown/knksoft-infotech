@@ -72,7 +72,7 @@ const TrustReason = () => {
         </h2>
         <p className="text-gray-600 max-w-3xl mx-auto">
           Discover the perfect blend of innovation with Apptunix, a leading salon app development company.
-          We bring a fresh perspective to beauty app development, ensuring you're a step ahead in the beauty and wellness industry.
+          We bring a fresh perspective to beauty app development, ensuring you&apos;re a step ahead in the beauty and wellness industry.
         </p>
       </div>
 

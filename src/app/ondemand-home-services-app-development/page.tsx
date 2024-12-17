@@ -17,15 +17,15 @@ export default function OnDemandHomeServicesAppDevelopment() {
     <div>
       <Hero />
       <Services />
-      <ReadymadeServices />
       <Features />
+      <WhyChooseUs />
+      <ReadymadeServices />
       <SilentFeatures />
       <Architecture />
-      <WhyChooseUs />
       <Portfolio />
-      <Partners />
       <TechStackTabs />
       <OurProcess />
+      <Partners />
       <Testimonials />
       <FAQ />
     </div>

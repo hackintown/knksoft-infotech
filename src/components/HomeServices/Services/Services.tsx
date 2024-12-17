@@ -130,10 +130,11 @@ const Services = () => {
         transition={{ duration: 0.6 }}
         className="text-center mb-16"
       >
-        <h1 className="text-4xl md:text-5xl font-bold mb-6">
-          Home Service App Development Solutions
-        </h1>
-        <p className="text-gray-600 max-w-3xl mx-auto">
+        <h2 className="text-3xl font-bold text-center tracking-tight sm:text-4xl lg:text-5xl mb-4">
+          Home Service App
+          <span className="text-primary block mt-2">Development Solutions</span>
+        </h2>
+        <p className="mt-2 max-w-3xl mx-auto text-base font-thin lg:text-lg text-foreground text-center mb-8">
           Transform your home service business with our cutting-edge app development solutions. We create powerful platforms that connect service providers with customers, streamline operations, and drive growth.
         </p>
       </motion.div>
@@ -175,11 +176,10 @@ const Services = () => {
             {servicesData.map((service, index) => (
               <motion.div
                 key={index}
-                className={`group relative cursor-pointer p-4 rounded-xl transition-all duration-300 ${
-                  activeService.name === service.name
+                className={`group relative cursor-pointer p-4 rounded-xl transition-all duration-300 ${activeService.name === service.name
                     ? "bg-blue-500 text-white"
                     : "hover:bg-blue-50"
-                }`}
+                  }`}
                 onMouseEnter={() => setActiveService(service)}
               >
                 <div className="flex items-center justify-between">
@@ -187,9 +187,8 @@ const Services = () => {
                     {service.name}
                   </span>
                   <IoIosArrowDroprightCircle
-                    className={`text-3xl transition-transform duration-300 ${
-                      activeService.name === service.name ? "rotate-90" : ""
-                    }`}
+                    className={`text-3xl transition-transform duration-300 ${activeService.name === service.name ? "rotate-90" : ""
+                      }`}
                   />
                 </div>
               </motion.div>

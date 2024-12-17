@@ -43,7 +43,7 @@ export default function Portfolio() {
   };
 
   return (
-    <div className="relative overflow-hidden">
+    <div className="relative overflow-hidden py-10 lg:py-16">
       <motion.div
         initial="hidden"
         whileInView="visible"

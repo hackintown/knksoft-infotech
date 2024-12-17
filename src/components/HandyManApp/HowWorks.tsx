@@ -6,8 +6,8 @@ const HowWorks = () => {
       id: 1,
       icon: (
         <svg className="w-16 h-16 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <rect x="3" y="4" width="18" height="16" rx="2" strokeWidth="2"/>
-          <path d="M7 8h10M7 12h10" strokeWidth="2"/>
+          <rect x="3" y="4" width="18" height="16" rx="2" strokeWidth="2" />
+          <path d="M7 8h10M7 12h10" strokeWidth="2" />
         </svg>
       ),
       title: "Service Listing",
@@ -18,7 +18,7 @@ const HowWorks = () => {
       id: 2,
       icon: (
         <svg className="w-16 h-16 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" strokeWidth="2"/>
+          <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" strokeWidth="2" />
         </svg>
       ),
       title: "Professional Registration",
@@ -29,8 +29,8 @@ const HowWorks = () => {
       id: 3,
       icon: (
         <svg className="w-16 h-16 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <rect x="3" y="4" width="18" height="16" rx="2" strokeWidth="2"/>
-          <path d="M16 2v4M8 2v4m-5 4h18M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01M16 18h.01" strokeWidth="2"/>
+          <rect x="3" y="4" width="18" height="16" rx="2" strokeWidth="2" />
+          <path d="M16 2v4M8 2v4m-5 4h18M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01M16 18h.01" strokeWidth="2" />
         </svg>
       ),
       title: "User Booking",
@@ -41,7 +41,7 @@ const HowWorks = () => {
       id: 4,
       icon: (
         <svg className="w-16 h-16 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" strokeWidth="2"/>
+          <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" strokeWidth="2" />
         </svg>
       ),
       title: "Service Delivery & Earnings",
@@ -51,10 +51,11 @@ const HowWorks = () => {
   ];
 
   return (
-    <section className="py-16 px-4 max-w-7xl mx-auto">
+    <section className="py-10 px-4 max-w-7xl mx-auto">
       <div className="text-center mb-16">
-        <h2 className="text-4xl font-bold">
-          How Does Our <span className="text-red-500">Handyman App Works</span>
+        <h2 className="text-3xl font-bold text-center tracking-tight sm:text-4xl lg:text-5xl mb-4 lg:mb-8">
+          How Does Our&nbsp;
+          <span className="text-primary mt-2 block">Handyman App Works</span>
         </h2>
       </div>
 
@@ -62,7 +63,7 @@ const HowWorks = () => {
         {steps.map((step) => (
           <div
             key={step.id}
-            className={`relative ${step.isUp ? '-mt-8' : 'mt-8'} transition-all duration-300`}
+            className={`relative ${step.isUp ? '-mt-6' : 'mt-6'} transition-all duration-300`}
           >
             <div className="bg-white p-8 rounded-lg shadow-md hover:shadow-xl">
               <div className="flex justify-center mb-6">

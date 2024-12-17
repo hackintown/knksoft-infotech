@@ -44,13 +44,12 @@ const Benefits = () => {
     <div className="py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="text-center">
-          <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">
-            Benefits of Investing In A <span className="text-red-500">Handyman Services App</span>
+          <h2 className="text-3xl font-bold text-center tracking-tight sm:text-4xl lg:text-5xl mb-4">
+            Benefits of Investing&nbsp;
+            <span className="text-primary mt-2 block">In A Handyman Services App</span>
           </h2>
-          <p className="mt-4 text-lg text-gray-600">
+          <p className="mt-2 max-w-3xl mx-auto text-base font-thin lg:text-lg text-foreground text-center mb-8">
             The average customer spends about $250 on handyman services annually.
-          </p>
-          <p className="mt-2 text-lg text-gray-600">
             On Demand Handyman App Development will HELP you
           </p>
         </div>
