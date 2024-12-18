@@ -85,8 +85,7 @@ export default function Hero() {
     "DevOps Excellence",
   ];
   const imageSlide = [
-    "https://www.valueappz.com/img/banner-image-new.webp",
-    "https://cdn-hjokj.nitrocdn.com/xKvPrJeRKcMfBVHKpjbxbYMvqmxtHXge/assets/images/optimized/rev-6ddbe2e/d3l9a8mvoa6cl8.cloudfront.net/wp-content/uploads/sites/5/2023/11/28065808/fooddelivery_ryt-e1701339391493.png"
+    "https://www.valueappz.com/img/grocery/banner-img.png",
   ];
 
   return (
