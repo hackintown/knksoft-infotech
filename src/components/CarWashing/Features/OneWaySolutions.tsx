@@ -20,7 +20,7 @@ const OneWaySolutions = () => {
   ];
 
   return (
-    <div className="py-16 px-4 sm:px-6 lg:px-8">
+    <div className="py-16 px-4 sm:px-6 lg:px-8 bg-primary/5">
       <div className="max-w-7xl mx-auto">
         <div className="text-center">
           <h2 className="text-3xl font-bold text-center tracking-tight sm:text-4xl lg:text-5xl mb-4">

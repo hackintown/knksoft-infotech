@@ -59,8 +59,8 @@ const AdminPanel = () => {
     };
 
     return (
-        <section className="container px-4 py-6 lg:py-10">
-            <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-16">
+        <section className="py-6 lg:py-10 bg-primary/5">
+            <div className="flex flex-col lg:flex-row container px-4  items-center justify-center gap-8 lg:gap-16">
                 {/* Left side - Image */}
                 <div className="w-full lg:w-1/2">
                     <motion.h3

@@ -24,13 +24,13 @@ export default async function FoodDeliveryAppDevelopment() {
       <Hero />
       <BusinessModels />
       <Services />
-      <GrowBusiness />
       <WhyLaunching />
+      <GrowBusiness />
       <WhyChooseUs />
-      <Testimonials />
       <Partners />
-      <OurProcess />
+      <Testimonials />
       <BlogSection posts={blogPosts} />
+      <OurProcess />
       <FAQ />
     </div>
   );
