@@ -7,6 +7,8 @@ import TechStackTabs from "@/components/ui/TechStackTabs";
 import { Partners } from "@/components/Partners/Partners";
 import FAQ from "@/components/ui/FAQ";
 import Services from "@/components/MobileAppDevelopment/Services/Services";
+import GetInTouch from "@/components/ui/Contact/GetInTouch";
+import OurProcess from "@/components/ui/OurProcess/OurProcess";
 
 export default function MobileAppDevelopment() {
     return (
@@ -21,7 +23,9 @@ export default function MobileAppDevelopment() {
             <TechStackTabs />
             <Innovate />
             <Partners />
+            <OurProcess />
             <FAQ />
+            <GetInTouch />
         </div>
     )
 }

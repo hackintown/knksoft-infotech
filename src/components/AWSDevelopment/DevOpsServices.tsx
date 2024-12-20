@@ -98,12 +98,15 @@ export function DevOpsServices() {
                     transition={{ duration: 0.5 }}
                     className="text-center mb-20"
                 >
-                    <h2 className="text-5xl md:text-6xl font-bold bg-clip-text text-primary mb-8">
-                        AWS DevOps Engineering Services
+
+                    <h2 className="text-3xl font-bold text-center tracking-tight sm:text-4xl lg:text-5xl mb-4">
+                        AWS DevOps&nbsp;
+                        <span className="text-primary mt-2 block">Engineering Services</span>
                     </h2>
-                    <p className="max-w-3xl mx-auto text-xl leading-relaxed">
+                    <p className="mt-2 max-w-3xl mx-auto text-base font-thin lg:text-lg text-foreground text-center mb-8">
                         Signity employs best DevOps practices, including process automation, streamlining the CI/CD pipeline, and infrastructure management for reliable application development on AWS.
                     </p>
+
                 </motion.div>
 
                 <div className="space-y-24">

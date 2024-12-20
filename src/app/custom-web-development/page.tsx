@@ -11,6 +11,7 @@ import BlogSection from "@/components/Home/BlogSection";
 import { getBlogPosts } from "@/lib/blog/api";
 import { BlogPost } from "@/lib/blog/type";
 import OurProcess from "@/components/ui/OurProcess/OurProcess";
+import GetInTouch from "@/components/ui/Contact/GetInTouch";
 
 export default async function CustomWebDevelopment() {
   let blogPosts: BlogPost[] = [];
@@ -38,6 +39,7 @@ export default async function CustomWebDevelopment() {
       <BlogSection posts={blogPosts} />
       <OurProcess />
       <FAQ />
+      <GetInTouch />
     </main>
   );
 }

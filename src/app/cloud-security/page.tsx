@@ -8,6 +8,7 @@ import SecurityFeatures from "@/components/CloudSecurity/SecurityFeatures";
 import SecurityMetrics from "@/components/CloudSecurity/SecurityMetrics";
 import Services from "@/components/CloudSecurity/Services/Services";
 import ThreatProtection from "@/components/CloudSecurity/ThreatProtection";
+import GetInTouch from "@/components/ui/Contact/GetInTouch";
 
 export default function CloudSecurity() {
   return (
@@ -22,6 +23,7 @@ export default function CloudSecurity() {
       <ThreatProtection />
       <SecurityMetrics />
       <FAQ />
+      <GetInTouch />
     </div>
   );
 }

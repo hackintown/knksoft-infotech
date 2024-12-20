@@ -6,6 +6,8 @@ import HowItWorks from "@/components/BarCode/HowItWorks";
 import Integration from "@/components/BarCode/Integration";
 import Services from "@/components/BarCode/Services/Services";
 import Stats from "@/components/BarCode/Stats";
+import GetInTouch from "@/components/ui/Contact/GetInTouch";
+import OurProcess from "@/components/ui/OurProcess/OurProcess";
 
 export default function BarcodeSolutions() {
 
@@ -14,12 +16,14 @@ export default function BarcodeSolutions() {
     <main className="overflow-hidden">
       <Hero />
       <Features />
-      <SecurityFeatures />
-      <HowItWorks />
-      <Stats />
       <Services />
+      <HowItWorks />
+      <SecurityFeatures />
+      <Stats />
       <Integration />
+      <OurProcess />
       <FAQ />
+      <GetInTouch />
     </main>
   );
 } 

@@ -57,10 +57,11 @@ export function Features() {
     <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            Comprehensive AWS Development Solutions
+          <h2 className="text-3xl font-bold text-center tracking-tight sm:text-4xl lg:text-5xl mb-4">
+            Comprehensive&nbsp;
+            <span className="text-primary mt-2 block">AWS Development Solutions</span>
           </h2>
-          <p className="text-xl text-gray-600">
+          <p className="mt-2 max-w-3xl mx-auto text-base font-thin lg:text-lg text-foreground text-center mb-8">
             Leverage the full power of Amazon Web Services with our expertise
           </p>
         </div>

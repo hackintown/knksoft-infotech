@@ -9,6 +9,7 @@ import InteractiveDemo from "@/components/AssetsVendorManagement/InteractiveDemo
 import ServicesOverview from "@/components/AssetsVendorManagement/Services/ServicesOverview";
 import Testimonials from "@/components/Testimonials/Testimonials";
 import FAQ from "@/components/ui/FAQ";
+import GetInTouch from "@/components/ui/Contact/GetInTouch";
 
 export default function AssetsVendorManagement() {
   return (
@@ -24,6 +25,7 @@ export default function AssetsVendorManagement() {
       <Testimonials />
       <FAQ />
       <CallToAction />
+      <GetInTouch />
     </main>
   );
 }

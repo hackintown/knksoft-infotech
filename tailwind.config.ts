@@ -95,7 +95,7 @@ export default {
       },
     },
   },
-  plugins: [addVariablesForColors],
+  plugins: [addVariablesForColors, require('tailwind-scrollbar')],
 } satisfies Config;
 
 function addVariablesForColors({ addBase, theme }: any) {

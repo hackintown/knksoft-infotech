@@ -62,6 +62,7 @@ export default function Process() {
         slidesToScroll: 1,
         initialSlide: 0,
         swipeToSlide: true,
+        arrows: false,
         beforeChange: (oldIndex: number, next: number) => setActiveStep(next + 1),
         responsive: [
             {
@@ -91,43 +92,47 @@ export default function Process() {
     }
 
     return (
-        <section className="py-8 md:py-16 bg-gradient-to-b from-slate-950 to-slate-900">
-            <div className="container mx-auto px-4">
-                <div className="text-center mb-8 md:mb-12">
-                    <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-3 md:mb-4">
+        <section className="py-16 md:py-24 bg-black relative">
+            {/* Add subtle gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-b from-blue-900/10 to-transparent pointer-events-none" />
+            
+            <div className="container mx-auto px-4 relative">
+                <div className="text-center max-w-7xl mx-auto mb-12 md:mb-16">
+                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-600">
                         What&apos;s Your Journey Through Our Mobile App Development Process?
                     </h2>
-                    <p className="text-sm md:text-base text-gray-400 max-w-3xl mx-auto">
+                    <p className="text-base md:text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
                         As a premier mobile app development company, we build innovative Android and iOS apps with precision
                         and care, ensuring every project exceeds expectations and delivers impactful results.
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-[30%_70%] gap-6 md:gap-2 items-center max-w-7xl mx-auto">
+                <div className="grid grid-cols-1 md:grid-cols-[35%_65%] gap-8 md:gap-12 items-center max-w-7xl mx-auto">
                     {/* Left side - Phone Image */}
                     <div className="relative order-2 md:order-1">
+                        <div className="absolute -inset-4 bg-blue-500/20 blur-3xl rounded-full" />
                         <Image
                             src="https://cdn-hjokj.nitrocdn.com/xKvPrJeRKcMfBVHKpjbxbYMvqmxtHXge/assets/images/optimized/rev-c168d03/d3l9a8mvoa6cl8.cloudfront.net/wp-content/uploads/2024/10/10105827/mad_procs_img.png"
                             alt="Mobile App Development"
                             width={400}
                             height={500}
-                            className="object-contain h-full max-h-[300px] md:max-h-[500px] mx-auto"
+                            className="object-contain h-full max-h-[400px] md:max-h-[600px] mx-auto relative z-10"
                         />
                     </div>
 
                     {/* Right side - Content */}
                     <div className="flex-1 order-1 md:order-2">
                         {/* Steps Navigation */}
-                        <div className="flex flex-wrap justify-center md:justify-start gap-2 md:gap-3 mb-8 md:mb-12">
+                        <div className="flex flex-wrap justify-center md:justify-start gap-3 mb-10">
                             {steps.map((step) => (
                                 <button
                                     key={step.id}
                                     onClick={() => handleStepClick(step.id)}
                                     className={cn(
-                                        'px-3 md:px-6 py-1.5 md:py-2 text-sm md:text-base rounded-full transition-all duration-300 border border-slate-700/30',
+                                        'px-6 py-2.5 text-sm font-medium rounded-full transition-all duration-300 border',
                                         activeStep === step.id
-                                            ? 'bg-blue-600 text-white'
-                                            : 'bg-opacity-20 bg-slate-800 text-gray-400 hover:bg-opacity-30'
+                                            ? 'bg-blue-600 border-blue-500 text-white shadow-lg shadow-blue-500/25'
+                                            : 'bg-slate-800/40 border-slate-700/50 text-gray-300 hover:bg-slate-700/50'
                                     )}
                                 >
                                     Step {step.id}
@@ -136,21 +141,21 @@ export default function Process() {
                         </div>
 
                         {/* Cards Grid with Slick Slider */}
-                        <Slider ref={sliderRef} {...sliderSettings} className="slick-slider-custom -mx-2">
+                        <Slider ref={sliderRef} {...sliderSettings} className="slick-slider-custom -mx-3">
                             {steps.map((step) => (
-                                <div key={step.id} className="px-2">
+                                <div key={step.id} className="px-3">
                                     <div
                                         className={cn(
-                                            'p-4 md:p-6 rounded-lg bg-slate-800/20 border border-slate-700/30 relative h-full',
-                                            activeStep === step.id ? 'ring-2 ring-blue-500' : ''
+                                            'p-6 md:p-8 rounded-xl bg-slate-800/30 border border-slate-700/50 relative h-full backdrop-blur-sm',
+                                            activeStep === step.id ? 'ring-2 ring-blue-500 shadow-lg shadow-blue-500/20' : ''
                                         )}
                                     >
-                                        <div className="bg-slate-800/20 rounded-full p-2 w-fit">
-                                            {step.icon && <step.icon className="w-6 h-6 md:w-8 md:h-8 text-blue-500" />}
+                                        <div className="bg-slate-800/40 rounded-full p-3 w-fit">
+                                            {step.icon && <step.icon className="w-7 h-7 md:w-9 md:h-9 text-blue-400" />}
                                         </div>
                                         <div className="pt-6 md:pt-8">
-                                            <h3 className="text-sm md:text-base font-bold text-white mb-2 md:mb-3">{step.title}</h3>
-                                            <p className="text-xs md:text-sm text-gray-400">{step.description}</p>
+                                            <h3 className="text-base md:text-lg font-bold text-white mb-3">{step.title}</h3>
+                                            <p className="text-sm md:text-base text-gray-300 leading-relaxed">{step.description}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -158,20 +163,20 @@ export default function Process() {
                         </Slider>
 
                         {/* Custom Navigation Arrows */}
-                        <div className="flex justify-center md:justify-start gap-4 mt-6 md:mt-8">
+                        <div className="flex justify-center md:justify-start gap-4 mt-8">
                             <button
                                 onClick={() => handleStepClick(activeStep > 1 ? activeStep - 1 : activeStep)}
-                                className="p-2 rounded-full bg-blue-600 text-white hover:bg-blue-700 transition-colors"
+                                className="p-3 rounded-full bg-blue-600/80 text-white hover:bg-blue-700 transition-colors shadow-lg shadow-blue-500/20"
                             >
                                 <span className="sr-only">Previous</span>
-                                <ArrowLeftIcon className="w-6 h-6" />
+                                <ArrowLeftIcon className="w-5 h-5" />
                             </button>
                             <button
                                 onClick={() => handleStepClick(activeStep < steps.length ? activeStep + 1 : activeStep)}
-                                className="p-2 rounded-full bg-blue-600 text-white hover:bg-blue-700 transition-colors"
+                                className="p-3 rounded-full bg-blue-600/80 text-white hover:bg-blue-700 transition-colors shadow-lg shadow-blue-500/20"
                             >
                                 <span className="sr-only">Next</span>
-                                <ArrowRightIcon className="w-6 h-6" />
+                                <ArrowRightIcon className="w-5 h-5" />
                             </button>
                         </div>
                     </div>

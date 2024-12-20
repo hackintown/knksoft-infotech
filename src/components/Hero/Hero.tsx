@@ -94,10 +94,6 @@ export default function Hero() {
 
   return (
     <section className="relative overflow-hidden bg-primary/5">
-      {/* Background Elements */}
-      <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:50px]" />
-      <div className="absolute h-full w-full bg-gradient-to-br from-primary/5 via-transparent to-secondary/5" />
-
       <div className="container relative mx-auto px-4 py-20 sm:py-32">
         <div className="grid gap-8 lg:grid-cols-2 lg:gap-16">
           {/* Left Column */}
@@ -119,14 +115,14 @@ export default function Hero() {
                 </span>
               </motion.div>
 
-              <h1 className="text-3xl sm:text-4xl font-bold tracking-tight lg:text-5xl">
+              <h1 className="text-3xl sm:text-4xl font-bold tracking-tight xl:text-5xl">
                 Professional IT Solutions for
                 <span className="inline-block">
                   <FlipWords words={flipWords} className="text-primary" />
                 </span>
               </h1>
 
-              <p className="max-w-2xl text-base font-thin lg:text-lg text-foreground">
+              <p className="max-w-2xl text-base font-thin xl:text-lg text-foreground">
                 Comprehensive IT services including custom software development,
                 cloud solutions, enterprise systems, and digital transformation.
                 From MVF development to full-scale enterprise solutions, we
@@ -134,18 +130,15 @@ export default function Hero() {
               </p>
             </div>
 
-            <div className="flex flex-col gap-4 sm:flex-row">
+            <div>
               <Button
                 size="lg"
                 variant="primary"
                 rightIcon={
-                  <Icons.ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  <Icons.ArrowRight />
                 }
               >
-                Schedule Consultation
-              </Button>
-              <Button size="lg" variant="outline">
-                View Projects
+                Talk to an Expert
               </Button>
             </div>
 
@@ -163,7 +156,7 @@ export default function Hero() {
             </div>
           </motion.div>
           <motion.div
-            className="w-full relative flex justify-center items-center mt-8 lg:mt-0 max-w-[320px] sm:max-w-[500px] lg:max-w-[600px] xl:max-w-2xl"
+            className="w-full relative flex justify-center items-center mt-8 lg:mt-0 mx-auto max-w-[320px] sm:max-w-[500px] lg:max-w-[600px] xl:max-w-2xl"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}

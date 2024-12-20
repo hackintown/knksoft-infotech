@@ -63,7 +63,7 @@ export default function PartnerSection({ title, subtitle, reasons }: PartnerSect
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="grid grid-cols-2 gap-4"
+            className="grid grid-cols-1 sm:grid-cols-2 gap-4"
           >
             {reasons.map((reason) => (
               <motion.div

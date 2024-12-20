@@ -5,6 +5,7 @@ import Migration from "@/components/CloudArchitecture/Migration";
 import SecuritySection from "@/components/CloudArchitecture/Security";
 import Services from "@/components/CloudArchitecture/Services/Services";
 import Solutions from "@/components/CloudArchitecture/Solutions";
+import GetInTouch from "@/components/ui/Contact/GetInTouch";
 
 export default function CloudArchitecture() {
   return <div>
@@ -16,5 +17,7 @@ export default function CloudArchitecture() {
     </div>
     <Services />
     <Solutions />
-  </div>;
+    <GetInTouch />
+  </div>
+  );
 }

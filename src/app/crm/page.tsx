@@ -8,6 +8,7 @@ import Services from '@/components/CRM/Services/Services'
 import Testimonials from '@/components/CRM/Testimonials'
 import FAQ from '@/components/CRM/FAQ'
 import Features from '@/components/CRM/Features/Features'
+import GetInTouch from '@/components/ui/Contact/GetInTouch'
 
 
 export const metadata: Metadata = {
@@ -27,6 +28,7 @@ export default function CRMBusinessSolution() {
       <Services />
       <Testimonials />
       <FAQ />
+      <GetInTouch />
     </main>
   )
 }

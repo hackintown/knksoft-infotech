@@ -21,14 +21,16 @@ export function Expertise() {
     <section className="py-16 md:py-24 bg-gradient-to-b from-white to-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Our Expertise in AWS Tools and Technologies
+
+          <h2 className="text-3xl font-bold text-center tracking-tight sm:text-4xl lg:text-5xl mb-4">
+            Our Expertise in AWS&nbsp;
+            <span className="text-primary mt-2 block">Tools and Technologies</span>
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto text-sm md:text-base">
+          <p className="mt-2 max-w-3xl mx-auto text-base font-thin lg:text-lg text-foreground text-center mb-8">
             Leverage our deep expertise in AWS services to build scalable, secure, and efficient cloud solutions
           </p>
         </div>
-        
+
         <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
           {awsServices.map((service, index) => (
             <div

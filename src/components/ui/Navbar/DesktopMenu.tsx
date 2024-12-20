@@ -49,6 +49,10 @@ const subMenuAnimate = {
 export default function DesktopMenu({ menu }: DesktopMenuProps) {
   const [isHover, setIsHover] = useState(false);
 
+  const handleMenuItemClick = () => {
+    setIsHover(false);
+  };
+
   const hasSubMenu = React.useMemo(
     () => menu?.subMenu && menu?.subMenu?.length > 0,
     [menu?.subMenu]
@@ -123,6 +127,7 @@ export default function DesktopMenu({ menu }: DesktopMenuProps) {
                         <Link
                           href={submenu.href || "#"}
                           key={submenu.name}
+                          onClick={handleMenuItemClick}
                           className="flex items-center gap-4 p-3 transition-colors"
                         >
                           {submenu.iconName && (
@@ -164,6 +169,7 @@ export default function DesktopMenu({ menu }: DesktopMenuProps) {
                   <Link
                     href={submenu.href || "#"}
                     key={`${menu.name}-submenu-${i}`}
+                    onClick={handleMenuItemClick}
                     className="relative cursor-pointer"
                   >
                     {menu.gridCols &&

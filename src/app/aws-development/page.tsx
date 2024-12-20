@@ -6,9 +6,9 @@ import { Stats } from "@/components/AWSDevelopment/Stats";
 import { Testimonials } from "@/components/AWSDevelopment/Testimonials";
 import { TechnologyStack } from "@/components/AWSDevelopment/TechnologyStack";
 import { CaseStudies } from "@/components/AWSDevelopment/CaseStudies";
-import { ContactCTA } from "@/components/AWSDevelopment/ContactCTA";
 import { Expertise } from "@/components/AWSDevelopment/Expertise";
 import { DevOpsServices } from "@/components/AWSDevelopment/DevOpsServices";
+import GetInTouch from "@/components/ui/Contact/GetInTouch";
 
 export default function AWSDevelopment() {
   return (
@@ -23,7 +23,7 @@ export default function AWSDevelopment() {
       <CaseStudies />
       <Expertise />
       <Testimonials />
-      <ContactCTA />
+      <GetInTouch />
     </div>
   );
 }

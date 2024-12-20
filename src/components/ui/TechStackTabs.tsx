@@ -73,7 +73,7 @@ const TechStackTabs = () => {
   const [isPaused, setIsPaused] = useState(false);
 
   return (
-    <div className="py-10 lg:py-14 bg-primary/5">
+    <div className="py-10 lg:py-14">
       <div className="container mx-auto p-4">
         <motion.div
           initial="hidden"

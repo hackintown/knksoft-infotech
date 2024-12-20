@@ -140,7 +140,7 @@ export default function Hero() {
                 variant="primary"
                 className="bg-red-500"
                 rightIcon={
-                  <Icons.ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  <Icons.ArrowRight />
                 }
               >
                 Schedule Consultation

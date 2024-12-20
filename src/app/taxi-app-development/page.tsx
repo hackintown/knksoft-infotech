@@ -11,7 +11,7 @@ import FAQ from "@/components/ui/FAQ";
 import OurProcess from "@/components/ui/OurProcess/OurProcess";
 import { BlogPost } from "@/lib/blog/type";
 import { getBlogPosts } from "@/lib/blog/api";
-
+import GetInTouch from "@/components/ui/Contact/GetInTouch";
 
 export default async function TaxiAppDevelopment() {
   let blogPosts: BlogPost[] = [];
@@ -33,6 +33,7 @@ export default async function TaxiAppDevelopment() {
       <BlogSection posts={blogPosts} />
       <OurProcess />
       <FAQ />
+      <GetInTouch />
     </div>
   );
 }

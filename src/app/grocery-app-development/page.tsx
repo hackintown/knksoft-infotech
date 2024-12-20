@@ -4,6 +4,7 @@ import WhyChooseUs from "@/components/GroceryDelivery/WhyChooseUs";
 import BlogSection from "@/components/Home/BlogSection";
 import { Partners } from "@/components/Partners/Partners";
 import Testimonials from "@/components/Testimonials/Testimonials";
+import GetInTouch from "@/components/ui/Contact/GetInTouch";
 import FAQ from "@/components/ui/FAQ";
 import OurProcess from "@/components/ui/OurProcess/OurProcess";
 import { getBlogPosts } from "@/lib/blog/api";
@@ -26,6 +27,7 @@ export default async function GroceryAppDevelopment() {
       <BlogSection posts={blogPosts} /> 
       <OurProcess />
       <FAQ />
+      <GetInTouch />
     </div>
   );
 }

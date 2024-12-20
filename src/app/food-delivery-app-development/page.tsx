@@ -11,6 +11,7 @@ import FAQ from "@/components/ui/FAQ";
 import OurProcess from "@/components/ui/OurProcess/OurProcess";
 import { getBlogPosts } from "@/lib/blog/api";
 import { BlogPost } from "@/lib/blog/type";
+import GetInTouch from "@/components/ui/Contact/GetInTouch";
 
 export default async function FoodDeliveryAppDevelopment() {
   let blogPosts: BlogPost[] = [];
@@ -32,6 +33,7 @@ export default async function FoodDeliveryAppDevelopment() {
       <BlogSection posts={blogPosts} />
       <OurProcess />
       <FAQ />
+      <GetInTouch />
     </div>
   );
 }

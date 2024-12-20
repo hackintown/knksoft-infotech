@@ -117,7 +117,7 @@ export default function WhyChooseUs() {
                                     size="lg"
                                     className="rounded-full text-sm sm:text-base"
                                     rightIcon={
-                                        <Icons.ArrowRight className="w-8 h-8 p-2 group-hover:translate-x-1 transition-transform bg-primary text-white rounded-full" />
+                                        <Icons.ArrowRight />
                                     }
                                 >
                                     Our Engagement Model

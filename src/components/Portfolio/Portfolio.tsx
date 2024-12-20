@@ -166,7 +166,7 @@ export default function Portfolio() {
                   size="lg"
                   className="rounded-full mt-8 hover:scale-105 transition-transform duration-200 max-w-[250px] border-white"
                   rightIcon={
-                    <Icons.ArrowRight className="w-8 h-8 p-2 group-hover:translate-x-1 transition-transform bg-primary text-white rounded-full" />
+                    <Icons.ArrowRight />
                   }
                 >
                   View Case Study

@@ -53,7 +53,7 @@ export default function WhoWeAre() {
               size="lg"
               variant="primary"
               rightIcon={
-                <Icons.ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                <Icons.ArrowRight />
               }
             >
               Explore More

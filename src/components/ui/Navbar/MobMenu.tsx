@@ -85,6 +85,12 @@ export default function MobMenu({ Menus }: MobMenuProps) {
       menu.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       (menu.subMenu && menu.subMenu.length > 0)
   );
+  
+  const handleMenuItemClick = () => {
+    setIsOpen(false);
+    setClicked(null);
+    setSearchQuery("");
+  };
 
   return (
     <div className="relative">
@@ -136,6 +142,7 @@ export default function MobMenu({ Menus }: MobMenuProps) {
                           <Link
                             href={menu.href}
                             className="flex items-center gap-2 p-4 hover:bg-white/5 rounded-lg transition-colors"
+                            onClick={handleMenuItemClick} 
                           >
                             <span className="font-medium">{menu.name}</span>
                           </Link>
@@ -171,6 +178,7 @@ export default function MobMenu({ Menus }: MobMenuProps) {
                                   <Link
                                     key={item.name}
                                     href={item.href}
+                                    onClick={handleMenuItemClick} 
                                     className="flex items-start gap-4 p-3 rounded-lg hover:bg-white/5 transition-colors"
                                   >
                                     {item.iconName && (

@@ -116,9 +116,9 @@ export default function Services() {
               <Button
                 variant="outline"
                 size="lg"
-                className="rounded-full text-sm sm:text-base"
+                className=""
                 rightIcon={
-                  <Icons.ArrowRight className="w-8 h-8 p-2 group-hover:translate-x-1 transition-transform bg-primary text-white rounded-full" />
+                  <Icons.ArrowRight />
                 }
               >
                 Our Engagement Model

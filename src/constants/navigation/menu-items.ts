@@ -187,7 +187,7 @@ export const NAVIGATION_MENUS = [
   },
   {
     name: "Contact Us",
-    href: "/contact",
+    href: "/contact-us",
   },
 ] as const satisfies MenuItem[];
 

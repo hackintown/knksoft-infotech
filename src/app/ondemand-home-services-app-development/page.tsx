@@ -8,6 +8,7 @@ import WhyChooseUs from "@/components/HomeServices/WhyChooseUs";
 import { Partners } from "@/components/Partners/Partners";
 import Portfolio from "@/components/Portfolio/Portfolio";
 import Testimonials from "@/components/Testimonials/Testimonials";
+import GetInTouch from "@/components/ui/Contact/GetInTouch";
 import FAQ from "@/components/ui/FAQ";
 import OurProcess from "@/components/ui/OurProcess/OurProcess";
 import TechStackTabs from "@/components/ui/TechStackTabs";
@@ -28,6 +29,7 @@ export default function OnDemandHomeServicesAppDevelopment() {
       <Partners />
       <Testimonials />
       <FAQ />
+      <GetInTouch />
     </div>
   );
 }

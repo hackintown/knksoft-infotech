@@ -7,6 +7,7 @@ import { Calendar, Clock, Tag } from "lucide-react";
 import Link from "next/link";
 import { Button } from "../ui/Button/Button";
 import { truncate } from "@/lib/blog/utils"; // Assume this utility function exists
+import * as Icons from "lucide-react";
 
 interface BlogPost {
   _id: string;
@@ -120,7 +121,7 @@ export default function BlogPostCard({
           ))}
         </div>
         <Link href={`/blogs/${encodeURIComponent(slug)}`} className="mt-auto">
-          <Button variant="primary" size="lg" className="w-full rounded-full">
+          <Button variant="primary" className="" size="lg" rightIcon={<Icons.ArrowRight />}>
             Continue Reading
           </Button>
         </Link>

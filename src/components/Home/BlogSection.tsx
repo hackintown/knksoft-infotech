@@ -2,6 +2,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import BlogPostCard from "@/components/Blogs/BlogPostCard";
+import { Button } from "@/components/ui/Button/Button";
+import * as Icons from "lucide-react";
 
 interface BlogPost {
     _id: string;
@@ -37,7 +39,7 @@ export default function BlogSection({ posts }: AllBlogPostsProps) {
             {posts.length === 0 ? (
                 <p className="text-center text-gray-500">No posts available at the moment.</p>
             ) : (
-                <div className="container">
+                <div className="container px-4">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
                         {posts.slice(0, 3).map((post, index) => (
                             <motion.div
@@ -52,20 +54,13 @@ export default function BlogSection({ posts }: AllBlogPostsProps) {
                     </div>
 
                     <div className="flex justify-center">
-                        <motion.a
-                            href="/blogs"
-                            className="inline-flex items-center px-6 py-3 text-base font-medium text-white bg-primary rounded-md hover:bg-primary/90 transition-colors duration-200"
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                        >
+                        <Button variant="primary" size="lg" rightIcon={<Icons.ArrowRight />}>
                             View All Posts
-                            <svg className="ml-2 -mr-1 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                            </svg>
-                        </motion.a>
+                        </Button>
                     </div>
                 </div>
             )}
         </motion.section>
     );
 }
+    

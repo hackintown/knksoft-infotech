@@ -42,11 +42,8 @@ export default function Hero() {
 
   return (
     <section className="relative overflow-hidden bg-primary/5">
-      {/* Background Elements */}
-      <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:50px]" />
-      <div className="absolute h-full w-full bg-gradient-to-br from-primary/5 via-transparent to-secondary/5" />
 
-      <div className="container relative mx-auto px-4 py-20 sm:py-32">
+      <div className="container relative mx-auto px-4 py-20">
         <div className="grid gap-8 lg:grid-cols-2 lg:gap-16">
           {/* Left Column */}
           <motion.div
@@ -63,34 +60,34 @@ export default function Hero() {
                 className="inline-flex items-center rounded-full border border-primary/10 bg-primary/5 px-4 py-1.5"
               >
                 <span className="text-sm font-medium text-primary">
-                  E-Commerce Solutions
+                  Trusted by Global Enterprise Leaders
                 </span>
               </motion.div>
 
-              <h1 className="text-3xl sm:text-4xl font-bold tracking-tight lg:text-5xl">
-                Discover Amazing Products on Our
+              <h1 className="text-3xl sm:text-4xl font-bold tracking-tight xl:text-5xl">
+                Professional IT Solutions for
                 <span className="inline-block">
                   <FlipWords words={flipWords} className="text-primary" />
                 </span>
               </h1>
 
-              <p className="max-w-2xl text-base font-thin lg:text-lg text-foreground">
-                Welcome to our online marketplace where you can explore and shop for high-quality products. Our curated collection offers everything you need with secure checkout and exceptional customer service.
+              <p className="max-w-2xl text-base font-thin xl:text-lg text-foreground">
+                Comprehensive IT services including custom software development,
+                cloud solutions, enterprise systems, and digital transformation.
+                From MVF development to full-scale enterprise solutions, we
+                deliver excellence.
               </p>
             </div>
 
-            <div className="flex flex-col gap-4 sm:flex-row">
+            <div>
               <Button
                 size="lg"
                 variant="primary"
                 rightIcon={
-                  <Icons.ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  <Icons.ArrowRight />
                 }
               >
-                Schedule Consultation
-              </Button>
-              <Button size="lg" variant="outline">
-                View Projects
+                Talk to an Expert
               </Button>
             </div>
 

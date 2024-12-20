@@ -30,11 +30,17 @@ export default function SecurityFeatures() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
 
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-20 bg-primary/5">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center mb-12 text-gray-900">
-          Our Powerful Features
-        </h2>
+        <div className="text-center mb-16">
+          <h2 className="text-3xl font-bold text-center tracking-tight sm:text-4xl lg:text-5xl mb-4">
+            Advanced&nbsp;
+            <span className="text-primary mt-2">Security Features</span>
+          </h2>
+          <p className="mt-2 max-w-3xl mx-auto text-base font-thin lg:text-lg text-foreground text-center mb-8">
+            Our barcode solutions incorporate industry-leading security measures to protect your data and prevent unauthorized access or tampering.
+          </p>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {features.map((feature, index) => (
             <motion.div

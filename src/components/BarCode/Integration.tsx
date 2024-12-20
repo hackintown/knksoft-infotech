@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { Button } from "../ui/Button/Button";
+import { ArrowRightIcon } from "lucide-react";
 
 const integrations = [
   { name: "Shopify", logo: "https://cdn.worldvectorlogo.com/logos/shopify.svg" },
@@ -14,7 +16,7 @@ const integrations = [
 
 export default function Integration() {
   return (
-    <section className="py-20 bg-gray-50 dark:bg-gray-800">
+    <section className="py-20 bg-primary/5">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -54,17 +56,7 @@ export default function Integration() {
             </motion.div>
           ))}
         </div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-12 text-center"
-        >
-          <button className="px-8 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors">
-            View All Integrations
-          </button>
-        </motion.div>
+        <Button variant="primary" className="mt-12 mx-auto" size={"lg"} rightIcon={<ArrowRightIcon />}>View All Integrations</Button>
       </div>
     </section>
   );

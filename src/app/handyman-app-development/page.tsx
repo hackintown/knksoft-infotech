@@ -10,6 +10,7 @@ import OurProcess from "@/components/ui/OurProcess/OurProcess";
 import { getBlogPosts } from "@/lib/blog/api";
 import { BlogPost } from "@/lib/blog/type";
 import BlogSection from "@/components/Home/BlogSection";
+import GetInTouch from "@/components/ui/Contact/GetInTouch";
 
 export default async function HandymanAppDevelopment() {
   let blogPosts: BlogPost[] = [];
@@ -30,6 +31,7 @@ export default async function HandymanAppDevelopment() {
       <BlogSection posts={blogPosts} />
       <OurProcess />
       <FAQ />
+      <GetInTouch />
     </div>
   );
 }

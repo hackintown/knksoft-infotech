@@ -12,7 +12,7 @@ export default function CTA() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mt-16 container"
+            className="py-10 container"
         >
             <div className="relative rounded-2xl overflow-hidden bg-primary/5">
                 <div
@@ -40,9 +40,8 @@ export default function CTA() {
                         <Button
                             variant="outline"
                             size="lg"
-                            className="rounded-full text-sm sm:text-base"
                             rightIcon={
-                                <Icons.ArrowRight className="w-8 h-8 p-2 group-hover:translate-x-1 transition-transform bg-primary text-white rounded-full" />
+                                <Icons.ArrowRight />
                             }
                         >
                             Request a Quote

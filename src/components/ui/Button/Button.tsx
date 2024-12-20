@@ -3,24 +3,23 @@ import { VariantProps, cva } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  // Base styles
-  "inline-flex items-center justify-center rounded-lg transition-colors duration-200 font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none",
+  "flex items-center justify-between rounded-full duration-200 font-medium focus:outline-none disabled:opacity-50 disabled:pointer-events-none relative overflow-hidden group",
   {
     variants: {
       variant: {
         primary:
-          "bg-primary font-normal text-white hover:bg-primary/90 focus:ring-primary/50",
+          "bg-primary font-normal text-white hover:bg-primary/90 focus:ring-primary/50 shadow-sm border-border",
         secondary:
-          "bg-secondary font-normal text-white hover:bg-secondary/90 focus:ring-secondary/50",
+          "bg-secondary font-normal text-white hover:bg-secondary/90 focus:ring-secondary/50 rounded-lg border-border",
         outline:
-          "border-2 border-primary text-primary bg-primary-foreground hover:bg-primary-foreground/90",
+          "bg-white font-normal text-foreground shadow-sm border-border",
         ghost: "text-primary hover:bg-primary/10",
         danger: "bg-red-600 text-white hover:bg-red-700 focus:ring-red-500/50",
       },
       size: {
         sm: "h-8 px-3 text-sm",
         md: "h-10 px-4 text-base",
-        lg: "h-12 px-6 text-lg",
+        lg: "text-lg px-[25px] pr-[60px] py-[10px]",
         icon: "h-10 w-10",
       },
       fullWidth: {
@@ -37,7 +36,7 @@ const buttonVariants = cva(
 
 interface ButtonProps
   extends ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariants> {
+  VariantProps<typeof buttonVariants> {
   leftIcon?: React.ReactNode;
   rightIcon?: React.ReactNode;
   isLoading?: boolean;
@@ -68,7 +67,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       >
         {isLoading && (
           <svg
-            className="animate-spin -ml-1 mr-2 h-4 w-4"
+            className=""
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
@@ -89,8 +88,18 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           </svg>
         )}
         {leftIcon && !isLoading && <span className="mr-2">{leftIcon}</span>}
-        {children}
-        {rightIcon && <span className="ml-2">{rightIcon}</span>}
+        <span className="transition-transform duration-500 group-hover:translate-x-[40px]">
+          {children}
+        </span>
+        <span
+          className={cn(
+            "h-[40px] w-[40px] rounded-full p-[10px] absolute transition-all duration-500 right-2 group-hover:left-2 flex justify-center items-center shadow-sm",
+            variant === "outline" ? "bg-primary text-white" : "bg-white text-black",
+            "visibility-visible animate-slideInRight"
+          )}
+        >
+          {rightIcon}
+        </span>
       </button>
     );
   }
@@ -99,3 +108,4 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 Button.displayName = "Button";
 
 export { Button, buttonVariants };
+

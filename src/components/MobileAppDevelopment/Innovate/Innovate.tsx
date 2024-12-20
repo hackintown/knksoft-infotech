@@ -87,7 +87,7 @@ export default function Page() {
           </div>
         </div>
 
-        <div className="text-center">
+        <div className="text-center flex justify-center">
           <Button variant={'outline'} size={'lg'} rightIcon={<ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />} className='border-white'>
             Explore Services
           </Button>

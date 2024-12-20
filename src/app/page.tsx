@@ -11,6 +11,7 @@ import FAQ from "@/components/ui/FAQ";
 import { getBlogPosts } from "@/lib/blog/api";
 import { BlogPost } from "@/lib/blog/type";
 import BlogSection from "@/components/Home/BlogSection";
+import GetInTouch from "@/components/ui/Contact/GetInTouch";
 
 export default async function Home() {
   let blogPosts: BlogPost[] = [];
@@ -23,15 +24,16 @@ export default async function Home() {
     <main>
       <Hero />
       <MarketplaceSection />
-      <Portfolio />
-      <Services />
       <WhoWeAre />
       <WhyChooseUs />
+      <Portfolio />
+      <Services />
       <Partners />
       <Testimonials />
       <BlogSection posts={blogPosts} />
       <OurProcess />
       <FAQ />
+      <GetInTouch />
     </main>
   );
 }

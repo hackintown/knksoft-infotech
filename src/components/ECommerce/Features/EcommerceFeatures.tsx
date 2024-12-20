@@ -64,21 +64,15 @@ export default function EcommerceFeatures() {
   return (
     <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
       <div className="container mx-auto px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            A Fully-Customized Ecommerce Store Incorporated
-            <br />
-            <span className="text-blue-600">with Powerful Features</span>
+        <div className="text-center mb-16 mx-auto max-w-5xl">
+          <h2 className="text-3xl font-bold text-center tracking-tight sm:text-4xl lg:text-5xl mb-4">
+            Powerful Features for Your&nbsp;
+            <span className="text-primary mt-2 block">E-commerce Store</span>
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Highly Interactive Websites & Apps Packed With Best-in-class Features to Make E-shopping A Breeze
+          <p className="mt-2 max-w-3xl mx-auto text-base font-thin lg:text-lg text-foreground text-center mb-8">
+            Everything you need to create an exceptional online shopping experience
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => (

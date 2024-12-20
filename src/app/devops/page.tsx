@@ -9,6 +9,8 @@ import { CaseStudies } from "@/components/Devops/CaseStudies";
 import { Security } from "@/components/Devops/Security";
 import { Services } from "@/components/Devops/SecurityOverview";
 import CloudArchitecture from "@/components/Devops/CloudArchitecture";
+import GetInTouch from "@/components/ui/Contact/GetInTouch";
+
 export default function DevOps() {
 
   return (
@@ -23,6 +25,7 @@ export default function DevOps() {
       <AutomationSection />
       <CaseStudies />
       <FAQ />
+      <GetInTouch />
     </div>
   );
 }

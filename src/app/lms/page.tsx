@@ -8,6 +8,7 @@ import HowItWorks from "@/components/LMS/HowItWorks";
 import LearningAnalytics from "@/components/LMS/LearningAnalytics";
 import Services from "@/components/LMS/Services/Services";
 import Testimonials from "@/components/Testimonials/Testimonials";
+import GetInTouch from "@/components/ui/Contact/GetInTouch";
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
       <LearningAnalytics />
       <CommunityCollaboration />
       <FAQ />
+      <GetInTouch /> 
     </main>
   );
 }

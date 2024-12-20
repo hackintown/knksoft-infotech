@@ -73,11 +73,10 @@ export const ServiceFeatures = memo(function ServiceFeatures({
       {/* Call to Action */}
       <Button
         variant="outline"
-        size="md"
+        size="lg"
         rightIcon={
-          <Icons.ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          <Icons.ArrowRight />
         }
-        className="transition-all duration-300 ease-out"
       >
         Learn More
       </Button>

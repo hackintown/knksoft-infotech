@@ -9,6 +9,7 @@ import KeyFeatures from "@/components/ExpenseManagement/KeyFeatures";
 import ROICalculator from "@/components/ExpenseManagement/ROICalculator";
 import SupportOptions from "@/components/ExpenseManagement/SupportOptions";
 import Testimonials from "@/components/Testimonials/Testimonials";
+import GetInTouch from "@/components/ui/Contact/GetInTouch";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -31,6 +32,7 @@ export default function ExpenseManagementPage() {
       <CTA />
       <Testimonials />
       <FAQ />
+      <GetInTouch />
     </main>
   );
 }
