@@ -1,28 +1,32 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import type { ContactFormData, ContactPopupProps } from '../../types/popup-contact-form'
-import { motion, AnimatePresence } from "framer-motion"
+import { useState } from "react";
+import type {
+  ContactFormData,
+  ContactPopupProps,
+} from "../../types/popup-contact-form";
+import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
 export function ContactPopup({ isOpen, onClose }: ContactPopupProps) {
   const [formData, setFormData] = useState<ContactFormData>({
-    fullName: '',
-    businessEmail: '',
-    contactNumber: '',
-    companyName: '',
-    companySize: '',
-    jobTitle: '',
+    fullName: "",
+    businessEmail: "",
+    contactNumber: "",
+    companyName: "",
+    companySize: "",
+    jobTitle: "",
     budget: 5000,
-    idea: ''
-  })
+    idea: "",
+  });
 
-  if (!isOpen) return null
+  if (!isOpen) return null;
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
     // Handle form submission here
-    console.log(formData)
-  }
+    console.log(formData);
+  };
 
   return (
     <AnimatePresence>
@@ -68,7 +72,13 @@ export function ContactPopup({ isOpen, onClose }: ContactPopupProps) {
               <div className="relative h-full w-full">
                 {/* Add your tech stack icons here */}
                 <div className="absolute right-12 top-12">
-                  <img src="/placeholder.svg" alt="" className="h-12 w-12" />
+                  <Image
+                    src="/placeholder.svg"
+                    width={500}
+                    height={500}
+                    alt=""
+                    className="h-12 w-12"
+                  />
                 </div>
               </div>
             </div>
@@ -80,23 +90,30 @@ export function ContactPopup({ isOpen, onClose }: ContactPopupProps) {
                 <h3 className="text-2xl font-bold text-gray-900 md:text-3xl">
                   Give Your Idea a Chance to Shine
                 </h3>
-                <p className="text-xl font-bold text-gray-900">Talk to Our Experts!</p>
+                <p className="text-xl font-bold text-gray-900">
+                  Talk to Our Experts!
+                </p>
                 <p className="mt-2 text-gray-600">
-                  Let's discuss your idea and build great things together!
+                  Let&apos;s discuss your idea and build great things together!
                 </p>
               </div>
 
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="grid gap-4 md:grid-cols-2">
                   <div className="space-y-2">
-                    <label htmlFor="fullName" className="block text-sm font-medium text-gray-700">
+                    <label
+                      htmlFor="fullName"
+                      className="block text-sm font-medium text-gray-700"
+                    >
                       Full Name
                     </label>
                     <input
                       id="fullName"
                       type="text"
                       value={formData.fullName}
-                      onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
+                      onChange={(e) =>
+                        setFormData({ ...formData, fullName: e.target.value })
+                      }
                       placeholder="Full Name"
                       className="w-full rounded-md border border-gray-300 px-4 py-2 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20"
                       required
@@ -104,14 +121,22 @@ export function ContactPopup({ isOpen, onClose }: ContactPopupProps) {
                   </div>
 
                   <div className="space-y-2">
-                    <label htmlFor="businessEmail" className="block text-sm font-medium text-gray-700">
+                    <label
+                      htmlFor="businessEmail"
+                      className="block text-sm font-medium text-gray-700"
+                    >
                       Business Email
                     </label>
                     <input
                       id="businessEmail"
                       type="email"
                       value={formData.businessEmail}
-                      onChange={(e) => setFormData({ ...formData, businessEmail: e.target.value })}
+                      onChange={(e) =>
+                        setFormData({
+                          ...formData,
+                          businessEmail: e.target.value,
+                        })
+                      }
                       placeholder="Business Email"
                       className="w-full rounded-md border border-gray-300 px-4 py-2 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20"
                       required
@@ -119,7 +144,10 @@ export function ContactPopup({ isOpen, onClose }: ContactPopupProps) {
                   </div>
 
                   <div className="space-y-2">
-                    <label htmlFor="contactNumber" className="block text-sm font-medium text-gray-700">
+                    <label
+                      htmlFor="contactNumber"
+                      className="block text-sm font-medium text-gray-700"
+                    >
                       Contact Number
                     </label>
                     <div className="flex">
@@ -133,7 +161,12 @@ export function ContactPopup({ isOpen, onClose }: ContactPopupProps) {
                         id="contactNumber"
                         type="tel"
                         value={formData.contactNumber}
-                        onChange={(e) => setFormData({ ...formData, contactNumber: e.target.value })}
+                        onChange={(e) =>
+                          setFormData({
+                            ...formData,
+                            contactNumber: e.target.value,
+                          })
+                        }
                         placeholder="Contact Number"
                         className="w-full rounded-r-md border border-gray-300 px-4 py-2 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20"
                         required
@@ -142,14 +175,22 @@ export function ContactPopup({ isOpen, onClose }: ContactPopupProps) {
                   </div>
 
                   <div className="space-y-2">
-                    <label htmlFor="companyName" className="block text-sm font-medium text-gray-700">
+                    <label
+                      htmlFor="companyName"
+                      className="block text-sm font-medium text-gray-700"
+                    >
                       Company (or project) Name
                     </label>
                     <input
                       id="companyName"
                       type="text"
                       value={formData.companyName}
-                      onChange={(e) => setFormData({ ...formData, companyName: e.target.value })}
+                      onChange={(e) =>
+                        setFormData({
+                          ...formData,
+                          companyName: e.target.value,
+                        })
+                      }
                       placeholder="Company Name"
                       className="w-full rounded-md border border-gray-300 px-4 py-2 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20"
                       required
@@ -157,14 +198,22 @@ export function ContactPopup({ isOpen, onClose }: ContactPopupProps) {
                   </div>
 
                   <div className="space-y-2">
-                    <label htmlFor="companySize" className="block text-sm font-medium text-gray-700">
+                    <label
+                      htmlFor="companySize"
+                      className="block text-sm font-medium text-gray-700"
+                    >
                       Company Size
                     </label>
                     <input
                       id="companySize"
                       type="text"
                       value={formData.companySize}
-                      onChange={(e) => setFormData({ ...formData, companySize: e.target.value })}
+                      onChange={(e) =>
+                        setFormData({
+                          ...formData,
+                          companySize: e.target.value,
+                        })
+                      }
                       placeholder="Company Size"
                       className="w-full rounded-md border border-gray-300 px-4 py-2 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20"
                       required
@@ -172,13 +221,18 @@ export function ContactPopup({ isOpen, onClose }: ContactPopupProps) {
                   </div>
 
                   <div className="space-y-2">
-                    <label htmlFor="jobTitle" className="block text-sm font-medium text-gray-700">
+                    <label
+                      htmlFor="jobTitle"
+                      className="block text-sm font-medium text-gray-700"
+                    >
                       Job Title
                     </label>
                     <select
                       id="jobTitle"
                       value={formData.jobTitle}
-                      onChange={(e) => setFormData({ ...formData, jobTitle: e.target.value })}
+                      onChange={(e) =>
+                        setFormData({ ...formData, jobTitle: e.target.value })
+                      }
                       className="w-full rounded-md border border-gray-300 px-4 py-2 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20"
                       required
                     >
@@ -201,19 +255,29 @@ export function ContactPopup({ isOpen, onClose }: ContactPopupProps) {
                     max="50000"
                     step="1000"
                     value={formData.budget}
-                    onChange={(e) => setFormData({ ...formData, budget: Number(e.target.value) })}
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        budget: Number(e.target.value),
+                      })
+                    }
                     className="h-2 w-full cursor-pointer appearance-none rounded-lg bg-blue-200"
                   />
                 </div>
 
                 <div className="space-y-2">
-                  <label htmlFor="idea" className="block text-sm font-medium text-gray-700">
-                    What's your idea?
+                  <label
+                    htmlFor="idea"
+                    className="block text-sm font-medium text-gray-700"
+                  >
+                    What&apos;s your idea?
                   </label>
                   <textarea
                     id="idea"
                     value={formData.idea}
-                    onChange={(e) => setFormData({ ...formData, idea: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, idea: e.target.value })
+                    }
                     placeholder="Tell us about your idea..."
                     className="h-32 w-full rounded-md border border-gray-300 px-4 py-2 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20"
                     required
@@ -232,7 +296,7 @@ export function ContactPopup({ isOpen, onClose }: ContactPopupProps) {
                     onClick={onClose}
                     className="text-sm text-gray-600 underline hover:text-gray-800"
                   >
-                    I'd like to keep it to myself!
+                    I&apos;d like to keep it to myself!
                   </button>
                 </div>
               </form>
@@ -241,6 +305,5 @@ export function ContactPopup({ isOpen, onClose }: ContactPopupProps) {
         </motion.div>
       )}
     </AnimatePresence>
-  )
+  );
 }
-

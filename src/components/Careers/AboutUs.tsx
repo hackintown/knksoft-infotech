@@ -1,26 +1,27 @@
-'use client'
+"use client";
 
-import { motion } from 'framer-motion'
-import { FaLightbulb, FaUsers, FaChartLine, FaMedal } from 'react-icons/fa'
+import { motion } from "framer-motion";
+import Image from "next/image";
+import { FaLightbulb, FaUsers, FaChartLine, FaMedal } from "react-icons/fa";
 
 const stats = [
-  { number: '250+', label: 'Employees Worldwide', icon: <FaUsers /> },
-  { number: '15+', label: 'Years of Innovation', icon: <FaLightbulb /> },
-  { number: '98%', label: 'Client Satisfaction', icon: <FaChartLine /> },
-  { number: '40+', label: 'Industry Awards', icon: <FaMedal /> },
-]
+  { number: "250+", label: "Employees Worldwide", icon: <FaUsers /> },
+  { number: "15+", label: "Years of Innovation", icon: <FaLightbulb /> },
+  { number: "98%", label: "Client Satisfaction", icon: <FaChartLine /> },
+  { number: "40+", label: "Industry Awards", icon: <FaMedal /> },
+];
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
   whileInView: { opacity: 1, y: 0 },
-  transition: { duration: 0.8 }
-}
+  transition: { duration: 0.8 },
+};
 
 export default function AboutUs() {
   return (
     <section className="py-24 bg-gradient-to-b from-white to-gray-50">
       <div className="container mx-auto px-4">
-        <motion.div 
+        <motion.div
           className="max-w-3xl mx-auto text-center mb-16"
           {...fadeInUp}
         >
@@ -28,7 +29,8 @@ export default function AboutUs() {
             Pioneering the Future of Technology
           </h2>
           <p className="text-xl text-gray-600">
-            Where innovation meets excellence, and where your career aspirations become reality.
+            Where innovation meets excellence, and where your career aspirations
+            become reality.
           </p>
         </motion.div>
 
@@ -45,7 +47,9 @@ export default function AboutUs() {
               <div className="text-blue-600 text-3xl mb-4 flex justify-center">
                 {stat.icon}
               </div>
-              <h3 className="text-3xl font-bold text-gray-800 mb-2">{stat.number}</h3>
+              <h3 className="text-3xl font-bold text-gray-800 mb-2">
+                {stat.number}
+              </h3>
               <p className="text-gray-600">{stat.label}</p>
             </motion.div>
           ))}
@@ -60,13 +64,18 @@ export default function AboutUs() {
             className="space-y-6"
           >
             <h3 className="text-3xl font-bold text-gray-800 mb-6">
-              Building Tomorrow's Solutions Today
+              Building Tomorrow&apos;s Solutions Today
             </h3>
             <p className="text-gray-600">
-              At KNK Soft Tech, we're at the forefront of technological innovation. Our commitment to excellence drives us to push boundaries and create solutions that transform industries.
+              At KNK Soft Tech, we&apos;re at the forefront of technological
+              innovation. Our commitment to excellence drives us to push
+              boundaries and create solutions that transform industries.
             </p>
             <p className="text-gray-600">
-              We foster a culture of continuous learning and collaboration, where every team member's contribution is valued and celebrated. Our diverse workforce brings together the brightest minds from around the globe.
+              We foster a culture of continuous learning and collaboration,
+              where every team member&apos;s contribution is valued and
+              celebrated. Our diverse workforce brings together the brightest
+              minds from around the globe.
             </p>
             <div className="pt-6">
               <motion.button
@@ -78,7 +87,7 @@ export default function AboutUs() {
               </motion.button>
             </div>
           </motion.div>
-          
+
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -86,9 +95,11 @@ export default function AboutUs() {
             className="relative"
           >
             <div className="absolute inset-0 bg-blue-600 rounded-xl transform rotate-3 opacity-10"></div>
-            <img
+            <Image
               src="https://img.freepik.com/free-photo/we-are-hiring-digital-collage_23-2149667064.jpg"
               alt="Our innovative workspace"
+              width={500}
+              height={500}
               className="rounded-xl shadow-2xl relative z-10"
             />
           </motion.div>
@@ -103,26 +114,31 @@ export default function AboutUs() {
         >
           {[
             {
-              title: 'Innovation First',
-              description: 'We embrace cutting-edge technologies and methodologies to stay ahead of the curve.',
-              color: 'from-blue-400 to-blue-600'
+              title: "Innovation First",
+              description:
+                "We embrace cutting-edge technologies and methodologies to stay ahead of the curve.",
+              color: "from-blue-400 to-blue-600",
             },
             {
-              title: 'People Focused',
-              description: 'Our success is built on the diverse talents and perspectives of our global team.',
-              color: 'from-purple-400 to-purple-600'
+              title: "People Focused",
+              description:
+                "Our success is built on the diverse talents and perspectives of our global team.",
+              color: "from-purple-400 to-purple-600",
             },
             {
-              title: 'Excellence Driven',
-              description: 'We maintain the highest standards in everything we do, from code to customer service.',
-              color: 'from-indigo-400 to-indigo-600'
-            }
+              title: "Excellence Driven",
+              description:
+                "We maintain the highest standards in everything we do, from code to customer service.",
+              color: "from-indigo-400 to-indigo-600",
+            },
           ].map((value, index) => (
             <div
               key={index}
               className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow"
             >
-              <div className={`h-2 w-20 mb-6 rounded bg-gradient-to-r ${value.color}`}></div>
+              <div
+                className={`h-2 w-20 mb-6 rounded bg-gradient-to-r ${value.color}`}
+              ></div>
               <h4 className="text-xl font-bold mb-4">{value.title}</h4>
               <p className="text-gray-600">{value.description}</p>
             </div>
@@ -130,6 +146,5 @@ export default function AboutUs() {
         </motion.div>
       </div>
     </section>
-  )
+  );
 }
-

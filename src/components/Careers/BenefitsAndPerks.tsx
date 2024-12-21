@@ -1,15 +1,25 @@
-'use client'
+"use client";
 
-import { motion } from 'framer-motion'
-import { 
-  FaLaptop, FaPlane, FaGraduationCap, FaHeartbeat, FaPiggyBank, FaUsers,
-  FaBaby, FaDumbbell, FaCoffee, FaHandHoldingHeart, FaChartLine, FaStar 
-} from 'react-icons/fa'
+import { motion } from "framer-motion";
+import {
+  FaLaptop,
+  FaPlane,
+  FaGraduationCap,
+  FaHeartbeat,
+  FaPiggyBank,
+  FaUsers,
+  FaBaby,
+  FaDumbbell,
+  FaCoffee,
+  FaHandHoldingHeart,
+  FaChartLine,
+  FaStar,
+} from "react-icons/fa";
 
 interface BenefitProps {
-  icon: React.ReactNode
-  title: string
-  description: string
+  icon: React.ReactNode;
+  title: string;
+  description: string;
 }
 
 const Benefit: React.FC<BenefitProps> = ({ icon, title, description }) => (
@@ -32,71 +42,83 @@ const Benefit: React.FC<BenefitProps> = ({ icon, title, description }) => (
       </div>
     </div>
   </motion.div>
-)
+);
 
 export default function BenefitsAndPerks() {
   const benefits = [
     {
       icon: <FaLaptop />,
       title: "Flexible Remote Work",
-      description: "Work from anywhere in the world with our remote-first culture. Enjoy a flexible schedule and maintain perfect work-life harmony."
+      description:
+        "Work from anywhere in the world with our remote-first culture. Enjoy a flexible schedule and maintain perfect work-life harmony.",
     },
     {
       icon: <FaPlane />,
       title: "Unlimited PTO",
-      description: "Take the time you need with our unlimited paid time off policy. We trust you to manage your work and rest effectively."
+      description:
+        "Take the time you need with our unlimited paid time off policy. We trust you to manage your work and rest effectively.",
     },
     {
       icon: <FaGraduationCap />,
       title: "Learning & Development",
-      description: "$5,000 annual budget for professional growth. Access to premium learning platforms, conferences, and certification programs."
+      description:
+        "$5,000 annual budget for professional growth. Access to premium learning platforms, conferences, and certification programs.",
     },
     {
       icon: <FaHeartbeat />,
       title: "Premium Healthcare",
-      description: "100% company-paid premium healthcare coverage including medical, dental, vision, and mental health support for you and dependents."
+      description:
+        "100% company-paid premium healthcare coverage including medical, dental, vision, and mental health support for you and dependents.",
     },
     {
       icon: <FaPiggyBank />,
       title: "Financial Benefits",
-      description: "Competitive 401(k) matching up to 6%, stock options, and annual performance bonuses. Your future matters to us."
+      description:
+        "Competitive 401(k) matching up to 6%, stock options, and annual performance bonuses. Your future matters to us.",
     },
     {
       icon: <FaUsers />,
       title: "Team Collaboration",
-      description: "Regular team retreats, virtual social events, and annual company gatherings to build lasting relationships."
+      description:
+        "Regular team retreats, virtual social events, and annual company gatherings to build lasting relationships.",
     },
     {
       icon: <FaBaby />,
       title: "Family Support",
-      description: "Generous parental leave, fertility benefits, and adoption assistance. Family-friendly workplace policies."
+      description:
+        "Generous parental leave, fertility benefits, and adoption assistance. Family-friendly workplace policies.",
     },
     {
       icon: <FaDumbbell />,
       title: "Wellness Programs",
-      description: "Monthly wellness stipend, virtual fitness classes, and meditation app subscriptions. Your wellbeing is our priority."
+      description:
+        "Monthly wellness stipend, virtual fitness classes, and meditation app subscriptions. Your wellbeing is our priority.",
     },
     {
       icon: <FaCoffee />,
       title: "Home Office Setup",
-      description: "$1,500 home office budget plus monthly internet and phone reimbursement to create your ideal workspace."
+      description:
+        "$1,500 home office budget plus monthly internet and phone reimbursement to create your ideal workspace.",
     },
     {
       icon: <FaHandHoldingHeart />,
       title: "Volunteer Time Off",
-      description: "40 paid hours annually for volunteer work. Make a difference in your community while being supported by your company."
+      description:
+        "40 paid hours annually for volunteer work. Make a difference in your community while being supported by your company.",
     },
     {
       icon: <FaChartLine />,
       title: "Career Growth",
-      description: "Clear career progression framework, mentorship programs, and leadership development opportunities."
+      description:
+        "Clear career progression framework, mentorship programs, and leadership development opportunities.",
     },
     {
       icon: <FaStar />,
       title: "Recognition Program",
-      description: "Quarterly awards, peer recognition system, and spot bonuses to celebrate your achievements and contributions."
-    }
-  ]
+      description:
+        "Quarterly awards, peer recognition system, and spot bonuses to celebrate your achievements and contributions.",
+    },
+  ];
 
   return (
     <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
@@ -111,11 +133,12 @@ export default function BenefitsAndPerks() {
             Benefits & Perks
           </h2>
           <p className="text-xl text-gray-600 leading-relaxed">
-            We believe in taking care of our team members with comprehensive benefits 
-            that matter. Here's what you can expect when joining our family.
+            We believe in taking care of our team members with comprehensive
+            benefits that matter. Here&apos;s what you can expect when joining
+            our family.
           </p>
         </motion.div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {benefits.map((benefit, index) => (
             <motion.div
@@ -131,6 +154,5 @@ export default function BenefitsAndPerks() {
         </div>
       </div>
     </section>
-  )
+  );
 }
-

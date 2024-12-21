@@ -1,81 +1,105 @@
 "use client";
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import {
-  Server, Database, Shield, Cloud, Network, Globe,
-  MessageSquare, Store, Monitor, Zap
-} from 'lucide-react';
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { Server, Database, Shield, Network, Store, Zap } from "lucide-react";
 
 const categories = [
   {
-    id: 'compute',
+    id: "compute",
     icon: <Server className="w-6 h-6" />,
-    title: 'Compute',
+    title: "Compute",
     technologies: [
-      { name: 'AWS EC2', description: 'Scalable virtual servers with multiple instance types' },
-      { name: 'AWS Lambda', description: 'Serverless functions with automatic scaling' },
-      { name: 'ECS/EKS', description: 'Container orchestration for Docker and Kubernetes' },
-      { name: 'AWS Batch', description: 'Fully managed batch processing at any scale' },
-      { name: 'AWS Fargate', description: 'Serverless compute for containers' }
-    ]
+      {
+        name: "AWS EC2",
+        description: "Scalable virtual servers with multiple instance types",
+      },
+      {
+        name: "AWS Lambda",
+        description: "Serverless functions with automatic scaling",
+      },
+      {
+        name: "ECS/EKS",
+        description: "Container orchestration for Docker and Kubernetes",
+      },
+      {
+        name: "AWS Batch",
+        description: "Fully managed batch processing at any scale",
+      },
+      { name: "AWS Fargate", description: "Serverless compute for containers" },
+    ],
   },
   {
-    id: 'database',
+    id: "database",
     icon: <Database className="w-6 h-6" />,
-    title: 'Database Services',
+    title: "Database Services",
     technologies: [
-      { name: 'Amazon RDS', description: 'Managed relational databases' },
-      { name: 'DynamoDB', description: 'NoSQL database service' },
-      { name: 'ElastiCache', description: 'In-memory caching service' }
-    ]
+      { name: "Amazon RDS", description: "Managed relational databases" },
+      { name: "DynamoDB", description: "NoSQL database service" },
+      { name: "ElastiCache", description: "In-memory caching service" },
+    ],
   },
   {
-    id: 'security',
+    id: "security",
     icon: <Shield className="w-6 h-6" />,
-    title: 'Security Services',
+    title: "Security Services",
     technologies: [
-      { name: 'AWS IAM', description: 'Identity and access management' },
-      { name: 'AWS WAF', description: 'Web application firewall' },
-      { name: 'AWS KMS', description: 'Key management service' }
-    ]
+      { name: "AWS IAM", description: "Identity and access management" },
+      { name: "AWS WAF", description: "Web application firewall" },
+      { name: "AWS KMS", description: "Key management service" },
+    ],
   },
   {
-    id: 'storage',
+    id: "storage",
     icon: <Store className="w-6 h-6" />,
-    title: 'Storage',
+    title: "Storage",
     technologies: [
-      { name: 'Amazon S3', description: 'Scalable object storage for any type of data' },
-      { name: 'Amazon EBS', description: 'High-performance block storage volumes' },
-      { name: 'Amazon EFS', description: 'Fully managed elastic file system' },
-      { name: 'S3 Glacier', description: 'Low-cost archive storage service' }
-    ]
+      {
+        name: "Amazon S3",
+        description: "Scalable object storage for any type of data",
+      },
+      {
+        name: "Amazon EBS",
+        description: "High-performance block storage volumes",
+      },
+      { name: "Amazon EFS", description: "Fully managed elastic file system" },
+      { name: "S3 Glacier", description: "Low-cost archive storage service" },
+    ],
   },
   {
-    id: 'networking',
+    id: "networking",
     icon: <Network className="w-6 h-6" />,
-    title: 'Networking',
+    title: "Networking",
     technologies: [
-      { name: 'Amazon VPC', description: 'Isolated cloud resources and networking' },
-      { name: 'AWS Direct Connect', description: 'Dedicated network connection to AWS' },
-      { name: 'Route 53', description: 'Scalable DNS and domain registration' },
-      { name: 'CloudFront', description: 'Global content delivery network' }
-    ]
+      {
+        name: "Amazon VPC",
+        description: "Isolated cloud resources and networking",
+      },
+      {
+        name: "AWS Direct Connect",
+        description: "Dedicated network connection to AWS",
+      },
+      { name: "Route 53", description: "Scalable DNS and domain registration" },
+      { name: "CloudFront", description: "Global content delivery network" },
+    ],
   },
   {
-    id: 'ai-ml',
+    id: "ai-ml",
     icon: <Zap className="w-6 h-6" />,
-    title: 'AI & ML',
+    title: "AI & ML",
     technologies: [
-      { name: 'Amazon SageMaker', description: 'Build, train, and deploy ML models' },
-      { name: 'Amazon Rekognition', description: 'Image and video analysis' },
-      { name: 'Amazon Comprehend', description: 'Natural language processing' },
-      { name: 'Amazon Lex', description: 'Conversational AI and chatbots' }
-    ]
-  }
+      {
+        name: "Amazon SageMaker",
+        description: "Build, train, and deploy ML models",
+      },
+      { name: "Amazon Rekognition", description: "Image and video analysis" },
+      { name: "Amazon Comprehend", description: "Natural language processing" },
+      { name: "Amazon Lex", description: "Conversational AI and chatbots" },
+    ],
+  },
 ];
 
 export function TechnologyStack() {
-  const [activeTab, setActiveTab] = useState('compute');
+  const [activeTab, setActiveTab] = useState("compute");
 
   return (
     <section className="py-16 md:py-32 bg-primary/5">
@@ -91,7 +115,8 @@ export function TechnologyStack() {
             <span className="text-primary mt-2 ">AWS Solutions</span>
           </h2>
           <p className="mt-2 max-w-3xl mx-auto text-base font-thin lg:text-lg text-foreground text-center mb-8">
-            Leveraging cutting-edge AWS services to build scalable, secure, and innovative solutions for your business
+            Leveraging cutting-edge AWS services to build scalable, secure, and
+            innovative solutions for your business
           </p>
         </motion.div>
 
@@ -103,10 +128,11 @@ export function TechnologyStack() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setActiveTab(category.id)}
-                className={`flex items-center whitespace-nowrap px-4 md:px-8 py-3 md:py-4 rounded-lg ${activeTab === category.id
-                  ? 'bg-blue-600 text-white shadow-lg'
-                  : 'bg-white text-gray-600 hover:bg-gray-50 border border-gray-200'
-                  } transition-all duration-300 text-sm md:text-base`}
+                className={`flex items-center whitespace-nowrap px-4 md:px-8 py-3 md:py-4 rounded-lg ${
+                  activeTab === category.id
+                    ? "bg-blue-600 text-white shadow-lg"
+                    : "bg-white text-gray-600 hover:bg-gray-50 border border-gray-200"
+                } transition-all duration-300 text-sm md:text-base`}
               >
                 <span className="mr-2 md:mr-3">{category.icon}</span>
                 {category.title}
