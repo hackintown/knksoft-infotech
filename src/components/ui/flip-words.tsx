@@ -1,9 +1,9 @@
 "use client";
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState, forwardRef, useImperativeHandle } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
-export const FlipWords = ({
+export const FlipWords = forwardRef(({
   words,
   duration = 2000,
   className,
@@ -11,22 +11,28 @@ export const FlipWords = ({
   words: string[];
   duration?: number;
   className?: string;
-}) => {
+}, ref) => {
   const [currentWord, setCurrentWord] = useState(words[0]);
   const [isAnimating, setIsAnimating] = useState<boolean>(false);
 
-  // thanks for the fix Julian - https://github.com/Julian-AT
   const startAnimation = useCallback(() => {
     const word = words[words.indexOf(currentWord) + 1] || words[0];
     setCurrentWord(word);
     setIsAnimating(true);
   }, [currentWord, words]);
 
+  useImperativeHandle(ref, () => ({
+    startAnimation
+  }));
+
   useEffect(() => {
-    if (!isAnimating)
-      setTimeout(() => {
+    if (!isAnimating) {
+      const timer = setTimeout(() => {
         startAnimation();
       }, duration);
+      
+      return () => clearTimeout(timer);
+    }
   }, [isAnimating, duration, startAnimation]);
 
   return (
@@ -48,6 +54,7 @@ export const FlipWords = ({
           type: "spring",
           stiffness: 100,
           damping: 10,
+          duration: duration / 1000,
         }}
         exit={{
           opacity: 0,
@@ -63,7 +70,6 @@ export const FlipWords = ({
         )}
         key={currentWord}
       >
-        {/* edit suggested by Sajal: https://x.com/DewanganSajal */}
         {currentWord.split(" ").map((word, wordIndex) => (
           <motion.span
             key={word + wordIndex}
@@ -95,4 +101,6 @@ export const FlipWords = ({
       </motion.div>
     </AnimatePresence>
   );
-};
+});
+
+FlipWords.displayName = "FlipWords";

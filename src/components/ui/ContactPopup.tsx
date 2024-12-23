@@ -7,6 +7,8 @@ import type {
 } from "../../types/popup-contact-form";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import { Button } from "./Button/Button";
+import { ArrowRightIcon } from "lucide-react";
 
 export function ContactPopup({ isOpen, onClose }: ContactPopupProps) {
   const [formData, setFormData] = useState<ContactFormData>({
@@ -36,19 +38,24 @@ export function ContactPopup({ isOpen, onClose }: ContactPopupProps) {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.2 }}
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4 overflow-y-auto"
         >
           <motion.div
             initial={{ scale: 0.95, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.95, opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="relative w-full max-w-4xl rounded-lg bg-gradient-to-br from-blue-50 to-white p-6 shadow-xl md:p-8"
+            style={{
+              backgroundImage: "url('/images/form-popup-bg.png')",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+            className="relative w-full max-w-6xl rounded-lg bg-white p-4 shadow-xl my-auto md:p-8"
           >
             {/* Close Button */}
             <button
               onClick={onClose}
-              className="absolute right-4 top-4 text-gray-500 hover:text-gray-700"
+              className="absolute right-4 top-4 bg-primary rounded-full text-white p-1.5"
               aria-label="Close popup"
             >
               <svg
@@ -84,7 +91,7 @@ export function ContactPopup({ isOpen, onClose }: ContactPopupProps) {
             </div>
 
             {/* Content */}
-            <div className="space-y-6">
+            <div className="space-y-6 max-w-xl">
               <div>
                 <h2 className="text-xl font-bold text-blue-600">Wait!</h2>
                 <h3 className="text-2xl font-bold text-gray-900 md:text-3xl">
@@ -99,7 +106,7 @@ export function ContactPopup({ isOpen, onClose }: ContactPopupProps) {
               </div>
 
               <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="grid gap-4 md:grid-cols-2">
+                <div className="grid gap-4 sm:grid-cols-1 md:grid-cols-2">
                   <div className="space-y-2">
                     <label
                       htmlFor="fullName"
@@ -284,17 +291,20 @@ export function ContactPopup({ isOpen, onClose }: ContactPopupProps) {
                   />
                 </div>
 
-                <div className="flex flex-col gap-4 pt-4 sm:flex-row sm:items-center">
-                  <button
-                    type="submit"
-                    className="rounded-md bg-blue-600 px-8 py-3 text-lg font-semibold text-white transition-colors hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                <div className="flex flex-col gap-4 pt-4 sm:flex-row">
+                  <Button
+                    variant={"primary"}
+                    size={"lg"}
+                    onClick={handleSubmit}
+                    rightIcon={<ArrowRightIcon />}
+                    className="w-full sm:w-auto"
                   >
                     Request a Call Back!
-                  </button>
+                  </Button>
                   <button
                     type="button"
                     onClick={onClose}
-                    className="text-sm text-gray-600 underline hover:text-gray-800"
+                    className="text-sm text-gray-600 underline hover:text-gray-800 text-center"
                   >
                     I&apos;d like to keep it to myself!
                   </button>

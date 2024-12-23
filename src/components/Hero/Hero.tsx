@@ -24,7 +24,12 @@ export default function Hero() {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 2000,
-    beforeChange: (_: number, next: number) => setCurrentSlide(next),
+    beforeChange: (_: number, next: number) => {
+      setCurrentSlide(next);
+      if (flipWordsRef.current) {
+        flipWordsRef.current.startAnimation();
+      }
+    },
     fade: true,
     cssEase: "linear",
     responsive: [
@@ -92,6 +97,8 @@ export default function Hero() {
     "https://www.suffescom.com/assets/img/new-suff-img/suffescom-metaverse-development-banner1.webp",
   ];
 
+  const flipWordsRef = useRef<{ startAnimation: () => void }>(null);
+
   return (
     <section className="relative overflow-hidden bg-primary/5">
       <div className="container relative mx-auto px-4 py-20 sm:py-32">
@@ -118,7 +125,7 @@ export default function Hero() {
               <h1 className="text-3xl sm:text-4xl font-bold tracking-tight xl:text-5xl">
                 Professional IT Solutions for
                 <span className="inline-block">
-                  <FlipWords words={flipWords} className="text-primary" />
+                  <FlipWords words={flipWords} ref={flipWordsRef} duration={2000} className="text-primary" />
                 </span>
               </h1>
 

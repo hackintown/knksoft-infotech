@@ -1,9 +1,10 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { useState, FormEvent } from 'react'
+import { useState, FormEvent, useEffect } from 'react'
 import { Tab } from '@headlessui/react'
 import { BsBriefcase, BsGeoAlt, BsClock } from 'react-icons/bs'
+import { ApplicationForm } from '@/lib/careers/types'
 
 interface Job {
   id: number
@@ -28,140 +29,6 @@ const departments = [
   'Quality Analyst',
 ] as const
 
-const jobs: Job[] = [
-  {
-    id: 1,
-    title: "Senior React.js Developer",
-    department: "Development", 
-    location: "Mohali, Punjab",
-    type: "Full-time",
-    description: [
-      "We are looking for an experienced React.js Developer to join our dynamic team. You'll work on cutting-edge projects using modern technologies and best practices. Be part of an innovative environment where you can grow and make an impact.",
-    ],
-    responsibilities: [
-      "Develop new user-facing features using React.js",
-      "Build reusable components and front-end libraries",
-      "Translate designs into high quality code",
-      "Optimize components for maximum performance",
-      "Write unit tests and integration tests",
-      "Collaborate with back-end developers and designers",
-      "Participate in code reviews and provide constructive feedback"
-    ],
-    skills: [
-      "Strong proficiency in JavaScript and React.js",
-      "Experience with Redux, React Query",
-      "Knowledge of modern authorization mechanisms",
-      "Familiarity with TypeScript and Next.js",
-      "Understanding of REST APIs and GraphQL",
-      "Experience with version control (Git)",
-      "Knowledge of testing frameworks like Jest"
-    ],
-    experience: "3-5 years",
-    education: "B.Tech/M.Tech in Computer Science or equivalent",
-    ctc: "As per industry standards",
-    email: "hr@company.com"
-  },
-  {
-    id: 2,
-    title: "Digital Marketing Manager",
-    department: "Marketing",
-    location: "Remote",
-    type: "Full-time",
-    description: [
-      "We're seeking a creative and data-driven Digital Marketing Manager to lead our marketing initiatives and drive growth across all digital channels."
-    ],
-    responsibilities: [
-      "Develop and execute digital marketing strategies",
-      "Manage social media presence and content calendar",
-      "Run paid advertising campaigns across platforms",
-      "Analyze marketing metrics and prepare reports",
-      "Optimize SEO and content marketing efforts",
-      "Collaborate with content creators and designers"
-    ],
-    skills: [
-      "Proven experience in digital marketing",
-      "Strong analytical and data interpretation skills",
-      "Proficiency in marketing tools and platforms",
-      "Experience with SEO and SEM",
-      "Content strategy and creation abilities",
-      "Knowledge of marketing automation tools"
-    ],
-    experience: "4-6 years",
-    education: "Bachelor's in Marketing or related field",
-    ctc: "Competitive + Benefits",
-    email: "hr@company.com"
-  },
-  {
-    id: 3,
-    title: "Quality Assurance Engineer",
-    department: "Quality Analyst",
-    location: "Hybrid",
-    type: "Full-time", 
-    description: [
-      "Looking for a detail-oriented QA Engineer to ensure the quality of our software products through comprehensive testing methodologies."
-    ],
-    responsibilities: [
-      "Create and execute test plans and cases",
-      "Perform manual and automated testing",
-      "Report and track bugs using JIRA",
-      "Work with developers to resolve issues",
-      "Improve and maintain test automation framework",
-      "Participate in agile ceremonies"
-    ],
-    skills: [
-      "Experience with test automation tools",
-      "Knowledge of SQL and API testing",
-      "Familiarity with agile methodologies",
-      "Strong analytical and problem-solving skills",
-      "Experience with performance testing",
-      "Knowledge of CI/CD pipelines"
-    ],
-    experience: "2-4 years",
-    education: "Bachelor's in Computer Science or related field",
-    ctc: "Based on experience",
-    email: "hr@company.com"
-  },
-  {
-    id: 4,
-    title: "Business Development Manager",
-    department: "Business",
-    location: "On-site",
-    type: "Full-time",
-    description: [
-      "We are looking for an experienced Business Development Manager to drive growth and expand our market presence through strategic partnerships and sales initiatives."
-    ],
-    responsibilities: [
-      "Identify and pursue new business opportunities",
-      "Build and maintain client relationships",
-      "Develop sales strategies and proposals",
-      "Meet sales targets and revenue goals",
-      "Negotiate contracts and partnerships",
-      "Report on sales metrics and forecasts"
-    ],
-    skills: [
-      "Proven sales and negotiation skills",
-      "Strong business acumen",
-      "Excellent communication abilities",
-      "Strategic thinking and planning",
-      "CRM software experience",
-      "Market analysis capabilities"
-    ],
-    experience: "5-7 years",
-    education: "Bachelor's in Business or related field",
-    ctc: "Base + Commission",
-    email: "hr@company.com"
-  }
-]
-
-interface ApplicationForm {
-  fullName: string;
-  email: string;
-  phone: string;
-  experience: string;
-  resume: File | null;
-  coverLetter: string;
-}
-
 export default function CurrentOpenings() {
   const [selectedDepartment, setSelectedDepartment] = useState<typeof departments[number] | 'All'>('All')
   const [selectedJob, setSelectedJob] = useState<Job | null>(null)
@@ -173,6 +40,21 @@ export default function CurrentOpenings() {
     resume: null,
     coverLetter: ''
   });
+  const [jobs, setJobs] = useState<Job[]>([])
+
+  useEffect(() => {
+    fetchJobs()
+  }, [])
+
+  const fetchJobs = async () => {
+    try {
+      const response = await fetch('/api/jobs')
+      const data = await response.json()
+      setJobs(data)
+    } catch (error) {
+      console.error('Error fetching jobs:', error)
+    }
+  }
 
   const filteredJobs = selectedDepartment === 'All'
     ? jobs
@@ -228,9 +110,9 @@ export default function CurrentOpenings() {
         </Tab.Group>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {filteredJobs.map(job => (
+          {filteredJobs.map((job, idx) => (
             <motion.div
-              key={job.id}
+              key={`${job.id}-${idx}`}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
@@ -251,17 +133,17 @@ export default function CurrentOpenings() {
                     {job.type}
                   </div>
                 </div>
-                
+
                 <div className="space-y-4">
                   <div>
                     <h4 className="font-semibold mb-2">Responsibilities:</h4>
                     <ul className="list-disc pl-5 text-gray-600">
                       {job.responsibilities.slice(0, 3).map((resp, idx) => (
-                        <li key={idx}>{resp}</li>
+                        <li key={`${job.id}-resp-${idx}`}>{resp}</li>
                       ))}
                     </ul>
                   </div>
-                  
+
                   <div className="flex justify-between items-center">
                     <div>
                       <p className="text-gray-600">Experience: {job.experience}</p>
@@ -305,7 +187,7 @@ export default function CurrentOpenings() {
                   required
                   className="w-full px-4 py-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500"
                   value={applicationForm.fullName}
-                  onChange={(e) => setApplicationForm({...applicationForm, fullName: e.target.value})}
+                  onChange={(e) => setApplicationForm({ ...applicationForm, fullName: e.target.value })}
                 />
               </div>
 
@@ -318,7 +200,7 @@ export default function CurrentOpenings() {
                   required
                   className="w-full px-4 py-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500"
                   value={applicationForm.email}
-                  onChange={(e) => setApplicationForm({...applicationForm, email: e.target.value})}
+                  onChange={(e) => setApplicationForm({ ...applicationForm, email: e.target.value })}
                 />
               </div>
 
@@ -331,7 +213,7 @@ export default function CurrentOpenings() {
                   required
                   className="w-full px-4 py-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500"
                   value={applicationForm.phone}
-                  onChange={(e) => setApplicationForm({...applicationForm, phone: e.target.value})}
+                  onChange={(e) => setApplicationForm({ ...applicationForm, phone: e.target.value })}
                 />
               </div>
 
@@ -344,7 +226,7 @@ export default function CurrentOpenings() {
                   required
                   className="w-full px-4 py-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500"
                   value={applicationForm.experience}
-                  onChange={(e) => setApplicationForm({...applicationForm, experience: e.target.value})}
+                  onChange={(e) => setApplicationForm({ ...applicationForm, experience: e.target.value })}
                 />
               </div>
 
@@ -357,7 +239,7 @@ export default function CurrentOpenings() {
                   required
                   accept=".pdf,.doc,.docx"
                   className="w-full px-4 py-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500"
-                  onChange={(e) => setApplicationForm({...applicationForm, resume: e.target.files?.[0] || null})}
+                  onChange={(e) => setApplicationForm({ ...applicationForm, resume: e.target.files?.[0] || null })}
                 />
               </div>
 
@@ -369,7 +251,7 @@ export default function CurrentOpenings() {
                   className="w-full px-4 py-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500"
                   rows={4}
                   value={applicationForm.coverLetter}
-                  onChange={(e) => setApplicationForm({...applicationForm, coverLetter: e.target.value})}
+                  onChange={(e) => setApplicationForm({ ...applicationForm, coverLetter: e.target.value })}
                 />
               </div>
 

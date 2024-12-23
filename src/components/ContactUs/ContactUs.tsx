@@ -39,25 +39,16 @@ export default function ContactUs() {
   return (
     <div className="relative">
       {/* Enhanced Hero Section */}
-      <section className="relative h-[40vh] lg:h-[50vh] flex items-center justify-center overflow-hidden">
+      <section className="relative h-[30vh] sm:h-[40vh] lg:h-[50vh] flex items-center justify-center overflow-hidden">
         <Image
-          src="/images/contact-hero.jpg"
+          src="https://st2.depositphotos.com/1019970/11309/i/450/depositphotos_113094540-stock-photo-contact-us-banner.jpg"
           alt="Contact Us"
-          fill
+          width={1920}
+          height={1080}
           priority
-          className="absolute inset-0 z-0 object-cover object-center"
-          sizes="100vw"
-          quality={100}
+          className="absolute w-full h-full inset-0 z-0 object-cover object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/50 z-10"></div>
-        <div className="relative z-20 text-center text-white px-4 max-w-4xl mx-auto">
-          <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold mb-4 tracking-tight">
-            Let&apos;s Build Your Next Project
-          </h1>
-          <p className="text-lg sm:text-xl lg:text-2xl text-gray-200 max-w-2xl mx-auto">
-            Get in touch with our experts and transform your ideas into reality
-          </p>
-        </div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-black/60 z-10"></div>
       </section>
 
       {/* Main Content */}

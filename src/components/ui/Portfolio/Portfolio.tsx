@@ -122,7 +122,7 @@ const Portfolio = () => {
                             {filteredProjects.map((project) => (
                                 <div
                                     key={project.id}
-                                    className="rounded-[32px] p-8"
+                                    className="rounded-[32px] p-8 border border-gray-100"
                                     style={{
                                         backgroundColor: project.bgColor || '#FFF8E7'
                                     }}
