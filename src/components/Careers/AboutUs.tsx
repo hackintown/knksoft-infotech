@@ -3,6 +3,8 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { FaLightbulb, FaUsers, FaChartLine, FaMedal } from "react-icons/fa";
+import { Button } from "../ui/Button/Button";
+import * as Icons from "lucide-react";
 
 const stats = [
   { number: "250+", label: "Employees Worldwide", icon: <FaUsers /> },
@@ -78,13 +80,13 @@ export default function AboutUs() {
               minds from around the globe.
             </p>
             <div className="pt-6">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-blue-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-blue-700 transition-colors"
+              <Button
+                size="lg"
+                variant="primary"
+                rightIcon={<Icons.ArrowRight />}
               >
                 Join Our Team
-              </motion.button>
+              </Button>
             </div>
           </motion.div>
 

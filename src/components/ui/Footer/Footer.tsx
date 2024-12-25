@@ -8,38 +8,53 @@ import {
   FaInstagram,
   FaLinkedinIn,
   FaYoutube,
-  FaWhatsapp,
 } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { Mail, MapPin, Phone } from "lucide-react";
 
 export default function Footer() {
   const quickLinks = [
-    { text: "Contact Us", href: "/contact" },
+    { text: "Contact Us", href: "/contact-us" },
+    { text: "Portfolio", href: "/portfolio" },
+    { text: "Careers", href: "/careers" },
+    { text: "Awards & Events", href: "/awards-and-events" },
     { text: "Privacy Policy", href: "/privacy-policy" },
     { text: "Terms & Conditions", href: "/terms" },
-    { text: "Disclaimer", href: "/disclaimer" },
-    { text: "Blog", href: "/blog" },
-    { text: "Partnership Program", href: "/partnership" },
   ];
 
   const onDemandApps = [
-    { text: "Food Delivery", href: "/food-delivery" },
-    { text: "Grocery Delivery", href: "/grocery-delivery" },
-    { text: "Beauty Services", href: "/beauty-services" },
-    { text: "Home Services", href: "/home-services" },
-    { text: "Pharmacy Delivery", href: "/pharmacy-delivery" },
-    { text: "Handyman Service", href: "/handyman" },
-    { text: "Car Washing Services", href: "/car-wash" },
+    { text: "Food Delivery", href: "/food-delivery-app-development" },
+    { text: "Grocery Delivery", href: "/grocery-app-development" },
+    { text: "Beauty Services", href: "/ondemand-beauty-app-development" },
+    { text: "Home Services", href: "/ondemand-home-services-app-development" },
+    { text: "Handyman Service", href: "/handyman-app-development" },
+    { text: "Car Washing Services", href: "/car-washing-app-development" },
+    { text: "Taxi Services", href: "/taxi-app-development" },
+    { text: "On Demand Services", href: "/on-demand-app-development" },
   ];
 
   const socialIcons = [
-    { Icon: FaFacebookF, href: "#", label: "Facebook" },
+    {
+      Icon: FaFacebookF,
+      href: "https://www.facebook.com/profile.php?id=61559964659278",
+      label: "Facebook",
+    },
     { Icon: FaXTwitter, href: "#", label: "Twitter" },
-    { Icon: FaInstagram, href: "#", label: "Instagram" },
-    { Icon: FaLinkedinIn, href: "#", label: "LinkedIn" },
-    { Icon: FaYoutube, href: "#", label: "YouTube" },
-    { Icon: FaWhatsapp, href: "#", label: "WhatsApp" },
+    {
+      Icon: FaInstagram,
+      href: "https://www.instagram.com/knksoftinfotech",
+      label: "Instagram",
+    },
+    {
+      Icon: FaLinkedinIn,
+      href: "linkedin.com/company/knk-soft-infotech-pvt-ltd",
+      label: "LinkedIn",
+    },
+    {
+      Icon: FaYoutube,
+      href: "https://www.youtube.com/channel/UCJ0_vBW32QCUfwmK-wdRTLA",
+      label: "YouTube",
+    },
   ];
 
   return (
@@ -55,12 +70,13 @@ export default function Footer() {
                 alt="Company Logo"
                 width={150}
                 height={50}
-                 className="w-auto h-12 brightness-[1.8]"
+                className="w-auto h-12 brightness-[1.8]"
               />
             </Link>
             <p className="text-white/80 mb-6 max-w-md">
-              Leading provider of innovative IT solutions, specializing in custom software development,
-              cloud services, and digital transformation.
+              Leading provider of innovative IT solutions, specializing in
+              custom software development, cloud services, and digital
+              transformation.
             </p>
             <div className="flex gap-4">
               {socialIcons.map(({ Icon, href, label }, index) => (
@@ -82,7 +98,9 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-xl font-semibold text-white mb-6">Quick Links</h3>
+            <h3 className="text-xl font-semibold text-white mb-6">
+              Quick Links
+            </h3>
             <ul className="space-y-4">
               {quickLinks.map((link, index) => (
                 <motion.li
@@ -90,7 +108,10 @@ export default function Footer() {
                   whileHover={{ x: 5 }}
                   transition={{ type: "spring", stiffness: 400, damping: 10 }}
                 >
-                  <Link href={link.href} className="hover:text-primary transition-colors">
+                  <Link
+                    href={link.href}
+                    className="hover:text-primary transition-colors"
+                  >
                     {link.text}
                   </Link>
                 </motion.li>
@@ -100,7 +121,9 @@ export default function Footer() {
 
           {/* Services */}
           <div>
-            <h3 className="text-xl font-semibold text-white mb-6">Our Services</h3>
+            <h3 className="text-xl font-semibold text-white mb-6">
+              Our Services
+            </h3>
             <ul className="space-y-4">
               {onDemandApps.map((link, index) => (
                 <motion.li
@@ -108,7 +131,10 @@ export default function Footer() {
                   whileHover={{ x: 5 }}
                   transition={{ type: "spring", stiffness: 400, damping: 10 }}
                 >
-                  <Link href={link.href} className="hover:text-primary transition-colors">
+                  <Link
+                    href={link.href}
+                    className="hover:text-primary transition-colors"
+                  >
                     {link.text}
                   </Link>
                 </motion.li>
@@ -118,20 +144,28 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h3 className="text-xl font-semibold text-white mb-6">Contact Us</h3>
+            <h3 className="text-xl font-semibold text-white mb-6">
+              Contact Us
+            </h3>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <MapPin className="w-8 h-8 mt-1 text-primary-foreground" />
                 <p>New Ashokm Nagar, New Delhi, India</p>
               </li>
               <li>
-                <Link href="tel:+8851967714" className="flex items-center gap-3 hover:text-primary transition-colors">
+                <Link
+                  href="tel:+8851967714"
+                  className="flex items-center gap-3 hover:text-primary transition-colors"
+                >
                   <Phone className="w-6 h-6 mt-1 text-primary-foreground" />
                   +1-8851967714
                 </Link>
               </li>
               <li>
-                <Link href="mailto:info@xyz.com" className="flex items-center gap-3 hover:text-primary transition-colors">
+                <Link
+                  href="mailto:info@xyz.com"
+                  className="flex items-center gap-3 hover:text-primary transition-colors"
+                >
                   <Mail className="w-6 h-6 mt-1 text-primary-foreground" />
                   info@xyz.com
                 </Link>
@@ -143,17 +177,26 @@ export default function Footer() {
         {/* Footer Bottom */}
         <div className="mt-16 pt-8 border-t border-white/10">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-sm text-white/80">   
+            <p className="text-sm text-white/80">
               © {new Date().getFullYear()} XYZ. All rights reserved.
             </p>
             <div className="flex items-center gap-8">
-              <Link href="/privacy-policy" className="text-sm hover:text-primary transition-colors">
+              <Link
+                href="/privacy-policy"
+                className="text-sm hover:text-primary transition-colors"
+              >
                 Privacy Policy
               </Link>
-              <Link href="/terms" className="text-sm hover:text-primary transition-colors">
+              <Link
+                href="/terms"
+                className="text-sm hover:text-primary transition-colors"
+              >
                 Terms of Service
               </Link>
-              <Link href="/cookies" className="text-sm hover:text-primary transition-colors">
+              <Link
+                href="/cookies"
+                className="text-sm hover:text-primary transition-colors"
+              >
                 Cookies Policy
               </Link>
             </div>
