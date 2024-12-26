@@ -4,22 +4,7 @@ import { motion } from 'framer-motion'
 import { useState, FormEvent, useEffect } from 'react'
 import { Tab } from '@headlessui/react'
 import { BsBriefcase, BsGeoAlt, BsClock } from 'react-icons/bs'
-import { ApplicationForm } from '@/lib/careers/types'
-
-interface Job {
-  id: number
-  title: string
-  department: string
-  location: string
-  type: string
-  description: string[]
-  responsibilities: string[]
-  skills: string[]
-  experience: string
-  education: string
-  ctc: string
-  email: string
-}
+import  { ApplicationForm, Job } from '@/lib/careers/types'  
 
 const departments = [
   'All',
@@ -32,7 +17,7 @@ const departments = [
 export default function CurrentOpenings() {
   const [selectedDepartment, setSelectedDepartment] = useState<typeof departments[number] | 'All'>('All')
   const [selectedJob, setSelectedJob] = useState<Job | null>(null)
-  const [applicationForm, setApplicationForm] = useState<ApplicationForm>({
+  const [applicationForm, setApplicationForm] = useState<ApplicationForm>({ 
     fullName: '',
     email: '',
     phone: '',
@@ -49,10 +34,12 @@ export default function CurrentOpenings() {
   const fetchJobs = async () => {
     try {
       const response = await fetch('/api/jobs')
+      if (!response.ok) throw new Error('Failed to fetch jobs')
       const data = await response.json()
       setJobs(data)
     } catch (error) {
       console.error('Error fetching jobs:', error)
+      setJobs([])
     }
   }
 
@@ -112,7 +99,7 @@ export default function CurrentOpenings() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {filteredJobs.map((job, idx) => (
             <motion.div
-              key={`${job.id}-${idx}`}
+              key={`${job._id}-${idx}`}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
@@ -139,7 +126,7 @@ export default function CurrentOpenings() {
                     <h4 className="font-semibold mb-2">Responsibilities:</h4>
                     <ul className="list-disc pl-5 text-gray-600">
                       {job.responsibilities.slice(0, 3).map((resp, idx) => (
-                        <li key={`${job.id}-resp-${idx}`}>{resp}</li>
+                        <li key={`${job._id}-resp-${idx}`}>{resp}</li>
                       ))}
                     </ul>
                   </div>

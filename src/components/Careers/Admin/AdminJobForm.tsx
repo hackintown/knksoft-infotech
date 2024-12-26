@@ -32,38 +32,58 @@ export default function AdminJobForm({ editingJob, onSubmitSuccess }: Props) {
     index: number,
     value: string
   ) => {
-    setFormData(prev => ({
-      ...prev,
-      [field]: prev[field]?.map((item: string, i: number) => 
-        i === index ? value : item
-      )
-    }))
-  }
+    setFormData((prev) => {
+      const currentField = prev[field as keyof Partial<Job>];
+      // Ensure currentField is a string[] before calling map
+      if (Array.isArray(currentField)) {
+        return {
+          ...prev,
+          [field]: currentField.map((item, i) => (i === index ? value : item)),
+        };
+      }
+      return prev; // Return unchanged if the field is not an array
+    });
+  };
 
   const addArrayItem = (field: keyof Job) => {
-    setFormData(prev => ({
-      ...prev,
-      [field]: [...(prev[field] || []), '']
-    }))
-  }
+    setFormData((prev) => {
+      const currentField = prev[field as keyof Partial<Job>];
+      // Ensure currentField is a string[] before adding an item
+      if (Array.isArray(currentField)) {
+        return {
+          ...prev,
+          [field]: [...currentField, ''],
+        };
+      }
+      return prev;
+    });
+  };
 
   const removeArrayItem = (field: keyof Job, index: number) => {
-    setFormData(prev => ({
-      ...prev,
-      [field]: prev[field]?.filter((_: string, i: number) => i !== index)
-    }))
-  }
+    setFormData((prev) => {
+      const currentField = prev[field as keyof Partial<Job>];
+      // Ensure currentField is a string[] before filtering
+      if (Array.isArray(currentField)) {
+        return {
+          ...prev,
+          [field]: currentField.filter((_, i) => i !== index),
+        };
+      }
+      return prev;
+    });
+  };
+
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    
+
     try {
-      const url = editingJob 
+      const url = editingJob
         ? `/api/jobs/${editingJob._id}`
         : '/api/jobs'
-        
+
       const method = editingJob ? 'PUT' : 'POST'
-      
+
       const response = await fetch(url, {
         method,
         headers: { 'Content-Type': 'application/json' },
@@ -89,7 +109,7 @@ export default function AdminJobForm({ editingJob, onSubmitSuccess }: Props) {
         ctc: '',
         email: ''
       })
-      
+
       onSubmitSuccess()
     } catch (error) {
       console.error('Error saving job:', error)
@@ -166,7 +186,7 @@ export default function AdminJobForm({ editingJob, onSubmitSuccess }: Props) {
             <label className="block text-sm font-medium text-gray-700 mb-1 capitalize">
               {field} *
             </label>
-            {formData[field]?.map((item: string, index: number) => (
+            {(formData[field as keyof Job] as string[] || []).map((item, index) => (
               <div key={index} className="flex gap-2">
                 <input
                   type="text"

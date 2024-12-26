@@ -174,6 +174,7 @@ export default function Hero() {
                       height={300}
                       className="w-full h-full transform transition-transform duration-500 max-h-[450px] object-contain"
                       priority={index === 0}
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
                   </div>
                 ))}
