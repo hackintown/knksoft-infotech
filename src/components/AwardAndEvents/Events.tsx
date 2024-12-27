@@ -7,12 +7,18 @@ import {
     Gallery,
     HeroSection,
     UpcomingEvents,
-    EventsTimeline,
 } from "./EventsClients";
 import AwardsShowcase from "./AwardsShowcase";
+import { ParallaxScroll } from "@/components/ui/parallax-scroll";
 
 export default async function EventsPage() {
     const mediaData = await getEventsMediaData();
+
+    // Combine all event images for the parallax scroll
+    const allEventImages = [
+        ...mediaData.ahmedabadEvents.map(event => event.src),
+        ...mediaData.delhiEvents.map(event => event.src)
+    ];
 
     return (
         <div className="min-h-screen bg-gray-100">
@@ -21,6 +27,24 @@ export default async function EventsPage() {
             {/* Add Upcoming Events Section */}
             <AnimatedSection>
                 <UpcomingEvents />
+            </AnimatedSection>
+
+            {/* Parallax Scroll Gallery */}
+            <AnimatedSection>
+                <section className="py-16 bg-primary/5">
+                    <div className="text-center mb-12">
+                        <h2 className="text-4xl lg:text-5xl font-bold text-purple-800">
+                            Event Memories
+                        </h2>
+                        <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
+                            Scroll through our collection of memorable moments
+                        </p>
+                    </div>
+                    <ParallaxScroll
+                        images={allEventImages}
+                        className="max-w-7xl mx-auto"
+                    />
+                </section>
             </AnimatedSection>
 
             {/* Recent Events Section */}
@@ -37,11 +61,6 @@ export default async function EventsPage() {
                         </div>
                     </div>
                 </section>
-            </AnimatedSection>
-
-            {/* Events Timeline Section */}
-            <AnimatedSection>
-                <EventsTimeline />
             </AnimatedSection>
 
             {/* Professional Event Gallery Section */}
@@ -65,10 +84,15 @@ export default async function EventsPage() {
 
             {/* Video Showcase Section */}
             <AnimatedSection>
-                <section id="videos" className="py-16 px-4 md:px-8 bg-white">
-                    <h2 className="text-4xl font-bold text-center mb-12 text-purple-800">
-                        Event Highlights
-                    </h2>
+                <section id="videos" className="py-20 px-4 md:px-8 bg-gradient-to-b from-white to-purple-50">
+                    <div className="text-center mb-12">
+                        <h2 className="text-4xl lg:text-5xl font-bold text-purple-800 mb-4">
+                            Event Highlights
+                        </h2>
+                        <p className="text-gray-600 max-w-2xl mx-auto">
+                            Watch our most memorable moments and exciting highlights from past events
+                        </p>
+                    </div>
                     <div className="container mx-auto max-w-7xl">
                         <VideoSlider videos={mediaData.videos} />
                     </div>

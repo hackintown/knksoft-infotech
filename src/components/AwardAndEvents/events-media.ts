@@ -51,16 +51,16 @@ export function getEventsMediaData() {
     
       ],
       videos: [
-        "https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4",
-        "https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_2mb.mp4",
-        "https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_3mb.mp4",
-        "https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_4mb.mp4",
-        "https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_5mb.mp4",
-        "https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_6mb.mp4",
-        "https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_7mb.mp4",
-        "https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_8mb.mp4",
-        "https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_9mb.mp4",
-        "https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_10mb.mp4",
+        "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+        "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+        "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+        "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+        "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4",
+        "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
+        "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4",
+        "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4",
+        "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/SubaruOutbackOnStreetAndDirt.mp4",
+        "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4"
       ],
       banners: [
         {
@@ -77,6 +77,13 @@ export function getEventsMediaData() {
           location: "Delhi, India",
           attendees: 100,
           image: "https://picsum.photos/800/600?random=14",
+        },
+        {
+          title: "Ahmedabad Event",
+          date: "May, 2024",
+          location: "Ahmedabad, India",
+          attendees: 50,
+          image: "https://picsum.photos/800/600?random=15",
         },
         {
           title: "Ahmedabad Event",

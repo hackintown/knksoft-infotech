@@ -3,8 +3,11 @@
 import { useState } from "react";
 import Image from "next/image";
 import { FiPhone, FiMail, FiMapPin, FiSend } from "react-icons/fi";
+import { toast } from 'react-toastify';
+import { Button } from "../ui/Button/Button";
 
 export default function ContactUs() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -17,6 +20,29 @@ export default function ContactUs() {
     budget: 5000,
     message: "",
   });
+  const [errors, setErrors] = useState<Record<string, string>>({});
+
+  const validateForm = () => {
+    const newErrors: Record<string, string> = {};
+
+    if (!formData.fullName.trim()) newErrors.fullName = "Full name is required";
+    if (!formData.email.trim()) newErrors.email = "Email is required";
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (formData.email && !emailRegex.test(formData.email)) {
+      newErrors.email = "Please enter a valid email address";
+    }
+
+    const phoneRegex = /^\d{10}$/;
+    if (formData.phone && !phoneRegex.test(formData.phone)) {
+      newErrors.phone = "Please enter a valid 10-digit phone number";
+    }
+
+    if (!formData.message.trim()) newErrors.message = "Message is required";
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
 
   const handleInputChange = (
     e: React.ChangeEvent<
@@ -30,15 +56,50 @@ export default function ContactUs() {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    // Handle form submission logic here
+
+    if (!validateForm()) {
+      toast.error("Please check the form for errors");
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) throw new Error('Failed to submit form');
+
+      toast.success("Message sent successfully!");
+      setFormData({
+        fullName: "",
+        email: "",
+        countryCode: "+1",
+        phone: "",
+        companyName: "",
+        companySize: "",
+        jobTitle: "",
+        serviceInterest: "",
+        budget: 5000,
+        message: "",
+      });
+    } catch (error) {
+      toast.error("Failed to send message. Please try again.");
+      console.error('Form submission error:', error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
     <div className="relative">
-      {/* Enhanced Hero Section */}
       <section className="relative h-[30vh] sm:h-[40vh] lg:h-[50vh] flex items-center justify-center overflow-hidden">
         <Image
           src="https://st2.depositphotos.com/1019970/11309/i/450/depositphotos_113094540-stock-photo-contact-us-banner.jpg"
@@ -127,7 +188,7 @@ export default function ContactUs() {
                     htmlFor="fullName"
                     className="block text-sm font-medium text-gray-700 mb-1"
                   >
-                    Full Name
+                    Full Name <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="text"
@@ -135,9 +196,15 @@ export default function ContactUs() {
                     name="fullName"
                     value={formData.fullName}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className={`w-full px-4 py-2 border ${errors.fullName ? 'border-red-500' : 'border-gray-300'
+                      } rounded-md focus:outline-none focus:ring-2 ${errors.fullName ? 'focus:ring-red-500' : 'focus:ring-blue-500'
+                      }`}
                     required
+                    disabled={isSubmitting}
                   />
+                  {errors.fullName && (
+                    <p className="mt-1 text-sm text-red-500">{errors.fullName}</p>
+                  )}
                 </div>
                 <div>
                   <label
@@ -171,12 +238,11 @@ export default function ContactUs() {
                       name="countryCode"
                       value={formData.countryCode}
                       onChange={handleInputChange}
-                      className="w-20 px-2 py-2 border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-20 px-2 py-2 border border-gray-300 rounded-l-md focus:outline-none"
                     >
                       <option value="+1">+1</option>
                       <option value="+44">+44</option>
                       <option value="+91">+91</option>
-                      {/* Add more country codes as needed */}
                     </select>
                     <input
                       type="tel"
@@ -184,7 +250,7 @@ export default function ContactUs() {
                       name="phone"
                       value={formData.phone}
                       onChange={handleInputChange}
-                      className="flex-1 px-4 py-2 border border-gray-300 rounded-r-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="flex-1 px-4 py-2 border border-gray-300 rounded-r-md focus:outline-none"
                     />
                   </div>
                 </div>
@@ -316,13 +382,13 @@ export default function ContactUs() {
                 ></textarea>
               </div>
 
-              <button
-                type="submit"
-                className="w-full bg-blue-600 text-white py-3 px-6 rounded-md hover:bg-blue-700 transition duration-300 ease-in-out flex items-center justify-center space-x-2 text-lg"
+              <Button variant={"primary"} size={"lg"} className="" rightIcon={<FiSend className="w-5 h-5" />}
+                disabled={isSubmitting}
+                isLoading={isSubmitting}
+                onClick={handleSubmit}
               >
-                <span>Send Message</span>
-                <FiSend className="w-5 h-5" />
-              </button>
+                {isSubmitting ? 'Sending...' : 'Send Message'}
+              </Button>
             </form>
           </div>
         </div>

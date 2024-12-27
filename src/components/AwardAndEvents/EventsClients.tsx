@@ -11,7 +11,6 @@ import Masonry, { ResponsiveMasonry } from "react-responsive-masonry"
 import Link from "next/link";
 import Slider from "react-slick";
 import UpcomingEvents from './UpcomingEvents'
-import EventsTimeline from './EventsTimeline'
 
 interface EventCardProps {
     title: string;
@@ -93,7 +92,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ src }) => {
     };
 
     return (
-        <div className="relative aspect-w-16 aspect-h-9 rounded-xl overflow-hidden group">
+        <div className="relative aspect-w-16 aspect-h-9 rounded-2xl overflow-hidden group cursor-pointer">
             <video
                 ref={videoRef}
                 src={src}
@@ -104,10 +103,10 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ src }) => {
                 <motion.button
                     whileHover={{ scale: 1.1 }}
                     onClick={togglePlay}
-                    className="absolute inset-0 flex items-center justify-center bg-black/40 backdrop-blur-sm group-hover:bg-black/20 transition-all duration-300"
+                    className="absolute inset-0 flex items-center justify-center bg-black/30 backdrop-blur-[2px] group-hover:bg-black/20 transition-all duration-300"
                 >
-                    <div className="w-16 h-16 rounded-full bg-white/20 flex items-center justify-center backdrop-blur-sm">
-                        <Play className="w-8 h-8 text-white ml-1" />
+                    <div className="w-20 h-20 rounded-full bg-purple-600/80 flex items-center justify-center backdrop-blur-sm border-2 border-white/30 shadow-lg group-hover:bg-purple-500/90 transition-all duration-300">
+                        <Play className="w-10 h-10 text-white ml-1" />
                     </div>
                 </motion.button>
             )}
@@ -117,18 +116,19 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ src }) => {
 
 const VideoSlider: React.FC<{ videos: string[] }> = ({ videos }) => {
     const settings = {
-        dots: true,
+        dots: false,
         infinite: true,
         speed: 500,
         slidesToShow: 2,
         slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 5000,
+        autoplay: false,
         pauseOnHover: true,
         arrows: true,
+        prevArrow: <CustomArrow direction="prev" />,
+        nextArrow: <CustomArrow direction="next" />,
         customPaging: function () {
             return (
-                <div className="w-3 h-3 mx-1 mt-4 rounded-full bg-purple-300 hover:bg-purple-500 transition-colors duration-300" />
+                <div className="w-3 h-3 mx-1 mt-8 rounded-full bg-purple-200 hover:bg-purple-500 transition-colors duration-300" />
             );
         },
         responsive: [
@@ -144,19 +144,26 @@ const VideoSlider: React.FC<{ videos: string[] }> = ({ videos }) => {
                 settings: {
                     slidesToShow: 1,
                     slidesToScroll: 1,
-                    arrows: false,
                 },
             },
         ],
     };
 
     return (
-        <div className="relative">
+        <div className="relative px-12">
             <Slider {...settings}>
                 {videos.map((video, index) => (
-                    <div key={index} className="px-2">
-                        <VideoPlayer src={video} />
-                    </div>
+                    <motion.div
+                        key={index}
+                        className="p-4"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: index * 0.1 }}
+                    >
+                        <div className="bg-white rounded-2xl shadow-xl p-2 transform hover:-translate-y-1 transition-all duration-300">
+                            <VideoPlayer src={video} />
+                        </div>
+                    </motion.div>
                 ))}
             </Slider>
         </div>
@@ -212,18 +219,18 @@ const Gallery: React.FC<{
             <div className="flex justify-center gap-4 mb-8">
                 <button
                     onClick={() => setActiveTab('delhi')}
-                    className={`px-6 py-2 rounded-full transition-all ${activeTab === 'delhi'
-                            ? 'bg-purple-600 text-white'
-                            : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                    className={`px-6 py-2.5 text-white rounded-lg font-medium text-sm hover:from-blue-600 hover:to-blue-700 transition duration-300 shadow-md hover:shadow-lg ${activeTab === 'delhi'
+                        ? 'bg-gradient-to-r from-blue-500 to-blue-600 text-white'
+                        : 'bg-gray-200 text-secondary'
                         }`}
                 >
                     Delhi Events
                 </button>
                 <button
                     onClick={() => setActiveTab('ahmedabad')}
-                    className={`px-6 py-2 rounded-full transition-all ${activeTab === 'ahmedabad'
-                            ? 'bg-purple-600 text-white'
-                            : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                    className={`px-6 py-2.5 text-white rounded-lg font-medium text-sm hover:from-blue-600 hover:to-blue-700 transition duration-300 shadow-md hover:shadow-lg ${activeTab === 'ahmedabad'
+                        ? 'bg-gradient-to-r from-blue-500 to-blue-600 text-white'
+                        : 'bg-gray-200 text-secondary'
                         }`}
                 >
                     Ahmedabad Events
@@ -231,24 +238,25 @@ const Gallery: React.FC<{
             </div>
 
             <ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}>
-                <Masonry className="gap-4">
+                <Masonry className="gap-2 p-2">
                     {(activeTab === 'delhi' ? delhiEvents : ahmedabadEvents).map((image, index) => (
                         <motion.div
                             key={index}
                             initial={{ opacity: 0, scale: 0.8 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.5, delay: index * 0.1 }}
-                            className="group relative overflow-hidden rounded-xl shadow-lg"
+                            className="group relative overflow-hidden rounded-xl shadow-xl hover:shadow-2xl transition-shadow duration-300 m-2"
                         >
                             <Image
                                 src={image.src}
                                 alt={image.alt}
-                                width={600}
-                                height={400}
-                                className="object-cover w-full h-full transform group-hover:scale-110 transition-transform duration-700"
+                                width={800}
+                                height={600}
+                                className="object-cover w-full h-[400px] transform group-hover:scale-105 transition-transform duration-700"
+                                priority={index < 4}
                             />
-                            <div className="absolute inset-0 bg-purple-900 bg-opacity-0 group-hover:bg-opacity-70 flex items-center justify-center transition-all duration-300">
-                                <h3 className="text-white text-xl font-bold opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 flex items-center justify-center transition-all duration-500">
+                                <h3 className="text-white text-2xl font-bold opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 px-6 text-center">
                                     {image.alt}
                                 </h3>
                             </div>
@@ -269,13 +277,13 @@ const CustomArrow = ({
 }) => (
     <button
         onClick={onClick}
-        className={`absolute top-1/2 -translate-y-1/2 z-10 bg-white bg-opacity-50 hover:bg-opacity-75 text-gray-800 p-2 rounded-full transition-all duration-300 ${direction === "prev" ? "left-4" : "right-4"
+        className={`absolute top-1/2 -translate-y-1/2 z-10  text-indigo-500 p-2 rounded-full transition-all duration-300 ${direction === "prev" ? "-left-10" : "-right-10"
             }`}
     >
         {direction === "prev" ? (
-            <FaChevronLeft size={20} />
+            <FaChevronLeft size={40} />
         ) : (
-            <FaChevronRight size={20} />
+            <FaChevronRight size={40} />
         )}
     </button>
 );
@@ -302,7 +310,7 @@ const HeroSection: React.FC<{ banners: Banner[] }> = ({ banners }) => {
                         key={index}
                         className="relative h-[60vh] lg:h-[95vh] min-h-[300px] max-h-[800px]"
                     >
-                        <Link href="https://docs.google.com/forms/d/e/1FAIpQLSdBP02jUowk_c0cgx2cEpt-8fup2hhfnIYiAx3L6Qkk2D0cNA/viewform">
+                        <Link href="#">
                             <Image
                                 src={banner.image}
                                 alt={`Event banner ${index + 1}`}
@@ -320,7 +328,7 @@ const HeroSection: React.FC<{ banners: Banner[] }> = ({ banners }) => {
                                 whileHover={{ scale: 1.1 }}
                             >
                                 <Link
-                                    href="https://docs.google.com/forms/d/e/1FAIpQLSdBP02jUowk_c0cgx2cEpt-8fup2hhfnIYiAx3L6Qkk2D0cNA/viewform"
+                                    href="#"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="inline-block"
@@ -365,5 +373,4 @@ export {
     CustomArrow,
     HeroSection,
     UpcomingEvents,
-    EventsTimeline,
 };
