@@ -32,6 +32,16 @@ export default function Services() {
     [isDesktop]
   );
 
+  const handleScrollToContact = () => {
+    const contactSection = document.getElementById("get-in-touch");
+    if (contactSection) {
+      contactSection.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  };
+
   return (
     <section className="container mx-auto px-4 py-16 bg-white">
       <motion.div
@@ -117,9 +127,8 @@ export default function Services() {
                 variant="outline"
                 size="lg"
                 className=""
-                rightIcon={
-                  <Icons.ArrowRight />
-                }
+                rightIcon={<Icons.ArrowRight />}
+                onClick={handleScrollToContact}
               >
                 Our Engagement Model
               </Button>

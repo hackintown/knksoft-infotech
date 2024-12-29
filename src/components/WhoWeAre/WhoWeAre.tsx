@@ -15,6 +15,13 @@ export default function WhoWeAre() {
     "Cloud Solutions",
   ];
 
+  const handleScrollToContact = () => {
+    const contactSection = document.getElementById("get-in-touch");
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   return (
     <section className="py-10 sm:py-12 md:py-14 bg-primary/5">
       <div className="container mx-auto px-4">
@@ -52,9 +59,8 @@ export default function WhoWeAre() {
             <Button
               size="lg"
               variant="primary"
-              rightIcon={
-                <Icons.ArrowRight />
-              }
+              rightIcon={<Icons.ArrowRight />}
+              onClick={handleScrollToContact}
             >
               Explore More
             </Button>

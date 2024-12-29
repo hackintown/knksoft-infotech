@@ -44,6 +44,15 @@ const features = [
 ];
 
 export default function WhyChooseUs() {
+  const handleScrollToContact = () => {
+    const contactSection = document.getElementById("get-in-touch");
+    if (contactSection) {
+      contactSection.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  };
   return (
     <section className="py-24">
       <div className="container mx-auto px-4">
@@ -101,7 +110,6 @@ export default function WhyChooseUs() {
                 backgroundPosition: "center",
               }}
             >
-
               <div className="max-w-2xl relative z-10 flex flex-col items-center sm:items-start">
                 <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
                   <span className="text-primary">
@@ -119,9 +127,8 @@ export default function WhyChooseUs() {
                   variant="outline"
                   size="lg"
                   className="rounded-full text-sm sm:text-base"
-                  rightIcon={
-                    <Icons.ArrowRight />
-                  }
+                  rightIcon={<Icons.ArrowRight />}
+                  onClick={handleScrollToContact}
                 >
                   Our Engagement Model
                 </Button>
@@ -144,7 +151,6 @@ export default function WhyChooseUs() {
                   className="object-contain h-full"
                 />
               </div>
-
             </div>
           </div>
         </motion.div>

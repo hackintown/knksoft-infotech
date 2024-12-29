@@ -140,7 +140,7 @@ export default function ContactSection() {
   };
 
   return (
-    <section className="py-12 md:py-24">
+    <section id="get-in-touch" className="py-12 md:py-24">
       <div className="max-w-7xl mx-auto px-4">
         <div className="grid gap-8 lg:grid-cols-2 lg:gap-12">
           {/* Left Column */}

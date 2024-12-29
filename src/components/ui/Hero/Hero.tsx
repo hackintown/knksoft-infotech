@@ -40,6 +40,17 @@ export default function Hero({
   const [currentSlide, setCurrentSlide] = useState(0);
   const flipWordsRef = useRef<{ startAnimation: () => void }>(null);
 
+  //Scroll to Contact Section
+  const handleScrollToContact = () => {
+    const contactSection = document.getElementById("get-in-touch");
+    if (contactSection) {
+      contactSection.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  };
+
   const sliderSettings = {
     dots: false,
     infinite: true,
@@ -131,6 +142,7 @@ export default function Hero({
                 size="lg"
                 variant="primary"
                 rightIcon={<Icons.ArrowRight />}
+                onClick={handleScrollToContact}
               >
                 {buttonText}
               </Button>
