@@ -123,7 +123,10 @@ export default function Hero() {
               </h1>
 
               <p className="max-w-2xl text-base font-thin lg:text-lg text-foreground">
-                We specialize in creating mobile apps that are both functional and visually appealing. Our team of experienced developers and designers work together to ensure that your app is user-friendly, efficient, and meets all of your business needs.
+                We specialize in creating mobile apps that are both functional
+                and visually appealing. Our team of experienced developers and
+                designers work together to ensure that your app is
+                user-friendly, efficient, and meets all of your business needs.
               </p>
             </div>
 
@@ -131,9 +134,7 @@ export default function Hero() {
               <Button
                 size="lg"
                 variant="primary"
-                rightIcon={
-                  <Icons.ArrowRight />
-                }
+                rightIcon={<Icons.ArrowRight />}
               >
                 Schedule Consultation
               </Button>

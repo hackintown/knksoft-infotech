@@ -50,7 +50,10 @@ export default function Navbar() {
           </div>
         </div>
       </motion.header>
-      <ContactPopup isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />
+      <ContactPopup
+        isOpen={isContactOpen}
+        onClose={() => setIsContactOpen(false)}
+      />
     </>
   );
 }
@@ -61,7 +64,7 @@ const Logo = () => (
     initial={{ opacity: 0 }}
     animate={{ opacity: 1 }}
     transition={{ duration: 0.5 }}
-    className="relative flex-shrink-0"
+    className="relative flex-shrink-0 cursor-pointer lg:max-w-[110px] xl:max-w-[150px]"
   >
     <Link href="/" className="block">
       <Image
@@ -77,7 +80,11 @@ const Logo = () => (
   </motion.div>
 );
 
-const DesktopNavigation = ({ onContactClick }: { onContactClick: () => void }) => (
+const DesktopNavigation = ({
+  onContactClick,
+}: {
+  onContactClick: () => void;
+}) => (
   <nav className="hidden lg:flex items-center gap-2">
     <ul className="flex items-center gap-2 text-base">
       {NAVIGATION_MENUS.map((menu) => (
@@ -86,7 +93,7 @@ const DesktopNavigation = ({ onContactClick }: { onContactClick: () => void }) =
     </ul>
     <button
       onClick={onContactClick}
-      className="px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors"
+      className="px-4 py-2 text-xs xl:text-base bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors"
     >
       Get in Touch
     </button>

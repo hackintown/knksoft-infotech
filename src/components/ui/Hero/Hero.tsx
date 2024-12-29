@@ -1,9 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Button } from "../ui/Button/Button";
-import { FlipWords } from "../ui/flip-words";
-import { AnimatedTooltip } from "../ui/animated-tooltip";
+import { Button } from "../Button/Button";
+import { FlipWords } from "../flip-words";
+import { AnimatedTooltip } from "../animated-tooltip";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -12,9 +12,33 @@ import Image from "next/image";
 import { useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 
-export default function Hero() {
+interface HeroProps {
+  badge?: string;
+  title: string;
+  description: string;
+  flipWords: string[];
+  imageSlides: string[];
+  teamMembers?: Array<{
+    id: number;
+    name: string;
+    designation: string;
+    image: string;
+  }>;
+  buttonText?: string;
+}
+
+export default function Hero({
+  badge = "Trusted by Global Enterprise Leaders",
+  title,
+  description,
+  flipWords,
+  imageSlides,
+  teamMembers,
+  buttonText = "Talk to an Expert",
+}: HeroProps) {
   const sliderRef = useRef<Slider>(null);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const flipWordsRef = useRef<{ startAnimation: () => void }>(null);
 
   const sliderSettings = {
     dots: false,
@@ -52,52 +76,15 @@ export default function Hero() {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-          arrows: false, // Hide arrows on mobile
+          arrows: false,
         },
       },
     ],
   };
+
   const goToSlide = (index: number) => {
     sliderRef.current?.slickGoTo(index);
   };
-
-  const teamMembers = [
-    {
-      id: 1,
-      name: "Brijesh Joshi",
-      designation: "CEO",
-      image: "https://api.uifaces.co/our-content/donated/xZ4wg2Xj.jpg",
-    },
-    {
-      id: 2,
-      name: "Manoj Kumar",
-      designation: "Full Stack Developer",
-      image: "https://api.uifaces.co/our-content/donated/FJkauyEa.jpg",
-    },
-    {
-      id: 3,
-      name: "Mike Brown",
-      designation: "Lead Architect",
-      image: "https://api.uifaces.co/our-content/donated/1H_7AxP0.jpg",
-    },
-  ];
-
-  const flipWords = [
-    "Enterprise Solutions",
-    "Cloud Architecture",
-    "Custom Development",
-    "Digital Transformation",
-    "DevOps Excellence",
-  ];
-  const imageSlide = [
-    "https://www.valueappz.com/images/New-theme-assets/graphic-tabs-home1.png",
-    "https://www.suffescom.com/assets/img/new-suff-img/mobile-app-development-company-in-dubai-banner-app.webp",
-    "https://www.valueappz.com/images/New-theme-assets/graphic-tabs-home3.png",
-    "https://www.valueappz.com/images/New-theme-assets/graphic-tabs-home2g.png",
-    "https://www.suffescom.com/assets/img/new-suff-img/suffescom-metaverse-development-banner1.webp",
-  ];
-
-  const flipWordsRef = useRef<{ startAnimation: () => void }>(null);
 
   return (
     <section className="relative overflow-hidden bg-primary/5">
@@ -118,22 +105,24 @@ export default function Hero() {
                 className="inline-flex items-center rounded-full border border-primary/10 bg-primary/5 px-4 py-1.5"
               >
                 <span className="text-sm font-medium text-primary">
-                  Trusted by Global Enterprise Leaders
+                  {badge}
                 </span>
               </motion.div>
 
               <h1 className="text-3xl sm:text-4xl font-bold tracking-tight xl:text-5xl">
-                Professional IT Solutions for
+                {title}
                 <span className="inline-block">
-                  <FlipWords words={flipWords} ref={flipWordsRef} duration={2000} className="text-primary" />
+                  <FlipWords
+                    words={flipWords}
+                    ref={flipWordsRef}
+                    duration={2000}
+                    className="text-primary"
+                  />
                 </span>
               </h1>
 
               <p className="max-w-2xl text-base font-thin xl:text-lg text-foreground">
-                Comprehensive IT services including custom software development,
-                cloud solutions, enterprise systems, and digital transformation.
-                From MVF development to full-scale enterprise solutions, we
-                deliver excellence.
+                {description}
               </p>
             </div>
 
@@ -141,27 +130,29 @@ export default function Hero() {
               <Button
                 size="lg"
                 variant="primary"
-                rightIcon={
-                  <Icons.ArrowRight />
-                }
+                rightIcon={<Icons.ArrowRight />}
               >
-                Talk to an Expert
+                {buttonText}
               </Button>
             </div>
 
-            <div className="flex flex-col gap-4">
-              <div className="flex items-center gap-4">
-                <AnimatedTooltip items={teamMembers} />
-                <div className="text-xs sm:text-sm text-foreground">
-                  Meet our leadership team with
-                  <span className="font-semibold text-foreground">
-                    20+ years
-                  </span>
-                  of combined experience
+            {teamMembers && (
+              <div className="flex flex-col gap-4">
+                <div className="flex items-center gap-4">
+                  <AnimatedTooltip items={teamMembers} />
+                  <div className="text-xs sm:text-sm text-foreground">
+                    Meet our leadership team with
+                    <span className="font-semibold text-foreground">
+                      20+ years
+                    </span>
+                    of combined experience
+                  </div>
                 </div>
               </div>
-            </div>
+            )}
           </motion.div>
+
+          {/* Right Column */}
           <motion.div
             className="w-full relative flex justify-center items-center mt-8 lg:mt-0 mx-auto max-w-[320px] sm:max-w-[500px] lg:max-w-[600px] xl:max-w-2xl"
             initial={{ opacity: 0, y: 50 }}
@@ -172,13 +163,13 @@ export default function Hero() {
               <Slider
                 ref={sliderRef}
                 {...sliderSettings}
-                className="overflow-hidden "
+                className="overflow-hidden"
               >
-                {imageSlide.map((src, index) => (
+                {imageSlides.map((src, index) => (
                   <div key={index} className="relative p-2">
                     <Image
                       src={src}
-                      alt={`App Screen ${index + 1}`}
+                      alt={`Slide ${index + 1}`}
                       width={500}
                       height={300}
                       className="w-full h-full transform transition-transform duration-500 max-h-[450px] object-contain"
@@ -188,7 +179,7 @@ export default function Hero() {
                 ))}
               </Slider>
               <div className="mt-4 sm:mt-6 flex justify-center items-center gap-1 sm:gap-2">
-                {imageSlide.map((_, index) => (
+                {imageSlides.map((_, index) => (
                   <button
                     key={index}
                     className={cn(

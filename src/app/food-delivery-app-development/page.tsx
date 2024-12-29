@@ -1,6 +1,5 @@
 import BusinessModels from "@/components/FoodDelivery/BusinessModels/BusinessModels";
 import { GrowBusiness } from "@/components/FoodDelivery/BusinessModels/GrowBusiness";
-import Hero from "@/components/FoodDelivery/Hero/Hero";
 import Services from "@/components/FoodDelivery/Services/Services";
 import WhyChooseUs from "@/components/FoodDelivery/WhyChooseUs/WhyChooseUs";
 import WhyLaunching from "@/components/FoodDelivery/WhyLaunching";
@@ -12,6 +11,7 @@ import OurProcess from "@/components/ui/OurProcess/OurProcess";
 import { getBlogPosts } from "@/lib/blog/api";
 import { BlogPost } from "@/lib/blog/type";
 import GetInTouch from "@/components/ui/Contact/GetInTouch";
+import Hero from "@/components/ui/Hero/Hero";
 
 export default async function FoodDeliveryAppDevelopment() {
   let blogPosts: BlogPost[] = [];
@@ -20,9 +20,50 @@ export default async function FoodDeliveryAppDevelopment() {
   } catch (error) {
     console.error("Failed to fetch blog posts:", error);
   }
+  const foodDeliveryAppDevelopmentHeroProps = {
+    badge: "Food Delivery App Development",
+    title: "Launch Your Food Delivery Business with",
+    description:
+      "Custom food delivery app development solutions to digitize your restaurant business.\nStreamlined ordering, real-time tracking, and seamless payment integration.\nScale your food delivery operations with our feature-rich mobile apps.",
+    flipWords: [
+      "Mobile Apps",
+      "Online Ordering",
+      "Fast Delivery",
+      "Smart Features",
+      "Customer Service",
+    ],
+    imageSlides: [
+      "https://www.valueappz.com/images/New-theme-assets/graphic-tabs-home1.png",
+      "https://www.suffescom.com/assets/img/new-suff-img/mobile-app-development-company-in-dubai-banner-app.webp",
+      "https://www.valueappz.com/images/New-theme-assets/graphic-tabs-home3.png",
+      "https://www.valueappz.com/images/New-theme-assets/graphic-tabs-home2g.png",
+      "https://www.suffescom.com/assets/img/new-suff-img/suffescom-metaverse-development-banner1.webp",
+    ],
+    teamMembers: [
+      {
+        id: 1,
+        name: "Brijesh Joshi",
+        designation: "CEO",
+        image: "https://api.uifaces.co/our-content/donated/xZ4wg2Xj.jpg",
+      },
+      {
+        id: 2,
+        name: "Manoj Kumar",
+        designation: "Full Stack Developer",
+        image: "https://api.uifaces.co/our-content/donated/FJkauyEa.jpg",
+      },
+      {
+        id: 3,
+        name: "Mike Brown",
+        designation: "Lead Architect",
+        image: "https://api.uifaces.co/our-content/donated/1H_7AxP0.jpg",
+      },
+    ],
+  };
+
   return (
     <div>
-      <Hero />
+      <Hero {...foodDeliveryAppDevelopmentHeroProps} />
       <BusinessModels />
       <Services />
       <WhyLaunching />

@@ -1,4 +1,3 @@
-
 import CTA from "@/components/ECommerce/CTA/CTA";
 import AdvancedFeatures from "@/components/ECommerce/Features/AdvancedFeatures";
 import EcommerceFeatures from "@/components/ECommerce/Features/EcommerceFeatures";
@@ -11,19 +10,18 @@ import FAQ from "@/components/ui/FAQ";
 import OurProcess from "@/components/ui/OurProcess/OurProcess";
 
 export default function eCommerce() {
-    return (
-
-        <div>
-            <Hero />
-            <EcommerceFeatures />
-            <CTA />
-            <AdvancedFeatures />
-            <Statistics />
-            <OurProcess />
-            <Partners />
-            <Testimonials />
-            <FAQ />
-            <GetInTouch />
-        </div>
-    )
+  return (
+    <div>
+      <Hero />
+      <EcommerceFeatures />
+      <CTA />
+      <AdvancedFeatures />
+      <Statistics />
+      <OurProcess />
+      <Partners />
+      <Testimonials />
+      <FAQ />
+      <GetInTouch />
+    </div>
+  );
 }
